@@ -1,6 +1,7 @@
 # MeloSynthiaAI
 
 Theme no 5: AI
+
 Idea: NFT Based AI Music Marketplace
 
 We will create a decentralized NFT-based music marketplace where AI-generated music compositions are minted as unique NFTs. Musicians, artists, and AI enthusiasts can participate in this platform, buying and selling AI-generated music NFTs.
