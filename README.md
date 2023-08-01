@@ -1,5 +1,8 @@
 # MeloSynthiaAI
 
+![Alt text](logo/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
+
+
 Theme no 5: AI
 
 Idea: NFT Based AI Music Marketplace
@@ -105,6 +108,6 @@ Now, go to the original repository on GitHub and create a pull request from your
 
 ## Copyright
 
-Created for HackaTRON..
+Created for HackaTRON || All rights reserved by Web3 Sailors 
 
-All rights reserved by Web3 Sailors 
+![Alt text](logo/logo-transparent-png.png)
