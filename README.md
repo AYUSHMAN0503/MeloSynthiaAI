@@ -1,8 +1,7 @@
 # MeloSynthiaAI
 
 Theme no 5: AI
-
-Idea: NFT Based AI Music Marketplace
+💡Idea: NFT Based AI Music Marketplace
 
 We will create a decentralized NFT-based music marketplace where AI-generated music compositions are minted as unique NFTs. Musicians, artists, and AI enthusiasts can participate in this platform, buying and selling AI-generated music NFTs.
 
@@ -10,7 +9,7 @@ We will create a decentralized NFT-based music marketplace where AI-generated mu
 
 
 
-## Features
+## ✨Features
 
 - NFT MINTING USING TRON BLOCKCHAIN..
 - ROYALITIES PAYMENTS TO ORIGINAL AI MODEL DEVS
@@ -45,7 +44,7 @@ Start the server
 ```
 
 
-## Contributing
+## 👨‍💻Contributing
 
 Contributions are always welcome!
 
@@ -98,13 +97,13 @@ Now, go to the original repository on GitHub and create a pull request from your
 
 
 
-## Documentation
+## 📝Documentation
 
 [React+Typescript](https://react-typescript-cheatsheet.netlify.app/)
 
 
 ## Copyright
 
-Created for HackaTRON..
-
-All rights reserved by Web3 Sailors 
+Created for <a href="https://trondao.org/hackatron/">HackaTron</a>
+Copyright © Web3 Sailors.
+ 
