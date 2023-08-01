@@ -2,15 +2,10 @@
 
 ![Alt text](logo/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
 
-
 Theme no 5: AI
 💡Idea: NFT Based AI Music Marketplace
 
 We will create a decentralized NFT-based music marketplace where AI-generated music compositions are minted as unique NFTs. Musicians, artists, and AI enthusiasts can participate in this platform, buying and selling AI-generated music NFTs.
-
-
-
-
 
 ## ✨Features
 
@@ -19,13 +14,12 @@ We will create a decentralized NFT-based music marketplace where AI-generated mu
 - MARKETPLACE TO SELL AND BUY USING PAYPAL, CREDIT CARDS.
 - LICENSING
 
-
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/AYUSHMAN0503/MeloSynthiaAI.git 
+  git clone https://github.com/AYUSHMAN0503/MeloSynthiaAI.git
 ```
 
 Go to the project directory
@@ -45,7 +39,6 @@ Start the server
 ```bash
   npm run dev
 ```
-
 
 ## 👨‍💻Contributing
 
@@ -88,25 +81,17 @@ Push the changes to your forked repository
 ```bash
 git push origin master
 ```
+
 - Step 3: Create a pull request on the original repository
 
-Now, go to the original repository on GitHub and create a pull request from your forked repository. 
-
-
-
-
-
-
-
-
+Now, go to the original repository on GitHub and create a pull request from your forked repository.
 
 ## 📝Documentation
 
 [React+Typescript](https://react-typescript-cheatsheet.netlify.app/)
 
-
 ## Copyright
 
-Created for HackaTRON || All rights reserved by Web3 Sailors 
+Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
 ![Alt text](logo/logo-transparent-png.png)
