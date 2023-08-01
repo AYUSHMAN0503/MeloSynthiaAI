@@ -107,12 +107,6 @@ Now, go to the original repository on GitHub and create a pull request from your
 
 ## Copyright
 
-<<<<<<< HEAD
 Created for HackaTRON || All rights reserved by Web3 Sailors 
 
 ![Alt text](logo/logo-transparent-png.png)
-=======
-Created for <a href="https://trondao.org/hackatron/">HackaTron</a>
-Copyright © Web3 Sailors.
- 
->>>>>>> 3f68d8ce3b1bfea6b6e58eac6bf885e5951fc8fd
