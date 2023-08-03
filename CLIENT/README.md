@@ -94,4 +94,4 @@ Now, go to the original repository on GitHub and create a pull request from your
 
 Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
-![Alt text](CLIENT/logo/logo-transparent-png.png)
+![Alt text](CLIENT/../logo/logo-transparent-png.png)
