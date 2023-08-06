@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-opacity-60 backdrop-blur-sm bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex py-4 justify-between items-center navbar">
         <img src={Logo} alt="" width={190} style={{ marginLeft: '1rem' }}/>
-      <div className="container mx-auto  md:flex md:items-center md:justify-between" style={{marginRight:'1rem'}}>
+        <div className="container mx-auto  md:flex md:items-center md:justify-between" style={{marginRight:'1rem'}}>
         <div className="flex justify-end items-center ">
             
           <button
@@ -31,33 +31,33 @@ const Navbar: React.FC = () => {
         <div
           className={`md:flex flex-col md:flex-row md:items-end md:space-x-4 ${
             isOpen ? 'flex' : 'hidden'
-          }`}
-        >
-          <a
-            href="#"
-            className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700"
-          >
+          }`}>
+
+          {/* Buttons of Navigation Bar*/}
+
+          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             Create Music
           </a>
-          <a
-            href="#"
-            className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700"
-          >
+
+          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
            NFT Marketplace
           </a>
-          <a
-            href="#"
-            className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700"
-          >
+
+          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             About Us
           </a>
-          <a
-            href="#"
-            className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700"
-          >
+
+          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             Future
           </a>
-          <a href="#" className="text-white bg-[#1da1f2] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">Get started</a>
+
+          <a href="#" className="text-white bg-[#1da1f2] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
+            Get started
+          </a>
+
+          <a href="#" className="text-white bg-[#2470bd] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
+            Register
+          </a>
         </div>
       </div>
     </nav>
@@ -65,3 +65,4 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+          
