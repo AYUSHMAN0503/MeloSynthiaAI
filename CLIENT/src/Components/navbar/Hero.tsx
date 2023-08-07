@@ -13,12 +13,7 @@ const Hero = () => {
           <span className="text-white" style={{ fontSize: "24px" }}> AI MUSIC </span>{" "}
           <span className="text-white" style={{ fontSize: "24px" }}> GENERATOR </span>{" "}
           <span className="text-white" style={{ fontSize: "24px" }}> FOR </span>{" "}
-
           <span className="text-white" style={{ fontSize: "24px" }}> CREATORS </span>{" "}
-           
-           </p>
-=======
-          <span className="text-white" style={{ fontSize: "24px" }}> CREATORS </span>
           </p>
 
         </div>
@@ -29,9 +24,8 @@ const Hero = () => {
             <span> <LinearGradient gradient={['to right', '#00FFFF ,#ffffff']}>Generation</LinearGradient></span>{" "}
           </h1>
           <div className="ss:flex hidden md:mr-4 mr-0">
-          
           </div>
-        </div>
+        </div>  
 
         <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] w-full">
           Music Platform.
@@ -43,13 +37,11 @@ const Hero = () => {
 
       <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
         <img src={music} alt="billing" className="w-[80%] h-[100%] relative z-[5]" style={{backgroundImage:""}}/>
-
-       
       </div>
 
       <div className={`ss:hidden ${styles.flexCenter}`}>
-       
       </div>
+
     </section>
   );
 };
