@@ -54,10 +54,12 @@ const Navbar: React.FC = () => {
 
          <button className="bg-cyan-400  text-black font-medium py-2 px-4  my-1 rounded-md">
          Get started
-</button>
+        </button>
+
          <button className="bg-cyan-400  text-black font-medium py-2 px-4  my-1 rounded-md">
          Register
-</button>
+        </button>
+        
         </div>
       </div>
     </nav>
