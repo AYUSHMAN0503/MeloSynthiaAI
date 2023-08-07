@@ -13,9 +13,14 @@ const Hero = () => {
           <span className="text-white" style={{ fontSize: "24px" }}> AI MUSIC </span>{" "}
           <span className="text-white" style={{ fontSize: "24px" }}> GENERATOR </span>{" "}
           <span className="text-white" style={{ fontSize: "24px" }}> FOR </span>{" "}
+
           <span className="text-white" style={{ fontSize: "24px" }}> CREATORS </span>{" "}
            
            </p>
+=======
+          <span className="text-white" style={{ fontSize: "24px" }}> CREATORS </span>
+          </p>
+
         </div>
 
         <div className="flex flex-row justify-between items-center w-full">
@@ -50,3 +55,4 @@ const Hero = () => {
 };
 
 export default Hero;
+ 
