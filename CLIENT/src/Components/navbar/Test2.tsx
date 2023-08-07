@@ -10,10 +10,11 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-opacity-60 backdrop-blur-sm bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex py-4 justify-between items-center navbar">
-        <img src={Logo} alt="" width={190} style={{ marginLeft: '1rem' }}/>
+        <img src={Logo} alt="" className=""width={190} style={{ marginLeft: '2rem' }}/>
+     
         <div className="container mx-auto  md:flex md:items-center md:justify-between" style={{marginRight:'1rem'}}>
-        <div className="flex justify-end items-center ">
-            
+       
+            <div className="flex justify-end items-center ">
           <button
             className="md:hidden rounded-lg p-2 text-white"
             onClick={toggleMenu}
@@ -51,13 +52,12 @@ const Navbar: React.FC = () => {
             Future
           </a>
 
-          <a href="#" className="text-white bg-[#1da1f2] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
-            Get started
-          </a>
-
-          <a href="#" className="text-white bg-[#2470bd] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">
-            Register
-          </a>
+         <button className="bg-cyan-400  text-black font-medium py-2 px-4  my-1 rounded-md">
+         Get started
+</button>
+         <button className="bg-cyan-400  text-black font-medium py-2 px-4  my-1 rounded-md">
+         Register
+</button>
         </div>
       </div>
     </nav>
