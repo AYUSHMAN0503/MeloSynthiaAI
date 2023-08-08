@@ -7,38 +7,31 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useLocation,
-} from "react-router-dom";
+  useLocation,} from "react-router-dom";
 import Signin from "./Components/navbar/Signin";
 
 
 function App() {
  
-    return(<>
+  return ( <>
     <div>
+    <Router>
+    <Navbar/>
+ 
+    <Routes>
+      < Route path="/" element={<Home/>} />
+      < Route path="/Register" element={<Signin/>} />
+      < Route path="/Signup" element={<Signup/>} />    
+    </Routes>
 
-      <Router>
- <Navbar/>
- 
- <Routes>
-   < Route path="/" element={<Home/>} />
-    < Route path="/Register" element={<Signin/>} />
-    < Route path="/Signup" element={<Signup/>} />
-    
-  </Routes>
-</Router> 
+    </Router> 
 
-<div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}>
- 
- <Footer/>
- 
-  </div>
+    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}> <Footer/> </div>
     </div>
-</div>
-    </>
-   
-    )
+  </div>
+  </>
+  )
   
 }
 
