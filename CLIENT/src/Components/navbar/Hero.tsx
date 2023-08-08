@@ -1,7 +1,8 @@
 import styles from "@/index";
 import  music  from "@/assets/music.png";
 import { LinearGradient } from 'react-text-gradients'
-
+import { motion } from "framer-motion";
+import React from "react"
 const Hero = () => {
    
   return (
@@ -35,9 +36,12 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
+      <motion.div
+              whileHover={{ scale: [null, 0.8, 0.8] }}
+              transition={{ duration: 0.3 }}
+               className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
         <img src={music} alt="billing" className="w-[80%] h-[100%] relative z-[5]" style={{backgroundImage:""}}/>
-      </div>
+      </motion.div>
 
       <div className={`ss:hidden ${styles.flexCenter}`}>
       </div>
