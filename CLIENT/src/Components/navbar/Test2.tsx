@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom'
 import Logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png"
+
+import { motion } from "framer-motion"
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -9,8 +11,10 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-opacity-60 backdrop-blur-sm bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex py-4 justify-between items-center navbar">
-        <img src={Logo} alt="" className=""width={190} style={{ marginLeft: '2rem' }}/>
+    <nav className="bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex py-4 justify-between items-center navbar">
+      <Link to="/">
+        <img className="scale-125 "src={Logo} alt="" width={190} style={{ marginLeft: '3.5rem' }}/>
+        </Link>
      
         <div className="container mx-auto  md:flex md:items-center md:justify-between" style={{marginRight:'1rem'}}>
        
@@ -36,29 +40,34 @@ const Navbar: React.FC = () => {
 
           {/* Buttons of Navigation Bar*/}
 
-          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             Create Music
-          </a>
+          </Link>
 
-          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
            NFT Marketplace
-          </a>
+          </Link>
 
-          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             About Us
-          </a>
+          </Link>
 
-          <a href="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             Future
-          </a>
+          </Link>
 
-         <button className="bg-cyan-400  text-black font-medium py-2 px-4  my-1 rounded-md">
+         <Link to=""><motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg ">
          Get started
-        </button>
+        </motion.button></Link>
 
-         <button className="bg-cyan-400  text-black font-medium py-2 px-4  my-1 rounded-md">
+       <Link to= "/Register"><motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg">
          Register
-        </button>
+         </motion.button>
+        </Link>
         
         </div>
       </div>
