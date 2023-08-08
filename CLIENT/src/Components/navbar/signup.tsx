@@ -1,78 +1,79 @@
-import React from 'react'
-import { Link} from 'react-router-dom';
- import Animatedpage from '../Animatedpage';
- import signup from "@/assets/signup.svg"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Animatedpage from '../Animatedpage';
+import signup from '@/assets/signup.svg';
+
 const Signup = () => {
   return (
-<Animatedpage>
-<section className="flex flex-col md:flex-row h-screen items-center mt-2">
+    <Animatedpage>
+      <section className="flex flex-col md:flex-row h-screen items-center mt-2">
 
-<div className="bg-white hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-  <img src={signup} alt="" className="w-full h-full object-cover"/>
-</div>
+        {/* Left side: Image */}
+        <div className="bg-white hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+          <img src={signup} alt="" className="w-full h-full object-cover" />
+        </div>
 
-<div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+        {/* Right side: Signup form */}
+        <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
       flex items-center justify-center">
 
-  <div className="w-full h-100 scale-90 " style={{marginTop:"-3rem"}}>
+          <div className="w-full h-100 scale-90 " style={{ marginTop: "-3rem" }}>
 
+            <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12"> Create Account</h1>
 
-    <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12"> Create Account</h1>
+            <form className="mt-4" action="#" method="POST">
+              {/* Form inputs */}
+              {/* Name input */}
+              <div className="mt-4">
+                <label className="block text-gray-700">Name</label>
+                <input type="text" name="name" placeholder="Enter Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
+              </div>
+              {/* Email input */}
+              <div className="mt-4">
+                <label className="block text-gray-700">Email Address</label>
+                <input type="email" name="email" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
+              </div>
+              {/* Password input */}
+              <div className="mt-4">
+                <label className="block text-gray-700">Password</label>
+                <input type="password" name="password" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
+              </div>
+              {/* Confirm Password input */}
+              <div className="mt-4">
+                <label className="block text-gray-700">Confirm Password</label>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" minLength={6} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
+              </div>
 
-    <form className="mt-4" action="#" method="POST">
-      <div className="mt-4">
-        <label className="block text-gray-700">Name</label>
-        <input type="email" name="" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"       required/>
-      </div>
-      <div className="mt-4">
-        <label className="block text-gray-700">Email Address</label>
-        <input type="email" name="" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"       required/>
-      </div>
+              {/* Signup button */}
+              <button type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">Sign Up</button>
+            </form>
 
-      <div className="mt-4">
-        <label className="block text-gray-700">Password</label>
-        <input type="password" name="" id="" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-              focus:bg-white focus:outline-none" required/>
-      </div>
-      <div className="mt-4">
-        <label className="block text-gray-700">Confirm Password</label>
-        <input type="password" name="" id="" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-              focus:bg-white focus:outline-none" required/>
-      </div>
+            {/* Other signup options */}
+            <div className="relative flex py-5 items-center">
+              <div className="flex-grow border-t border-black"></div>
+              <span className="flex-shrink mx-4 text-black">Or</span>
+              <div className="flex-grow border-t border-black"></div>
+            </div>
 
-      
-      <button type="submit" className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">Sign Up</button>
-    </form>
+            {/* Sign up with Google */}
+            <button type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
+              <div className="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" /></defs><clipPath id="b"><use xlinkHref="#a" overflow="visible" /></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z" /><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z" /><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z" /><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z" /></svg>
+                <span className="ml-4">
+                  Log in with Google
+                </span>
+              </div>
+            </button>
 
-    <div className="relative flex py-5 items-center">
-    <div className="flex-grow border-t border-black"></div>
-    <span className="flex-shrink mx-4 text-black">Or</span>
-    <div className="flex-grow border-t border-black"></div>
-</div>
+            {/* Link to login page */}
+            <p className="mt-2">Already have an account? <Link to="/Register" className="text-blue-500 hover:text-blue-700 font-semibold">Log in</Link></p>
 
-    <button type="button" className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300">
-          <div className="flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className="w-6 h-6" viewBox="0 0 48 48"><defs><path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></defs><clipPath id="b"><use xlinkHref="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"/><path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"/><path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"/><path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"/></svg>
-          <span className="ml-4">
-          Log in
-          with
-          Google</span>
           </div>
-        </button>
+        </div>
 
-    <p className="mt-2">Already have account? <Link to="/Register"  className="text-blue-500 hover:text-blue-700 font-semibold">Log in</Link></p>
+      </section>
+    </Animatedpage>
+  );
+};
 
-
-  </div>
-</div>
-
-</section>
-
-  
-
-</Animatedpage>
-
-  )
-}
-
-export default Signup
+export default Signup;
