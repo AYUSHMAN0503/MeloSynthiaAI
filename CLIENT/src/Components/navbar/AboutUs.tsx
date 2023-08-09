@@ -22,7 +22,7 @@ const AboutUs: React.FC = () => {
       <div className="container mx-auto">
         <div className="text-white text-center mb-8">
           <h2 className="text-4xl font-bold">Meet Our Team - WEB 3 Sailors</h2>
-          <p className="mt-2">A talented group of individuals who are behind this concept of MeloSynthia AI.</p>
+          <p className="mt-2">A talented group of individuals who are building awesome things.</p>
         </div>
 
         <div className="flex items-center justify-center">
@@ -33,7 +33,7 @@ const AboutUs: React.FC = () => {
             &lt;
           </button>
 
-          {/*Team - Member Card */}
+          {/* Display Team Member Card */}
           <div
             className="bg-white p-6 rounded-lg shadow-md w-96 transition-transform transform hover:scale-105 hover:-translate-x-2"
           >
@@ -44,7 +44,6 @@ const AboutUs: React.FC = () => {
             />
             <h3 className="text-xl font-semibold flex items-center">
               {TeamMembers[activeIndex].name}
-
               {/* GitHub Icon */}
               {TeamMembers[activeIndex].github && (
                 <a
@@ -56,7 +55,6 @@ const AboutUs: React.FC = () => {
                   <FaGithub />
                 </a>
               )}
-              
               {/* Instagram Icon */}
               {TeamMembers[activeIndex].instagram && (
                 <a
@@ -69,8 +67,9 @@ const AboutUs: React.FC = () => {
                 </a>
               )}
             </h3>
-            <p className="text-gray-600 mb-4">{TeamMembers[activeIndex].position}</p>
-            <p className="text-gray-800">{TeamMembers[activeIndex].bio}</p>
+            <p className="text-gray-600 mb-2">{TeamMembers[activeIndex].position}</p>
+            <p className="text-gray-800 mb-4">{TeamMembers[activeIndex].bio}</p>
+            <p className="text-gray-800">{TeamMembers[activeIndex].about}</p>
           </div>
 
           <button
@@ -81,7 +80,7 @@ const AboutUs: React.FC = () => {
           </button>
         </div>
 
-        {/*Dots*/}
+        {/* Navigation Dots */}
         <div className="flex justify-center mt-4">
           {TeamMembers.map((_, index) => (
             <div
@@ -95,7 +94,6 @@ const AboutUs: React.FC = () => {
         </div>
       </div>
     </section>
-
   );
 };
 
