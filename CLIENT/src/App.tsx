@@ -1,4 +1,4 @@
-import Navbar from "./Components/navbar/Test2";
+import {NavbarDefault} from "./Components/navbar/Test3";
 import Footer from "./Components/navbar/Footer";
 import Home from "./Home";
 import styles from "@/index";
@@ -16,7 +16,7 @@ function App() {
   return ( <>
     <div>
     <Router>
-    <Navbar/>
+    <NavbarDefault/>
  
     <Routes>
       < Route path="/" element={<Home/>} />
