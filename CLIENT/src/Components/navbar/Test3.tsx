@@ -26,7 +26,7 @@ const navList = (
            NFT Marketplace
           </Link>
 
-          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+          <Link to="/AboutUs"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             About Us
           </Link>
 

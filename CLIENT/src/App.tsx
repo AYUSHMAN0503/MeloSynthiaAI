@@ -3,6 +3,7 @@ import Footer from "./Components/navbar/Footer";
 import Home from "./Home";
 import styles from "@/index";
 import Signup from "./Components/navbar/signup";
+import AboutUs from "./Components/navbar/AboutUs";
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,7 +22,8 @@ function App() {
     <Routes>
       < Route path="/" element={<Home/>} />
       < Route path="/Register" element={<Signin/>} />
-      < Route path="/Signup" element={<Signup/>} />    
+      < Route path="/Signup" element={<Signup/>} /> 
+      < Route path="/AboutUs" element={<AboutUs/>} />   
     </Routes>
 
     </Router> 
