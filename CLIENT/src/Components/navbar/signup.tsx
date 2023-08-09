@@ -68,8 +68,6 @@ const Signup = () => {
 
 </section>
 
-  
-
 </Animatedpage>
 
   )
