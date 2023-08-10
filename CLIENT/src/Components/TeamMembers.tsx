@@ -15,8 +15,8 @@ const TeamMembers = [
       bio: 'Introducing Yash Bansal, an adept Web3 explorer, excelling in crafting intricate smart contracts. His approachable nature facilitates harmonious teamwork, complementing his adaptability to dynamic challenges. Yash derives pleasure from aiding colleagues, embodying collaboration in the ever-evolving tech realm.',
       about: 'Beyond this, he revels in music, travel, riding, and exploring, reflecting a well-rounded persona.',
       imageUrl: '/images/yash-bansal.jpg', 
-      github: 'https://github.com/johndoe',
-      instagram: 'https://www.instagram.com/johndoe/',
+      github: 'https://github.com/YashXBansal',
+      instagram: 'https://www.instagram.com/__.yashbansal_',
     },
 
     {
@@ -32,11 +32,11 @@ const TeamMembers = [
     {
       name: 'Aayushya Kumar Chaudhary',
       position: 'Full-stack Developer',
-      bio: 'Passionate about crafting user-friendly and visually appealing web experiences.',
+      bio: '',
       about:'',
       imageUrl: '/images/AKC.jpg',
-      github: 'https://github.com/johndoe',
-      instagram: 'https://www.instagram.com/johndoe/',
+      github: 'https://github.com/AayushyaKumar',
+      instagram: 'https://www.instagram.com/aayushya519/',
     },
 
     {
@@ -44,7 +44,7 @@ const TeamMembers = [
       position: 'AI&ML Developer',
       bio: 'Passionate about crafting user-friendly and visually appealing web experiences.',
       about: '',
-      imageUrl: '/images/',
+      imageUrl: '/images/Gaurav.jpg',
       github: 'https://github.com/johndoe',
       instagram: 'https://www.instagram.com/johndoe/',
     },
@@ -65,7 +65,7 @@ const TeamMembers = [
       bio: 'Passionate about crafting user-friendly and visually appealing web experiences.',
       about:'',
       imageUrl: '/images/',
-      github: 'https://github.com/johndoe',
+      github: 'https://github.com/Avinash-sord12k',
       instagram: 'https://www.instagram.com/johndoe/',
     },
 
@@ -84,8 +84,8 @@ const TeamMembers = [
       position: 'WEB3.0 Developer',
       bio: 'Passionate about crafting user-friendly and visually appealing web experiences.',
       about: '',
-      imageUrl: '/images/',
-      github: 'https://github.com/johndoe',
+      imageUrl: '/images/Nikita.jpg',
+      github: 'https://github.com/Nikitakarwasra',
       instagram: 'https://www.instagram.com/johndoe/',
     },
 
@@ -95,8 +95,8 @@ const TeamMembers = [
       bio: 'Passionate about crafting user-friendly and visually appealing web experiences.',
       about: '',
       imageUrl: '/images/div.jpg',
-      github: 'https://github.com/johndoe',
-      instagram: 'https://www.instagram.com/johndoe/',
+      github: 'https://www.instagram.com/divyanshu_836/',
+      instagram: 'https://www.instagram.com/divyanshu_836/',
     },
 ];
 
