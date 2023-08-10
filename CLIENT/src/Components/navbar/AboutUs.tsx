@@ -73,9 +73,9 @@ const AboutUs: React.FC = () => {
                 </a>
               )}
             </h3>
-            <p className="text-gray-600 mb-2">{TeamMembers[activeIndex].position}</p>
-            <p className="text-gray-800 mb-4">{TeamMembers[activeIndex].bio}</p>
-            <p className="text-gray-800">{TeamMembers[activeIndex].about}</p>
+            <p className="text-gray-700 mb-2">{TeamMembers[activeIndex].position}</p>
+            <p className="text-gray-900 mb-4">{TeamMembers[activeIndex].bio}</p>
+            <p className="text-gray-900">{TeamMembers[activeIndex].about}</p>
           </motion.div>
 
           <button
