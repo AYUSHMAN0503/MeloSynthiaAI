@@ -23,10 +23,10 @@ const TeamMembers = [
       name: 'Piyush Kumar Mishra',
       position: 'Frontend Developer',
       bio: 'Piyush is a sophomore who has experience in developing user-friendly and responsive web applications. He is passionate about creating visually appealing and intuitive user interfaces that provide a seamless user experience.',
-      about:'Piyush is also a creative thinker who enjoys brainstorming and innovating new ideas to improve the user experience.',
+      about:'Piyush is a quick learner and is always up-to-date with the latest web development technologies, and he is always looking for new ways to improve his skills and knowledge.In his free time, Piyush enjoys playing cricket and watching movies.',
       imageUrl: '/images/piyush-mishra.jpg',
-      github: 'https://github.com/johndoe',
-      instagram: 'https://www.instagram.com/johndoe/',
+      github: 'https://github.com/PiyushXmishra',
+      instagram: 'https://www.instagram.com/piy_uxh/',
     },
 
     {
