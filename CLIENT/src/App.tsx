@@ -10,6 +10,7 @@ import {
   Route,
   useLocation,} from "react-router-dom";
 import Signin from "./Components/navbar/Signin";
+import { GetStarted } from "./Components/GetStarted";
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
       < Route path="/" element={<Home/>} />
       < Route path="/Register" element={<Signin/>} />
       < Route path="/Signup" element={<Signup/>} /> 
-      < Route path="/AboutUs" element={<AboutUs/>} />   
+      < Route path="/AboutUs" element={<AboutUs/>} /> 
+      < Route path="/GetStarted" element={<GetStarted/>} />
     </Routes>
 
     </Router> 

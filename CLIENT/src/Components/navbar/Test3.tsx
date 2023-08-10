@@ -34,7 +34,7 @@ const navList = (
             Future
           </Link>
 
-         <Link to=""><motion.button
+         <Link to="/GetStarted"><motion.button
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg ">
          Get started
