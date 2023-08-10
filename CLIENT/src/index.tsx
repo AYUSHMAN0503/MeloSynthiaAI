@@ -2,7 +2,7 @@ import instagram from "@/assets/instagram.svg"
 import twitter from "@/assets/twitter.svg"
 import facebook from "@/assets/facebook.svg"
 import linkedin from "@/assets/linkedin.svg"
-
+import { Link } from "react-router-dom"
 
 const styles = {
     boxWidth: "xl:max-w-[1280px] w-full",
@@ -34,73 +34,7 @@ const styles = {
   
   export default styles;
 
-  export const footerLinks = [
-    {
-      title: "Lorem ipsum",
-      links: [
-        {
-          name: "Lorem",
-          link: "",
-        },
-        {
-          name: "Lorem",
-          link: "",
-        },
-        {
-          name: "Lorem",
-          link: "",
-        },
-        {
-          name: "Lorem",
-          link: "",
-        },
-        {
-          name: "Lorem",
-          link: "",
-        },
-      ],
-    },
-    {
-      title: "Lorem ipsum",
-      links: [
-        {
-          name: "lorem",
-          link: "",
-        },
-        {
-          name: "lorem",
-          link: "",
-        },
-        {
-          name: "lorem",
-          link: "",
-        },
-        {
-          name: "lorem",
-          link: "",
-        },
-        {
-          name: "lorem",
-          link: "",
-        },
-      ],
-    },
-    {
-      title: "lorem ipsum",
-      links: [
-        {
-          name: "lorem",
-          link: "",
-        },
-        {
-          name: "lorem",
-          link: "",
-        },
-      ],
-    },
-  ];
-  
-  export const socialMedia = [
+   export const socialMedia = [
     {
       id: "social-media-1",
       icon: instagram,
