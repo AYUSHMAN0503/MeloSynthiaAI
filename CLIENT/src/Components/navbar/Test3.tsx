@@ -26,20 +26,6 @@ const navList = (
            NFT Marketplace
           </Link>
 
-          <Link to="/AboutUs"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
-            About Us
-          </Link>
-
-          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
-            Future
-          </Link>
-
-         <Link to=""><motion.button
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg ">
-         Get started
-        </motion.button></Link>
-
        <Link to= "/Register"><motion.button
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg">
@@ -51,6 +37,7 @@ const navList = (
   );
  
   return (
+    
     <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link to="/">

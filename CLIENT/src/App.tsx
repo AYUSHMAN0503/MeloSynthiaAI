@@ -7,9 +7,9 @@ import AboutUs from "./Components/navbar/AboutUs";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  useLocation,} from "react-router-dom";
+  Route } from "react-router-dom";
 import Signin from "./Components/navbar/Signin";
+
 
 
 function App() {
@@ -24,13 +24,14 @@ function App() {
       < Route path="/Register" element={<Signin/>} />
       < Route path="/Signup" element={<Signup/>} /> 
       < Route path="/AboutUs" element={<AboutUs/>} />   
+         
+
     </Routes>
-
-    </Router> 
-
-    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+<div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}> <Footer/> </div>
-    </div>
+    </div> 
+    
+   </Router> 
   </div>
   </>
   )
