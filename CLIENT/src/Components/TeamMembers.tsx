@@ -5,8 +5,8 @@ const TeamMembers = [
       bio: 'Ayushman, embodies a fusion of roles as a team leader, full-stack developer, and DevOps virtuoso. His leadership acumen is matched only by his visionary insights, breathing life into every project he undertakes. With an inexhaustible wellspring of energy, Ayushman galvanizes his teams toward excellence.',
       about:'Beyond digital tapestry, he finds solace in watching football, ardently cheering for Barcelona, and unraveling the enigma of spy thriller movies. Currently in Sophomore year, Ayushman aspires to channel his passions into a future startup venture that mirrors his boundless ambition.',
       imageUrl: '/images/ayushman-mohanty.jpg', 
-      github: 'https://github.com/johndoe',
-      instagram: 'https://www.instagram.com/johndoe/',
+      github: 'https://github.com/AYUSHMAN0503',
+      instagram: 'https://www.instagram.com/sincerely_ayushman/',
     },
 
     {
