@@ -10,10 +10,9 @@ import {
   Routes,
   Route } from "react-router-dom";
 import Signin from "./Components/navbar/Signin";
-import { GetStarted } from "./Components/GetStarted";
-
-
-
+import { CreateMusic } from "./Components/navbar/CreateMusic";
+import TermsOfService from "./Components/TermsOfService";
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 function App() {
  
   return ( <>
@@ -26,14 +25,17 @@ function App() {
       < Route path="/Register" element={<Signin/>} />
       < Route path="/Signup" element={<Signup/>} /> 
       < Route path="/AboutUs" element={<AboutUs/>} /> 
-      < Route path="/GetStarted" element={<GetStarted/>} />
       < Route path="/Future" element={<Future/>} />
-    </Routes>  
+      < Route path="/Create Music" element={<CreateMusic/>} />
+      < Route path="/TermsOfService" element={<TermsOfService/>} />
+      < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
 
-    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+    </Routes>
+<div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}> <Footer/> </div>
     </div> 
-    </Router>
+    
+   </Router> 
   </div>
   </>
   )
