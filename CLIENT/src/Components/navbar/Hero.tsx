@@ -39,11 +39,12 @@ const Hero = () => {
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
               <form role="form" className="relative flex z-50 rounded-full bg-transparent ">
                 <Link to="/Create Music">
-                  <button className=" text-white rounded-full font-semibold px-8 py-4 bg-slate-900 focus:outline-none">Create Music</button></Link>
+                  <button className=" text-white rounded-full font-semibold px-8 py-4 bg-slate-900 focus:outline-none ">Create Music</button></Link>
               </form>
-              <div className="glow glow-1 z-10 bg-white absolute"></div>
-              <div className="glow glow-2 z-20 bg-cyan-400 absolute "></div>
-              <div className="glow glow-3 z-10 bg-cyan-400 absolute"></div>
+              
+              <div className="glow glow-2 z-10 bg-white absolute"></div>
+              <div className="glow glow-1 z-20 bg-fuchsia-600 absolute "></div>
+              <div className="glow glow-3 z-10 bg-fuchsia-600 absolute"></div>
               <div className="glow glow-4 z-20 bg-white absolute "></div>
             </div>
           </div>

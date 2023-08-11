@@ -25,13 +25,15 @@ export function NavbarDefault() {
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-4">
 
-      <Link to="#" className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
-        NFT Marketplace
+      <Link to="#" >
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
       </Link>
 
       <Link to="/Register"><motion.button
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg">
+        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60">
         Register
       </motion.button>
       </Link>
@@ -49,8 +51,11 @@ export function NavbarDefault() {
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
               <form role="form" className="relative flex z-50 bg-slate-900 rounded-full  " style={{ height: "40px" }}>
-                <input type="text" placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none " />
-                <button className="px-4 text-white bg-transparent rounded-full ">
+                <input type="text" placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none shadow-lg shadow-cyan-500" />
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="px-4 text-white bg-transparent rounded-full ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-5 h-5"
@@ -65,7 +70,7 @@ export function NavbarDefault() {
                       d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                     />
                   </svg>
-                </button>
+                </motion.button>
               </form>
               <div className="glow glow-1 z-10 bg-white absolute"></div>
               <div className="glow glow-2 z-20 bg-cyan-400 absolute "></div>
