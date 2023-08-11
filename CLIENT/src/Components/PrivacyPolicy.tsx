@@ -4,7 +4,7 @@ import { LinearGradient } from 'react-text-gradients';
 const PrivacyPolicy = () => {
   return (
     <div className="bg-app-bg text-white p-6">
-      <h1 className="text-6xl font-bold mb-7 text-center">
+      <h1 className="text-6xl font-bold mb-7 text-center pt-2">
         <LinearGradient gradient={['to left', '#17acff ,#ff68f0']} className="gradient-title">
           Melosynthia AI Privacy Policy
         </LinearGradient>
@@ -46,12 +46,12 @@ const PrivacyPolicy = () => {
         <li>You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
       </ul>
 
-      {/* ... Continue with the rest of the content ... */}
-      <h2 className="text-lg font-semibold mt-4 section-title">Contact Us</h2>
+      <h2 className="text-lg font-semibold mt-4 section-title">Collecting and Using Your Personal Data </h2>
       <p>
 
       </p>
 
+      {/* ... Continue with the rest of the content ... */}
       <h2 className="text-lg font-semibold mt-4 section-title">Changes to this Privacy Policy</h2>
       <p>
        We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page. We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.
