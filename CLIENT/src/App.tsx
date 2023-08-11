@@ -10,6 +10,7 @@ import {
   Route } from "react-router-dom";
 import Signin from "./Components/navbar/Signin";
 import { CreateMusic } from "./Components/navbar/CreateMusic";
+import TermsOfService from "./Components/TermsOfService";
 
 
 function App() {
@@ -23,8 +24,9 @@ function App() {
       < Route path="/" element={<Home/>} />
       < Route path="/Register" element={<Signin/>} />
       < Route path="/Signup" element={<Signup/>} /> 
-      < Route path="/AboutUs" element={<AboutUs/>} />   
-      < Route path="/Create Music" element={<CreateMusic/>} />   
+      < Route path="/AboutUs" element={<AboutUs/>} /> 
+      < Route path="/Create Music" element={<CreateMusic/>} />
+      < Route path="/TermsOfService" element={<TermsOfService/>} /> 
          
 
     </Routes>

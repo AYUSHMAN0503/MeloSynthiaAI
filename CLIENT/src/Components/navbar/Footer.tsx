@@ -48,10 +48,10 @@ const Footer = () => (
 
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                     <li className="mb-4">
-                      <Link to="#" className="hover:underline">Lorem</Link>
+                      <Link to="/TermsOfService" className="hover:underline">Terms Of Service</Link>
                     </li>
                     <li>
-                      <Link to="#" className="hover:underline">Lorem</Link>
+                      <Link to="#" className="hover:underline">Privacy Policy</Link>
                     </li>
                   </ul>
                 </div>
