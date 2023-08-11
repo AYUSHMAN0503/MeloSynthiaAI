@@ -1,11 +1,12 @@
 import React from 'react';
+import { LinearGradient } from 'react-text-gradients';
 
 const TermsOfService = () => {
   return (
     <div className="bg-app-bg text-white p-6">
-      <h1 className="text-4xl font-semibold mb-4">Melosynthia AI Terms of Service</h1>
+      <h1 className="text-6xl font-bold mb-7 text-center">< LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Melosynthia AI Terms of Service</LinearGradient></h1>
 
-      <p>
+      <p className="mb-4 text-2xl">
         Last Updated: August 11, 2023
       </p>
 
@@ -28,12 +29,46 @@ const TermsOfService = () => {
        All intellectual property rights in Melosynthia AI, including but not limited to software, designs, graphics, text, and other materials, are owned by Team Web3 Sailors. You may not reproduce, modify, distribute, or create derivative works based on Melosynthia AI without our explicit permission.
       </p>
 
-      <h2 className="text-3xl font-semibold mt-4">3. Intellectual Property:</h2>
+      <h2 className="text-3xl font-semibold mt-4">4. Privacy:</h2>
       <p>
-        
+      Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your personal information.
       </p>
 
+      <h2 className="text-3xl font-semibold mt-4">5. User Content:</h2>
+      <p>
+      By using Melosynthia AI, you may generate or submit content ("User Content"). You retain ownership of your User Content, but you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute your User Content for the purpose of operating and improving Melosynthia AI.
+      </p>
 
+      <h2 className="text-3xl font-semibold mt-4">6. Prohibited Activities:</h2>
+      <p>
+      <ul/>You agree not to:         
+        <li> Use Melosynthia AI for any unlawful, abusive, or harmful purposes.</li>
+        <li> Impersonate any person or entity.</li>
+        <li> Interfere with or disrupt the WebApp or its servers.</li> 
+        <li> Reverse engineer, decompile, or attempt to extract the source code.</li> 
+        <li> Share your account credentials or access to Melosynthia AI.</li>
+        <li> Engage in any activity that may harm the WebApp's integrity or functionality.</li>
+      </p>
+
+      <h2 className="text-3xl font-semibold mt-4">7. Disclaimer of Warranty:</h2>
+      <p>
+      Melosynthia AI is provided "as is" without any warranty. We do not guarantee that the WebApp will be error-free, secure, or continuously available.
+      </p>
+
+      <h2 className="text-3xl font-semibold mt-4">8. Limitation of Liability:</h2>
+      <p>
+      We shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of Melosynthia AI.
+      </p>
+
+      <h2 className="text-3xl font-semibold mt-4">9. Changes to Terms:</h2>
+      <p>
+      We reserve the right to modify or revise these Terms at any time. Changes will be effective upon posting to the WebApp. Continued use of Melosynthia AI after such changes constitutes your acceptance of the revised Terms.
+      </p>
+
+      <h2 className="text-3xl font-semibold mt-4">10. Governing Law:</h2>
+      <p>
+      These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of India.
+      </p>
     
       <h2 className="text-3xl font-semibold mt-4">11. Contact Us:</h2>
       <p>
