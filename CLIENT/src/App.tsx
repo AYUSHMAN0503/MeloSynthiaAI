@@ -11,8 +11,7 @@ import {
 import Signin from "./Components/navbar/Signin";
 import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
-
-
+import PrivacyPolicy from "./Components/PrivacyPolicy";
 function App() {
  
   return ( <>
@@ -26,7 +25,9 @@ function App() {
       < Route path="/Signup" element={<Signup/>} /> 
       < Route path="/AboutUs" element={<AboutUs/>} /> 
       < Route path="/Create Music" element={<CreateMusic/>} />
-      < Route path="/TermsOfService" element={<TermsOfService/>} /> 
+      < Route path="/TermsOfService" element={<TermsOfService/>} />
+      < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
+
          
 
     </Routes>
