@@ -18,27 +18,13 @@ export function NavbarDefault() {
   }, []);
 const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-4">
-      <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+      <Link to="/Create Music"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             Create Music
           </Link>
 
           <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
            NFT Marketplace
           </Link>
-    
-          <Link to="/AboutUs"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
-            About Us
-          </Link>
-
-          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
-            Future
-          </Link>
-
-         <Link to="/GetStarted"><motion.button
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg ">
-         Get started
-        </motion.button></Link>
 
        <Link to= "/Register"><motion.button
     whileHover={{ scale: 1.1 }}
