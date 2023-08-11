@@ -40,42 +40,32 @@ const TeamMembers = [
     },
 
     {
+      name: 'Mishi Jain',
+      position: 'Python and ML Developer',
+      bio: 'Mishi Jain is a skilled Python & ML dev with passion for innovation. With a strong foundation in Python & a deep understanding of ML algo, Mishi brings a unique blend of technical expertise & creativity to every project. Her commitment to pushing the boundaries of technology, coupled with problem-solving prowess, makes her an invaluable asset. Attention to detail, teamwork and her eagerness to explore and learn about new things are some of her strengths which add value to team.',
+      about: 'Besides coding, she finds solace in writing, watching random youtube videos and surfing wikipedia at 3 am. She is a refined poet & often performs her poetry on various platforms.',
+      imageUrl: '/images/mishi-jain.jpg',
+      github: 'https://github.com/maybemishi?tab=repositories',
+      instagram: 'https://instagram.com/_ink__slinger__?igshid=NjIwNzIyMDk2Mg==',
+    },
+
+    {
       name: 'Gaurav Kumar',
       position: 'AI&ML Developer',
       bio: 'Gaurav Kumar is knowledgeable in machine learning and artificial intelligence. He excels in training complex machine learning models.He is enthusiastic about his work, focused, and well-organized.',
       about: 'He is an excellent team player.',
       imageUrl: '/images/Gaurav-K.jpg',
-      github: 'https://github.com/',
+      github: 'https://github.com/ARtoRiAs10',
       instagram: 'https://www.instagram.com//',
     },
 
     {
       name: 'Nitin Rana',
       position: 'Frontend Developer',
-      bio: '',
-      about:'',
+      bio: 'Nitin is a committed full stack developer with a notable focus on front-end development, particularly with React. His coding journey is characterized by a profound fascination with crafting visually captivating and user-centric web interfaces.',
+      about:'He takes pleasure in converting intricate designs into practical, responsive, and user-friendly applications that captivate user engagement.',
       imageUrl: '/images/nitin.jpg',
       github: 'https://github.com/NitinRana01125532553',
-      instagram: 'https://www.instagram.com//',
-    },
-
-    {
-      name: 'Avinash Kumar Jha',
-      position: 'Backend and Database Developer',
-      bio: 'A passionate web developer skilled in frontend and backend technologies, with a love for crafting engaging user experiences. Currently a sophomore, he`s combining academic excellence with hands-on coding expertise.',
-      about:'Always exploring new web technologies to build innovative and user-friendly digital solutions.',
-      imageUrl: '/images/',
-      github: 'https://github.com/Avinash-sord12k',
-      instagram: 'https://www.instagram.com//',
-    },
-
-    {
-      name: 'Mishi Jain',
-      position: 'Python and ML Developer',
-      bio: '',
-      about: '',
-      imageUrl: '/images/',
-      github: 'https://github.com/',
       instagram: 'https://www.instagram.com//',
     },
 
@@ -88,6 +78,16 @@ const TeamMembers = [
       github: 'https://github.com/Nikitakarwasra',
       instagram: 'https://www.instagram.com/',
     },
+    
+    {
+      name: 'Avinash Kumar Jha',
+      position: 'Backend and Database Developer',
+      bio: 'A passionate web developer skilled in frontend and backend technologies, with a love for crafting engaging user experiences. Currently a sophomore, he`s combining academic excellence with hands-on coding expertise.',
+      about:'Always exploring new web technologies to build innovative and user-friendly digital solutions.',
+      imageUrl: '/images/avinash.jpg',
+      github: 'https://github.com/Avinash-sord12k',
+      instagram: 'https://www.instagram.com//',
+    },
 
     {
       name: 'Divyanshu',
@@ -95,7 +95,7 @@ const TeamMembers = [
       bio: 'In the realm where code weaves the tapestry of the digital universe, Divyanshu emerges as a prominent web3 developer, wielding his skills to shape the decentralized landscape. An ardent devotee of anime artistry, he finds himself drawn into captivating narratives, with masterpieces like "Death Note" etching a profound mark on his soul.',
       about: 'With a keyboard as his sword and blockchain as his canvas, Divyanshu crafts a harmonious symphony of innovation and imagination, embodying the essence of a modern-day techno-sorcerer.',
       imageUrl: '/images/div.jpg',
-      github: 'https://www.instagram.com/divyanshu_836/',
+      github: 'https://github.com/Divyanshu-aka',
       instagram: 'https://www.instagram.com/divyanshu_836/',
     },
 ];
