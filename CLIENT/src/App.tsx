@@ -4,6 +4,7 @@ import Home from "./Home";
 import styles from "@/index";
 import Signup from "./Components/navbar/signup";
 import AboutUs from "./Components/navbar/AboutUs";
+import {Future} from "./Components/Future";
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,6 +27,7 @@ function App() {
       < Route path="/Signup" element={<Signup/>} /> 
       < Route path="/AboutUs" element={<AboutUs/>} /> 
       < Route path="/GetStarted" element={<GetStarted/>} />
+      < Route path="/Future" element={<Future/>} />
     </Routes>  
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>

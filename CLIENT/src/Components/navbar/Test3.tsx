@@ -30,7 +30,7 @@ const navList = (
             About Us
           </Link>
 
-          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+          <Link to="/Future"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             Future
           </Link>
 
