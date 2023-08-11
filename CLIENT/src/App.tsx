@@ -4,6 +4,7 @@ import Home from "./Home";
 import styles from "@/index";
 import Signup from "./Components/navbar/signup";
 import AboutUs from "./Components/navbar/AboutUs";
+import {Future} from "./Components/Future";
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,11 +25,10 @@ function App() {
       < Route path="/Register" element={<Signin/>} />
       < Route path="/Signup" element={<Signup/>} /> 
       < Route path="/AboutUs" element={<AboutUs/>} /> 
+      < Route path="/Future" element={<Future/>} />
       < Route path="/Create Music" element={<CreateMusic/>} />
       < Route path="/TermsOfService" element={<TermsOfService/>} />
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
-
-         
 
     </Routes>
 <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
