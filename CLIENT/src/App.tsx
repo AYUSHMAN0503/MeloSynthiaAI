@@ -9,6 +9,7 @@ import {
   Routes,
   Route } from "react-router-dom";
 import Signin from "./Components/navbar/Signin";
+import { GetStarted } from "./Components/GetStarted";
 
 
 
@@ -23,15 +24,14 @@ function App() {
       < Route path="/" element={<Home/>} />
       < Route path="/Register" element={<Signin/>} />
       < Route path="/Signup" element={<Signup/>} /> 
-      < Route path="/AboutUs" element={<AboutUs/>} />   
-         
+      < Route path="/AboutUs" element={<AboutUs/>} /> 
+      < Route path="/GetStarted" element={<GetStarted/>} />
+    </Routes>  
 
-    </Routes>
+    </Router>
 <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}> <Footer/> </div>
     </div> 
-    
-   </Router> 
   </div>
   </>
   )

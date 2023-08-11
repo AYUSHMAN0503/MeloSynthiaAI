@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "react-text-gradients": "^1.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3"
   }
 }

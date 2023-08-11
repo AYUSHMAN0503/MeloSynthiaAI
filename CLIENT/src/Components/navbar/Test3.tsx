@@ -25,6 +25,20 @@ const navList = (
           <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
            NFT Marketplace
           </Link>
+    
+          <Link to="/AboutUs"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+            About Us
+          </Link>
+
+          <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
+            Future
+          </Link>
+
+         <Link to="/GetStarted"><motion.button
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg ">
+         Get started
+        </motion.button></Link>
 
        <Link to= "/Register"><motion.button
     whileHover={{ scale: 1.1 }}
