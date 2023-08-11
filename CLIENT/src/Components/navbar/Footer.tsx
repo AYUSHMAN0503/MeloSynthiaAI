@@ -29,7 +29,7 @@ const Footer = () => (
                       <Link to="/AboutUs" className="hover:underline">About Us</Link>
                     </li>
                     <li>
-                      <Link to="#" className="hover:underline">Future</Link>
+                      <Link to="/Future" className="hover:underline">Future</Link>
                     </li>
                   </ul>
                 </div>
