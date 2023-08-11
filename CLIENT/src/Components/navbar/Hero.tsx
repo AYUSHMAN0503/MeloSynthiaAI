@@ -6,7 +6,7 @@ import React from "react"
 const Hero = () => {
    
   return (
-    <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY} px-8`}>
+    <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
          
@@ -40,7 +40,7 @@ const Hero = () => {
               whileHover={{ scale: [null, 0.8, 0.8] }}
               transition={{ duration: 0.3 }}
                className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={music} alt="billing" className="w-[80%] h-[100%] relative z-[5]" style={{backgroundImage:""}}/>
+        <img src={music} alt="Music" className="w-[80%] h-[100%] relative z-[5]" style={{backgroundImage:""}}/>
       </motion.div>
 
       <div className={`ss:hidden ${styles.flexCenter}`}>

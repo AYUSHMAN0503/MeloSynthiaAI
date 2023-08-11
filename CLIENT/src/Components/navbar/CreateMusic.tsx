@@ -1,8 +1,9 @@
 import React from 'react'
 import { motion } from "framer-motion"
-
-export const GetStarted = () => {
+import Animatedpage from '../Animatedpage'
+export const CreateMusic = () => {
   return (
+    <Animatedpage>
     <div className='container pt-14 px-6 pb-6 flex flex-wrap pr-0'>
         <div className='text-white w-2/5 border-r-2 px-4 '>
             <motion.button whileHover={{scale: 1.1}} className='bg-cyan-500 text-white text-lg sm:text-base md:text-sm lg:text-lg font-bold py-[1vw] px-[2vw] mx-4 my-4 rounded-md border-b-4 border-cyan-700'>
@@ -19,5 +20,6 @@ export const GetStarted = () => {
             </div>
         </div>
     </div>
+    </Animatedpage>
   )
 }
