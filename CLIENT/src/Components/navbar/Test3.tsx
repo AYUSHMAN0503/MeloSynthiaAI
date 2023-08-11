@@ -25,7 +25,7 @@ const navList = (
           <Link to="#"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
            NFT Marketplace
           </Link>
-
+    
           <Link to="/AboutUs"className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
             About Us
           </Link>
@@ -51,6 +51,7 @@ const navList = (
   );
  
   return (
+    
     <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link to="/">
