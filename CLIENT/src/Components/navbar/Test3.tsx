@@ -9,6 +9,9 @@ import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transpar
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
+import { useState } from "react";
+
+
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
   React.useEffect(() => {
@@ -17,11 +20,10 @@ export function NavbarDefault() {
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
   }, []);
+
+
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-4">
-      <Link to="/Create Music" className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
-        Create Music
-      </Link>
 
       <Link to="#" className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700">
         NFT Marketplace
@@ -43,26 +45,26 @@ export function NavbarDefault() {
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900 ">
         <Link to="/">
           <img src={logo} alt="" width={200} /></Link>
-           <div className=" flex-col justify-center">
+        <div className=" flex-col justify-center">
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
-              <form role="form" className="relative flex z-50 bg-slate-900 rounded-full  " style={{height:"40px"}}>
+              <form role="form" className="relative flex z-50 bg-slate-900 rounded-full  " style={{ height: "40px" }}>
                 <input type="text" placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none " />
                 <button className="px-4 text-white bg-transparent rounded-full ">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
-                    </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
                 </button>
               </form>
               <div className="glow glow-1 z-10 bg-white absolute"></div>
@@ -74,12 +76,12 @@ export function NavbarDefault() {
         </div>
         <div className="hidden lg:block">{navList}</div>
 
-       
+
         <IconButton
           variant="text"
           className="ml-auto  fixed top-5 left-0 right-12 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
-          onClick={() => setOpenNav(!openNav)} 
+          onClick={() => setOpenNav(!openNav)}
         >
           {openNav ? (
             <svg
@@ -103,7 +105,7 @@ export function NavbarDefault() {
               fill="none"
               stroke="currentColor"
               strokeWidth={2}
-              
+
             >
               <path
                 strokeLinecap="round"
