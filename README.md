@@ -2,19 +2,23 @@
 
 ![Alt text](logo/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
 
-Theme no 5: AI
+Theme no 5: 🤖AI
 💡Idea: NFT Based AI Music Marketplace
+**Introducing MeloSynthiaAI, the decentralized NFT-based music marketplace that empowers users to generate lyrics and music with AI.**  
 
-We will create a decentralized NFT-based music marketplace where AI-generated music compositions are minted as unique NFTs. Musicians, artists, and AI enthusiasts can participate in this platform, buying and selling AI-generated music NFTs.
+Our platform allows users to create their own unique music and lyrics, which can then be minted as NFTs and sold or traded on our marketplace. This gives users the opportunity to explore their creativity and earn money from their work.
+
+It also facilitates people to buy NFTs from other users to use in their own songs. This also creates a new way for users,      musicians or artists to collaborate and create innovative new music.
 
 ## ✨Features
 
-- NFT MINTING USING TRON BLOCKCHAIN..
-- ROYALITIES PAYMENTS TO ORIGINAL AI MODEL DEVS
-- MARKETPLACE TO SELL AND BUY USING PAYPAL, CREDIT CARDS.
-- LICENSING
+- **AI-powered music generation:** Our platform uses AI to generate lyrics and music that are both original and creative.
+- **Song Snippets:** Users can add their vocals and ask AI to generate a song for them accordingly.
+- **NFT mining:** Users can mint their generated creation as NFTs for free,which can then be sold or traded on our marketplace.
+- **Decentralized Marketplace:** Our marketplace is decentralized, which means that users have control over their own music and lyrics.
+- **Collaboration:** Users can buy NFTs from other users to use in their own songs.
 
-## Run Locally
+## 🚀Run Locally
 
 Clone the project
 
