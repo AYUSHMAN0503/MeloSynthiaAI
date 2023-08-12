@@ -173,7 +173,7 @@ const PrivacyPolicy = () => {
 
       <h2 className="text-lg font-semibold mt-4 section-title">Disclosure of Your Personal Data</h2>
       
-      <h2 className="text-lg font-semibold mt-4 section-title">Business Transactions</h2>
+      <h2 className="text-lg font-semibold mt-4 section-title">Business Transactions..</h2>
         <p>
         If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy
         </p>
