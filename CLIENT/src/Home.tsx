@@ -2,7 +2,7 @@ import Hero from './Components/navbar/Hero'
 import MainContent from './Components/navbar/MainContent'
 import Animatedpage from './Components/Animatedpage'
 import FeaturesSection from './Components/FeaturesSection'
-import ShowSteps from './nft/ShowSteps'
+import ShowSteps from './Steps/ShowSteps'
 const Home = () => {
   return (
     <Animatedpage>
