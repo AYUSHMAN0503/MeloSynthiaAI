@@ -13,12 +13,14 @@ import Signin from "./Components/navbar/Signin";
 import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
+import FeaturesSection from "./Components/FeaturesSection";
 function App() {
  
   return ( <>
     <div>
     <Router>
     <NavbarDefault/>
+    
  
     <Routes>
       < Route path="/" element={<Home/>} />
@@ -31,9 +33,14 @@ function App() {
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
 
     </Routes>
-<div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}> <Footer/> </div>
-    </div> 
+
+    <FeaturesSection/>
+    
+    <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
+    <div className={`${styles.boxWidth}`}> <Footer/> </div>
+    </div>
+
+
     
    </Router> 
   </div>
