@@ -1,4 +1,9 @@
+import { url } from 'inspector';
 import React from 'react';
+import musical from "@/assets/musical2.png"
+import { RiNftFill } from 'react-icons/ri';
+import { PiFileAudioFill } from 'react-icons/pi';
+import {SiApplemusic } from 'react-icons/si';
 
 const FeaturesSection: React.FC = () => {
   return (
@@ -16,18 +21,11 @@ const FeaturesSection: React.FC = () => {
           <div className="w-full md:w-1/2 md:pr-10 text-center md:text-left">
             <div className="flex flex-col space-y-6">
               {/* Feature Box 1 */}
-              <div className="flex items-center space-x-4 border border-white rounded-lg p-4">
-                <div className="bg-blue-500 rounded-full p-3">
+              <div className="flex items-center space-x-4 border border-white rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
+                <div className="bg-white rounded-full p-3">
                   {/* Icon */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    {/* icon SVG code here */}
-                  </svg>
+                <RiNftFill/>
+                    {/* icon SVG code here */} 
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Marketplace</h3>
@@ -35,18 +33,11 @@ const FeaturesSection: React.FC = () => {
                 </div>
               </div>
               {/* ... Feature Box 2 ... */}
-              <div className="flex items-center space-x-4 border border-white rounded-lg p-4">
-                <div className="bg-blue-500 rounded-full p-3">
+              <div className="flex items-center space-x-4 border border-white rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
+                <div className="bg-white rounded-full p-3">
                   {/* Icon */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                 <PiFileAudioFill/>
                     {/* icon SVG code here */}
-                  </svg>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Highest quality audio</h3>
@@ -54,18 +45,12 @@ const FeaturesSection: React.FC = () => {
                 </div>
               </div>
               {/* ... Feature Box 3 ... */}
-              <div className="flex items-center space-x-4 border border-white rounded-lg p-4">
-                <div className="bg-blue-500 rounded-full p-3">
+              <div className="flex items-center space-x-4 border border-white rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
+                <div className="bg-white rounded-full p-3">
                   {/* Icon */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                 <SiApplemusic/>
                     {/*icon SVG code here */}
-                  </svg>
+                  
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Song Snippets</h3>
@@ -77,7 +62,7 @@ const FeaturesSection: React.FC = () => {
 
           {/* Image on the left (Desktop) */}
           <div className="w-full md:w-1/2">
-            <img src='images/tunes.jpg' alt="Feature" className="w-full h-auto" />
+            <img src={musical} alt="Feature" className="hidden w-full h-auto md:flex" />
           </div>
         </div>
       </div>
