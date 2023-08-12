@@ -9,6 +9,7 @@ export const Future = () => {
                 <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">FUTURE PLANS</h1>
             </LinearGradient>
         </div>
+     
         <div className='w-full flex justify-center mb-14'>
             <ul style={{ listStyleType: 'disc' }} className='text-white px-8 py-4 text-md md:lg lg:text-xl xl:text-2xl'>
                 <li className='mb-11'>Subsciption made for creating a song snipper</li>
