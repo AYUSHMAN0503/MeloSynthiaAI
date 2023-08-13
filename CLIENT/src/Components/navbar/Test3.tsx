@@ -97,7 +97,7 @@ export function NavbarDefault() {
 
         <IconButton
           variant="text"
-          className="ml-auto  fixed top-5 left-0 right-12 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className="ml-auto  block fixed top-5 left-0 right-12 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden xs:mt-2" 
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
@@ -122,7 +122,7 @@ export function NavbarDefault() {
               className="h-6 w-6"
               fill="none"
               stroke="currentColor"
-              strokeWidth={2}
+              strokeWidth={2} 
 
             >
               <path
