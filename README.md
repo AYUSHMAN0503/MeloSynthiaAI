@@ -99,3 +99,9 @@ Now, go to the original repository on GitHub and create a pull request from your
 Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
 ![Alt text](logo/logo-transparent-png.png)
+
+## Status
+
+🚧 **Under Construction** 🚧
+
+This project is currently in the construction stage. We are actively working on developing and refining various aspects of the project. Keep in mind that things might change rapidly as we continue to make progress.
