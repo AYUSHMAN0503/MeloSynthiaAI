@@ -2,7 +2,13 @@ import styles from "@/index";
 import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png";
 import { socialMedia} from "@/index";
 import { Link } from "react-router-dom";
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+};
+
 const Footer = () => (
+  
   <>
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col !pb-5`}>
       <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
@@ -22,10 +28,10 @@ const Footer = () => (
               <div className="mb-6 md:mb-0">
 
               </div>
-              <div className="font-poppins font-normal grid grid-cols-2 gap-8 sm:gap-28 sm:grid-cols-3">
+              <div className="font-poppins font-normal grid grid-cols-2 gap-8 sm:gap-28 sm:grid-cols-3" onClick={scrollToTop}>
                 <div>
-                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                    <li className="mb-4">
+                  <ul className="text-gray-500 dark:text-gray-400 font-medium" >
+                    <li className="mb-4" >
                       <Link to="/AboutUs" className="hover:underline">About Us</Link>
                     </li>
                     <li>
