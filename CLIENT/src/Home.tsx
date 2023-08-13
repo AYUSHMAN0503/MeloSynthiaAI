@@ -3,6 +3,7 @@ import MainContent from './Components/navbar/MainContent'
 import Animatedpage from './Components/Animatedpage'
 import FeaturesSection from './Components/FeaturesSection'
 import ShowSteps from './Steps/ShowSteps'
+import { NewsLetter } from './Components/NewsLetter'
 import CTA from './Components/CTA'
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
   <Hero/>
     <FeaturesSection/>
  <ShowSteps/>
+ <NewsLetter />
  <CTA/>
     </div>
     </Animatedpage>
