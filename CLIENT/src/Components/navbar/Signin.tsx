@@ -15,7 +15,7 @@ const Signin = () => {
         <div className=" w-full md:max-w-md lg:max-w-full md:mx-auto  md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center">
 
-          <div className="w-full h-100 scale-90">
+          <div className="w-full h-100 scale-75">
 
 
             <h1 className=" text-white text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>

@@ -14,7 +14,7 @@ const Hero = () => {
 
           <p className={`${styles.paragraph} ml-2`}>
             <span className="text-white text-sm xs:text-2xl" > AI MUSIC GENERATOR FOR CREATORS </span>{""}
-         </p>
+          </p>
 
         </div>
 
@@ -38,7 +38,7 @@ const Hero = () => {
                 <Link to="/Create Music">
                   <button className=" text-white rounded-full font-semibold px-8 py-4 bg-slate-900 focus:outline-none ">Create Music</button></Link>
               </form>
-              
+
               <div className="glow glow-2 z-10 bg-white absolute"></div>
               <div className="glow glow-1 z-20 bg-fuchsia-600 absolute "></div>
               <div className="glow glow-3 z-10 bg-fuchsia-600 absolute"></div>
