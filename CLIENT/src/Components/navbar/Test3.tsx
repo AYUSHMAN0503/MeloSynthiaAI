@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 import "./Test3.css"
 import { useState } from "react";
 import { BsCart4 } from "react-icons/bs";
-
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
   React.useEffect(() => {
@@ -57,9 +56,10 @@ export function NavbarDefault() {
   return (
 
     <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900 ">
+      <div className="container mx-auto flex items-center xs:justify-between text-blue-gray-900 ">
         <Link to="/">
           <img src={logo} alt="" width={200} /></Link>
+     
         <div className=" flex-col justify-center">
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
@@ -97,7 +97,7 @@ export function NavbarDefault() {
 
         <IconButton
           variant="text"
-          className="ml-auto  fixed top-5 left-0 right-12 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className="ml-auto  block fixed top-5 left-0 right-12 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden xs:mt-2" 
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
@@ -122,7 +122,7 @@ export function NavbarDefault() {
               className="h-6 w-6"
               fill="none"
               stroke="currentColor"
-              strokeWidth={2}
+              strokeWidth={2} 
 
             >
               <path

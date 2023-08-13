@@ -99,3 +99,14 @@ Now, go to the original repository on GitHub and create a pull request from your
 Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
 ![Alt text](logo/logo-transparent-png.png)
+
+## AI Models
+- **VQ-VAE Model:** Used for high-quality audio samples such as synthesizing songs and tunes.
+- **Bert:** Used for lyrics generation due to its high-tech sentimental anaylsis.
+- **CVAE Model:** Used for text-to-speech synthesis and music generation.
+
+## Status
+
+🚧 **Under Construction** 🚧
+
+This project is currently in the construction stage. We are actively working on developing and refining various aspects of the project. Keep in mind that things might change rapidly as we continue to make progress.
