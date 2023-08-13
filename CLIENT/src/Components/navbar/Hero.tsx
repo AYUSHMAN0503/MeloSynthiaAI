@@ -13,11 +13,8 @@ const Hero = () => {
         <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
 
           <p className={`${styles.paragraph} ml-2`}>
-            <span className="text-white" style={{ fontSize: "24px" }}> AI MUSIC </span>{" "}
-            <span className="text-white" style={{ fontSize: "24px" }}> GENERATOR </span>{" "}
-            <span className="text-white" style={{ fontSize: "24px" }}> FOR </span>{" "}
-            <span className="text-white" style={{ fontSize: "24px" }}> CREATORS </span>{" "}
-          </p>
+            <span className="text-white text-sm xs:text-2xl" > AI MUSIC GENERATOR FOR CREATORS </span>{""}
+         </p>
 
         </div>
 
