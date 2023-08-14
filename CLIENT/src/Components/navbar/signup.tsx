@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Animatedpage from '../Animatedpage';
 import signup from "@/assets/signup.svg"
 import { motion } from "framer-motion"
+
 const Signup = () => {
   return (
     <Animatedpage>

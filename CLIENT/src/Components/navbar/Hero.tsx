@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import React from "react"
 import { Link } from "react-router-dom";
 import "./Test3.css"
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+};
 const Hero = () => {
 
   return (
@@ -36,7 +39,7 @@ const Hero = () => {
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
               <form role="form" className="relative flex z-50 rounded-full bg-transparent ">
                 <Link to="/Create Music">
-                  <button className=" text-white rounded-full font-semibold px-8 py-4 bg-slate-900 focus:outline-none ">Create Music</button></Link>
+                  <button className=" text-white rounded-full font-semibold px-8 py-4 bg-slate-900 focus:outline-none " onClick={scrollToTop}>Create Music</button></Link>
               </form>
 
               <div className="glow glow-2 z-10 bg-white absolute"></div>
