@@ -55,7 +55,7 @@ const Hero = () => {
         whileHover={{ scale: [null, 0.8, 0.8] }}
         transition={{ duration: 0.3 }}
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={music} alt="Music" className="w-[80%] h-[90%] relative z-[5]" style={{ backgroundImage: "" }} />
+        <img src={music} alt="Music" className="w-[80%] h-[90%] lg:h-[80%] relative z-[5]" style={{ backgroundImage: "" }} />
       </motion.div>
 
 
