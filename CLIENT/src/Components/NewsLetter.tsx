@@ -15,7 +15,7 @@ export const NewsLetter = () => {
       </div>
       <div className="w-full mt-5 sm:w-auto lg:mt-0 lg:ml-5">
         <div className="flex justify-center space-x-2.5 lg:justify-start">
-          <a href="" className="p-2.5  border-white transition-colors ">
+          <a  className="p-2.5  border-white transition-colors ">
             <form className="mt-5 sm:mx-auto sm:flex sm:max-w-lg lg:mx-0">
           <input className=" w-full px-5 py-3 outline-none border rounded-lg shadow-sm  border-[#3c3c3c] bg-white focus:ring-1 " type="email" placeholder="Your e-mail" />
           <button className=" mt-2.5 px-5 py-3 rounded-lg  focus:outline-none font-medium text-white bg-blue-600 sm:flex-shrink-0 sm:w-auto sm:mt-0 sm:ml-5">Subscribe</button>
