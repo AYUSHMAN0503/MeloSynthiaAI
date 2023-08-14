@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import Animatedpage from '../Animatedpage'
+
 export const CreateMusic = () => {
   return (
     <Animatedpage>

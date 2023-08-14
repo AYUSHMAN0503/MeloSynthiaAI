@@ -11,7 +11,9 @@ import { motion } from "framer-motion";
 import "./Test3.css"
 import { useState } from "react";
 import { BsCart4 } from "react-icons/bs";
-
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+};
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
   React.useEffect(() => {
@@ -56,7 +58,7 @@ export function NavbarDefault() {
 
   return (<>
 
-    <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0">
+    <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0" onClick={scrollToTop}>
       <div className="container mx-auto flex items-center xs:justify-between text-blue-gray-900 ">
         <Link to="/">
           <img src={logo} alt="" width={200} /></Link>
