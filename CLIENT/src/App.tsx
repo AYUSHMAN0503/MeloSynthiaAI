@@ -14,14 +14,14 @@ import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import FeaturesSection from "./Components/FeaturesSection";
+
 function App() {
  
   return ( <>
     <div>
     <Router>
-    <NavbarDefault/>
-    
- 
+     
+  <NavbarDefault/>
     <Routes>
       < Route path="/" element={<Home/>} />
       < Route path="/Register" element={<Signin/>} />

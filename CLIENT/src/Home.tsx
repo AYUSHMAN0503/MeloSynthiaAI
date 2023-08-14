@@ -5,6 +5,7 @@ import FeaturesSection from './Components/FeaturesSection'
 import ShowSteps from './Steps/ShowSteps'
 import { NewsLetter } from './Components/NewsLetter'
 import CTA from './Components/CTA'
+import Advertising from './Components/Advertising'
 const Home = () => {
   return (
     <Animatedpage>
@@ -14,6 +15,7 @@ const Home = () => {
     <FeaturesSection/>
  <ShowSteps/>
  <NewsLetter />
+ <Advertising/>
  <CTA/>
     </div>
     </Animatedpage>

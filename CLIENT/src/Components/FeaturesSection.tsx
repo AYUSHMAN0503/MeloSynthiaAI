@@ -4,7 +4,7 @@ import musical from "@/assets/musical2.png"
 import { RiNftFill } from 'react-icons/ri';
 import { PiFileAudioFill } from 'react-icons/pi';
 import {SiApplemusic } from 'react-icons/si';
-
+import { motion } from 'framer-motion';
 const FeaturesSection: React.FC = () => {
   return (
     <section className="bg-app-bg py-10">
