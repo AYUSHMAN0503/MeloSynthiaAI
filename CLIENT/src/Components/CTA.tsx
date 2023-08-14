@@ -12,7 +12,7 @@ const CTA = () => {
                 <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-8 lg:px-6">
                     <div className="mx-auto max-w-screen-sm text-center">
                         <h2 className="mb-4 text-3xl sm:text-4xl  md:text-6xl xl:text-10xl lg:text-7xl tracking-tight Ttcommons sans-serif font-extrabold leading-tight text-white ">Compose the future with MeloSynthia AI</h2>
-                        <p className="mb-6 font-light text-white/80 text-sm md:text-lg">MeloSynthia AI: Redefining Creativity Through Artificially Intelligent Music Innovation!</p>
+                        <p className="mb-6 font-light text-white/80 text-sm md:text-lg">MeloSynthia AI: Redefining Creativity Through Artificially Intelligent Music Innovations!</p>
                         <Link to="/Create Music">
                   <button className=" text-purple-500 rounded-full font-semibold px-8 py-4 bg-black focus:outline-none ">Create Music</button></Link>
                     </div>
