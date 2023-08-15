@@ -24,7 +24,7 @@ const Signup = () => {
             <form className="mt-4" action="#" method="POST">
               <div className="mt-4">
                 <label className="block text-white">Name</label>
-                <input type="email" name="" id="" placeholder="Enter Your Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
+                <input type="Name" name="" id="" placeholder="Enter Your Name" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
               </div>
               <div className="mt-4">
                 <label className="block text-white">Email Address</label>
