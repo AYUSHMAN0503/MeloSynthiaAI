@@ -1,6 +1,6 @@
 # MeloSynthiaAI
 
-![Alt text](client/logo/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
+![Alt text](client/public/images/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
 
 Theme no 5: 🤖AI
 💡Idea: NFT Based AI Music Marketplace
