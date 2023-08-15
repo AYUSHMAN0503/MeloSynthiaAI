@@ -3,7 +3,7 @@ import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transpar
 import { socialMedia} from "@/index";
 import { Link } from "react-router-dom";
 import React from "react";
-
+import {MdArrowUpward} from "react-icons/md"
 import linkedin from "@/assets/icons8-linkedin.svg"
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -38,6 +38,7 @@ return (
                   }}>
                     About and Beyond
                   </button>
+                 
                 <ul className={about ? 'text-gray-500 dark:text-gray-400 font-medium ' : 'hidden'} onClick={scrollToTop}>
                     <li className="mb-4" >
                       <Link to="/AboutUs" className="hover:underline">About </Link>
@@ -73,8 +74,10 @@ return (
             </div>
           </div>
         </div>
+        
       </div>
-      
+     
+      <button type="button" className="text-white mb-3 " onClick={scrollToTop}><MdArrowUpward/></button>
        <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3F3E45]">
         <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white">
           Copyright ©️ 2023, Team Web3 Sailors. All Rights Reserved.
