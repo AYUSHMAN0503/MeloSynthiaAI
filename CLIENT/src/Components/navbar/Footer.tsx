@@ -4,11 +4,10 @@ import { socialMedia} from "@/index";
 import { Link } from "react-router-dom";
 import React from "react";
 
+import linkedin from "@/assets/icons8-linkedin.svg"
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
-
-
 
 const Footer = () => {
 
@@ -33,7 +32,7 @@ return (
             <div className="md:flex md:justify-between">
               <div className="font-poppins font-normal sm:grid grid-cols-2 gap-8 sm:gap-48" >
                 <div>
-                  <button type="button" className="text-white font-bold font-poppins mb-4" onClick={(e) => {
+                  <button type="button" className="text-white font-bold font-poppins mb-6" onClick={(e) => {
                     e.preventDefault();
                       setAbout(prev => !prev);
                   }}>
@@ -52,7 +51,7 @@ return (
                     </ul>
                   </div>
                   <div className="mt-6 sm:mt-0">
-                  <button className="text-white font-bold font-poppins mb-4" onClick={(e) => {
+                  <button className="text-white font-bold font-poppins mb-6" onClick={(e) => {
                       e.preventDefault();
                       setTerms(prev => !prev);
                     }}>
@@ -81,12 +80,13 @@ return (
           Copyright ©️ 2023, Team Web3 Sailors. All Rights Reserved.
         </p>
 
-        <div className="flex flex-row md:mt-0 mt-6">
+        <div className="flex flex-row justify-between md:mt-0 mt-6">
           {socialMedia.map((social, index) => (
             <img
               key={social.id}
               src={social.icon}
               alt={social.id}
+             
               className={`w-[21px] h-[21px] object-contain cursor-pointer ${index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
                 }`}
               onClick={() => window.open(social.link)}
@@ -94,7 +94,8 @@ return (
           ))}
         </div>
       </div>
-    </section></>
+    </section>
+    </>
 )};
 
 export default Footer;

@@ -18,6 +18,11 @@ It also facilitates people to buy NFTs from other users to use in their own song
 - **Decentralized Marketplace:** Our marketplace is decentralized, which means that users have control over their own music and lyrics.
 - **Collaboration:** Users can buy NFTs from other users to use in their own songs.
 
+## AI Models
+- **VQ-VAE Model:** Used for high-quality audio samples such as synthesizing songs and tunes.
+- **Bert:** Used for lyrics generation due to its high-tech sentimental anaylsis.
+- **CVAE Model:** Used for text-to-speech synthesis and music generation.
+
 ## 🚀Run Locally
 
 Clone the project
@@ -99,11 +104,6 @@ Now, go to the original repository on GitHub and create a pull request from your
 Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
 ![Alt text](logo/logo-transparent-png.png)
-
-## AI Models
-- **VQ-VAE Model:** Used for high-quality audio samples such as synthesizing songs and tunes.
-- **Bert:** Used for lyrics generation due to its high-tech sentimental anaylsis.
-- **CVAE Model:** Used for text-to-speech synthesis and music generation.
 
 ## Status
 
