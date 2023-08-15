@@ -58,15 +58,15 @@ export function NavbarDefault() {
 
   return (<>
 
-    <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0" onClick={scrollToTop}>
-      <div className="container mx-auto flex items-center xs:justify-between text-blue-gray-900 ">
+    <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0"onClick={scrollToTop}>
+      <div className="container mx-auto flex items-center xs:justify-between text-blue-gray-900 pl-1 xs:pl-8 "style={{maxWidth:"revert",paddingRight:"2rem"}} >
         <Link to="/">
-          <img src={logo} alt="" width={200} /></Link>
+          <img src={logo} alt="" width={200} className="xl:w-72" /></Link>
      
         <div className=" flex-col justify-center">
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
-              <form role="form" className="relative flex z-50 bg-slate-900 rounded-full  " style={{ height: "40px" }}>
+              <form role="form" className="relative flex z-50 bg-slate-900 rounded-full h-10 xl:h-14 xl:w-80" >
                 <input type="text" placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none shadow-lg shadow-cyan-500" />
                 <motion.button
                   whileHover={{ scale: 1.2 }}
@@ -100,7 +100,7 @@ export function NavbarDefault() {
 
         <IconButton
           variant="text"
-          className="ml-auto  block fixed top-5 left-0 right-12 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden xs:mt-2" 
+          className="ml-auto block bottom-3 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden " 
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
