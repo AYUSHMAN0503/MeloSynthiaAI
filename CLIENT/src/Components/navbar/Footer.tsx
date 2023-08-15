@@ -2,13 +2,12 @@ import styles from "@/index";
 import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png";
 import { socialMedia} from "@/index";
 import { Link } from "react-router-dom";
-
+import linkedin from "@/assets/icons8-linkedin.svg"
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
 
 const Footer = () => (
-  
   <>
     <section className={`${styles.flexCenter} ${styles.paddingY} flex-col !pb-5`}>
       <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
@@ -77,6 +76,7 @@ const Footer = () => (
               key={social.id}
               src={social.icon}
               alt={social.id}
+             
               className={`w-[21px] h-[21px] object-contain cursor-pointer ${index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
                 }`}
               onClick={() => window.open(social.link)}
@@ -84,7 +84,8 @@ const Footer = () => (
           ))}
         </div>
       </div>
-    </section></>
+    </section>
+    </>
 );
 
 export default Footer;
