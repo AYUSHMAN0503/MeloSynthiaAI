@@ -98,7 +98,7 @@ Now, go to the original repository on GitHub and create a pull request from your
 
 Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
-![Alt text](client/logo/logo-transparent-png.png)
+![Alt text](client/public/images/logo-transparent-png.png)
 
 ## AI Models
 - **VQ-VAE Model:** Used for high-quality audio samples such as synthesizing songs and tunes.
