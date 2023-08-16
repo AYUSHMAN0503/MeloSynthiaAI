@@ -2,9 +2,35 @@ import { Link } from "react-router-dom";
 import Animatedpage from "../Animatedpage";
 import signup from "@/assets/signup.svg"
 import { motion } from "framer-motion";
-
+import {useState} from "react";
 const Signin = () => {
+  const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 
+	async function loginUser(event) {
+		event.preventDefault()
+
+		const response = await fetch('http://localhost:1337/api/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				email,
+				password,
+			}),
+		})
+
+		const data = await response.json()
+
+		if (data.user) {
+			localStorage.setItem('token', data.user)
+			alert('Login successful')
+			window.location.href = '/dashboard'
+		} else {
+			alert('Please check your username and password')
+		}
+	}
   return (
     <Animatedpage>
       <section className="flex flex-col md:flex-row h-screen items-center mt-2">
@@ -21,15 +47,18 @@ const Signin = () => {
 
             <h1 className=" text-white text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
 
-            <form className="mt-6" action="#" method="POST">
+            <form className="mt-6" action="#" method="POST" onSubmit={loginUser}>
               <div>
                 <label className="block text-white">Email Address</label>
-                <input type="email" name="" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
+                <input 
+                   value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email" name="" id="" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" required />
               </div>
 
               <div className="mt-4">
                 <label className="block text-white">Password</label>
-                <input type="password" name="" id="" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+                <input  value={password} onChange={(e) => setPassword(e.target.value)} name="" id="" placeholder="Enter Password" minLength={6} className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
                 focus:bg-white focus:outline-none" required />
               </div>
 
