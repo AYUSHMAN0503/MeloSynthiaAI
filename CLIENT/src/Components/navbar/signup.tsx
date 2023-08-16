@@ -5,6 +5,10 @@ import signup from "@/assets/signup.svg"
 import { motion } from "framer-motion"
 
 const Signup = () => {
+
+
+
+  
   return (
     <Animatedpage>
       <section className="flex flex-col md:flex-row h-screen items-center mt-2 mb-16">
