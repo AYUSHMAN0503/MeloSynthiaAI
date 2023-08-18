@@ -28,6 +28,7 @@ export default {
         "secondary-500": "#FFC132",
         "purple-500": "#8B5CF6",
         "gold-500": "#d4af37",
+        "gold-200": "#FFECB3",
 
       },
       backgroundImage: (theme) => ({
