@@ -12,6 +12,7 @@ export default {
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
         gold: '#FFD700',
+        purple: '#A855F7',
 
         
         "gray-20": "#F8F4EB",
@@ -25,6 +26,9 @@ export default {
         "primary-500": "#FF6B66",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
+        "purple-500": "#8B5CF6",
+        "gold-500": "#d4af37",
+
       },
       backgroundImage: (theme) => ({
         "gradient-yellowred": "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",

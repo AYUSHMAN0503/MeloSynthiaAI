@@ -23,9 +23,8 @@ return (
             src={logo}
             alt=""
             className="w-[266px] h-[72.14px] object-contain"/>
-          <p className={`${styles.paragraph} mt-4 max-w-[312px]`}>
-            Beyond human creativity - Immerse yourself in the ethereal symphonies of AI-composed melodies.
-          </p>
+          <p className={`${styles.paragraph} mt-4 max-w-[312px] bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text`}>
+            Beyond human creativity - Immerse yourself in the ethereal symphonies of AI-composed melodies.</p>
         </div>
         <div className="py-3" >
           <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">

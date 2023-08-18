@@ -84,7 +84,7 @@ const TeamMembers = [
       position: 'Backend and Database Developer',
       bio: 'A passionate web developer skilled in frontend and backend technologies, with a love for crafting engaging user experiences. Currently a sophomore, he`s combining academic excellence with hands-on coding expertise.',
       about:'Always exploring new web technologies to build innovative and user-friendly digital solutions.',
-      imageUrl: '/images/avinash.jpg',
+      imageUrl: '/images/avinash-jha.jpg',
       github: 'https://github.com/Avinash-sord12k',
       instagram: 'https://www.instagram.com//',
     },
