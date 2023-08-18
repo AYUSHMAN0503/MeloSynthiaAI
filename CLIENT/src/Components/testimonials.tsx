@@ -12,7 +12,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ name, image, text }) => {
       <img
         src={image}
         alt={name}
-        className="w-30 h-30 object-cover rounded-full border-4 border-white"
+        className="w-30 h-30 object-cover rounded-full border-4 border-gold"
       />
       <p className="text-lg font-bold mt-2 bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text">
         {name}

@@ -21,7 +21,7 @@ export const CreateMusic = () => {
         <div className='text-white w-2/5 border-r-2 px-4 '>
           <motion.button
             whileHover={{ scale: 1.1 }}
-            className='flex-shrink-0 border-dotted bg-none hover:bg-cyan-700 border-4 border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg'
+            className='flex-shrink-0 border-dotted hover:bg-cyan-700 border-4 border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg'
           >
             + New Music
           </motion.button>
