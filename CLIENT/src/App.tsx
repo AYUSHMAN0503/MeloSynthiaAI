@@ -15,6 +15,7 @@ import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import FeaturesSection from "./Components/FeaturesSection";
 
+
 function App() {
  
   return ( <>
