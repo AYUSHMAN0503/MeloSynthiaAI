@@ -1,28 +1,30 @@
 import React from 'react';
-import { Tabs, TabList, Tab, TabPanel } from '@chakra-ui/react';
-import BuyNFTs from './buyNFTs';
+import { Tabs, TabList, Tab, TabPanel,TabPanels } from '@chakra-ui/react';
+import BuyNFTs from './BuyNFTs';
 import SellNFTs from './SellNFTs';
-import { Link } from 'react-router-dom';
 
-
-const MarketplacePage = () => {
+const Marketplace= () => {
   return (
-    <div>
+    <div className='pt-8'>
       <h1 className="text-2xl font-semibold mb-4 text-white">Marketplace</h1>
-      <Tabs variant="enclosed">
-        <TabList>
-          <Tab>Buy</Tab>
-          <Tab>Sell</Tab>
-        </TabList>
-        <TabPanel>
-          <BuyNFTs />
-        </TabPanel>
-        <TabPanel>
-          <SellNFTs />
-        </TabPanel>
-      </Tabs>
+      <Tabs>
+  <TabList>
+    
+    <Tab>Buy</Tab>
+    <Tab>Sell</Tab>
+  </TabList>
+
+  <TabPanels>
+    <TabPanel>
+     <BuyNFTs/>
+    </TabPanel>
+    <TabPanel>
+     <SellNFTs/>
+    </TabPanel>
+  </TabPanels>
+</Tabs>
     </div>
   );
 };
 
-export default MarketplacePage;
+export default Marketplace;
