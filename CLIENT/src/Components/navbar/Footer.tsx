@@ -23,9 +23,8 @@ return (
             src={logo}
             alt=""
             className="w-[266px] h-[72.14px] object-contain"/>
-          <p className={`${styles.paragraph} mt-4 max-w-[312px]`}>
-            Beyond human creativity - Immerse yourself in the ethereal symphonies of AI-composed melodies.
-          </p>
+          <p className={`${styles.paragraph} mt-4 max-w-[312px] bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text`}>
+            Beyond human creativity - Immerse yourself in the ethereal symphonies of AI-composed melodies.</p>
         </div>
         <div className="py-3" >
           <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -77,7 +76,7 @@ return (
         
       </div>
      
-      <button type="button" className="text-white mb-3 " onClick={scrollToTop}><MdArrowUpward/></button>
+      <button type="button" className="text-gold mb-3 border-gold " onClick={scrollToTop}><MdArrowUpward/></button>
        <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3F3E45]">
         <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white">
           Copyright ©️ 2023, Team Web3 Sailors. All Rights Reserved.

@@ -1,4 +1,3 @@
-import React from 'react'
 import { LinearGradient } from 'react-text-gradients'
 
 export const Future = () => {
@@ -12,8 +11,9 @@ export const Future = () => {
      
         <div className='w-full flex justify-center mb-14'>
             <ul style={{ listStyleType: 'disc' }} className='text-white px-8 py-4 text-md md:lg lg:text-xl xl:text-2xl'>
-                <li className='mb-11'>Subsciption made for creating a song snipper</li>
+                <li className='mb-11'>Subsciption model for creating a song snippets</li>
                 <li className='mb-11'>Can add vocals to the generated music</li>
+                <li className='mb-11'>More options regarding duration and genres</li>
                 <li>.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .</li>
             </ul>
         </div>
