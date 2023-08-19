@@ -102,7 +102,7 @@ export const CreateMusic = () => {
 
   return (
     <Animatedpage>
-      <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-4 mb-8 mt-4 text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
+      <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 mb-8 mt-8 text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
         Generate your melodies with MeloSynthiaAI
       </h1>
 
