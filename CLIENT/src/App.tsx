@@ -33,7 +33,6 @@ function App() {
       < Route path="/TermsOfService" element={<TermsOfService/>} />
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
       < Route path="/Marketplace" element={<Marketplace/>} /> 
-
     </Routes>
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>

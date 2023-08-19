@@ -4,6 +4,7 @@ import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
 import Testimonial from '../testimonials';
 import testimonials from '../testimonialsData';
+import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import {
   Tabs,
   TabsHeader,
@@ -101,7 +102,7 @@ export const CreateMusic = () => {
 
   return (
     <Animatedpage>
-      <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-4 mb-8 mt-4 text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
+      <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 mb-8 mt-8 text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
         Generate your melodies with MeloSynthiaAI
       </h1>
 
@@ -199,21 +200,38 @@ export function TabsDefault() {
 
         </TabPanel>
         <TabPanel value="song-snippets">
-          <div className='text-white px-4 py-2 rounded-t-lg bg-app-bg container mx-auto p-8'>
-            <p>
-              Khada Hun Aaj Bhi Wahi, Ki Dil Fir Bekaraar Hai
-              Khada Hun Aaj Bhi Wahin, Ki Tera Intezaar Hai.</p>
-            <p>Chhoo Lo Jo Mujhe Tum Kabhi, Kho Na Jaun Main Raat Din
-              Nazaron Mein Tum Ho Basee, Kehdo Jo Tum Ek Baar
-              Mere Ho Bas Tum Mere, Nazaron Mein Tum Ho Basee</p>
-            <p>
-              Khada Hun Aaj Bhi Wahin
-              Lagi Teri Hi Aas Hai
-              Kaisi Hai Yeh Bebasi
-              Yeh Kaisi Dil Ki Pyaas Hai
-              Reh Jaunga Yunhi
-              Bas Yunhi Bas Yunhi
-            </p>
+          <div className="w-full flex flex-col">
+            <div className="text-center text-white px-4 py-8">
+              <h1 className="text-7xl"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Song Snippets </LinearGradient></h1>
+            </div>
+            <div className="flex flex-row gap-5 sm:gap-7 w-full justify-center py-4 flex-wrap">
+              <h2 className="text-white text-3xl md:text-4xl">Genre:</h2>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Hip Hop</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Rock</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Metal</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Classical</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Ambient</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">LoFi</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Cinematic</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Slow & Reverb</button>
+            </div>
+            <div className="w-full flex flex-wrap justify-center py-6 px-2 mt-4 gap-6">
+                <label htmlFor="vocalFile" className="w-100 lg:w-1/3 py-2 sm:py-3 px-4 xl:px-6 rounded bg-gradient-to-r from-gold-500 to-purple-500 hover:cursor-pointer">
+                  <div className="flex flex-row gap-4 py-2">
+                    <AddBoxOutlinedIcon className="scale-150" />
+                    <p className="text-xl text-center text-gray-900 mt-[-0.2rem]">Drop your vocal file here</p>
+                  </div>
+                </label>
+              <input type="file" id="vocalFile" className="hidden" />
+              <button
+                className='border-transparent bg-cyan-500 hover:bg-cyan-700 border-4 border-cyan-500 hover:border-cyan-700 text-xl text-white px-4 py-2 rounded-lg'
+                type='button'>
+                Create
+              </button>
+            </div>
+            <div className="text-white w-full flex justify-center text-lg m-4">
+              <p><span className="mr-1 font-bold">Caution:</span> MeloSynthiaAI does not Support and is not responsible for any copyright infringement of the vocals given in NFTs.</p>
+            </div>
           </div>
         </TabPanel>
       </TabsBody>
