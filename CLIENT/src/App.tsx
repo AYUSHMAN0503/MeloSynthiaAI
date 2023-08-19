@@ -14,7 +14,6 @@ import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import FeaturesSection from "./Components/FeaturesSection";
-import SongSnippets from "./Components/songSnippets.tsx"
 
 function App() {
  
@@ -32,7 +31,6 @@ function App() {
       < Route path="/Create Music" element={<CreateMusic/>} />
       < Route path="/TermsOfService" element={<TermsOfService/>} />
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
-      < Route path="/SongSnippets" element={<SongSnippets/>} /> 
     </Routes>
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
