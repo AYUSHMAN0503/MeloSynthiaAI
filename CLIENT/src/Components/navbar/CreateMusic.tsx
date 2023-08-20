@@ -68,20 +68,8 @@ const cardsData2 = [
 ];
 const cardsData3 = [
   {
-    title: '00:10'
-  },
-  {
-    title: '00:20'
-  },
-  {
     title: '00:30'
-  },
-  {
-    title: '00:40'
-  },
-  {
-    title: '00:50'
-  },
+  },  
   {
     title: '01:00'
   },
@@ -189,7 +177,7 @@ export function TabsDefault() {
             <div className='w-full flex  flex-row justify-center items-center py-8 flex-wrap'>
               <textarea
                 className='mr-[4vw] appearance-none bg-transparent w-[40vw] mb-6 text-white-700 py-[1vw] focus:outline-none text-lg border-2 rounded-lg pl-4'
-                placeholder="A pop music with Eminem song's beat"
+                placeholder="A pop music with selena's song's beat"
               />
               <button
                 className='flex-shrink-0 border-transparent bg-cyan-500 hover:bg-cyan-700 border-4 border-cyan-500 hover:border-cyan-700 text-lg text-white px-[2vw] py-[1vw] rounded-lg'
