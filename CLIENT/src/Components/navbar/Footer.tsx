@@ -46,7 +46,7 @@ return (
                       <Link  to="/Future" className="hover:underline">Future</Link>
                     </li>
                     <li >
-                      <Link  to="/Future" className="hover:underline">Lorem</Link>
+                      <Link  to="/Future" className="hover:underline">Sitemap</Link>
                     </li>
                     </ul>
                   </div>

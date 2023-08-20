@@ -31,7 +31,7 @@ const TeamMembers = [
 
     {
       name: 'Aayushya Kumar Chaudhary',
-      position: 'Full-stack Developer',
+      position: 'Full-stack & Research',
       bio: 'Meet Aayushya, a dedicated full stack engineer with a relentless enthusiasm for code and original ideas. When not buried in lines of code, he can be seen playing cricket, with the same tenacity that fuels his technological endeavors.',
       about:'He is also dedicated to empowering others through information sharing and aspires to create a company that combines innovation with the goal of empowering people.',
       imageUrl: '/images/aayushya-kr.jpg',
@@ -80,7 +80,7 @@ const TeamMembers = [
     },
     
     {
-      name: 'Avinash Kumar Jha',
+      name: 'Avinash Kr Jha',
       position: 'Backend and Database Developer',
       bio: 'A passionate web developer skilled in frontend and backend technologies, with a love for crafting engaging user experiences. Currently a sophomore, he`s combining academic excellence with hands-on coding expertise.',
       about:'Always exploring new web technologies to build innovative and user-friendly digital solutions.',
