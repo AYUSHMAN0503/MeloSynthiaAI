@@ -15,6 +15,7 @@ import {
 import CardList from './Cardlist';
 import { CardList2 } from './Cardlist';
 import CustomFileInput from './FileInput';
+import PromptSection from './Prompt';
 const cardsData = [
   {
     title: 'Hip-Hop',
@@ -145,7 +146,7 @@ export function TabsDefault() {
 
       <TabsBody>
         <TabPanel value="dashboard">
-          <div className='container pt-14 px-6 pb-6 flex flex-wrap pr-0'>
+          <div className='container pt-14 lg:px-6 pb-6 flex flex-wrap pr-0'>
             <div className="container mx-auto py-8">
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}> Choose Your Genre:</LinearGradient></h1>
               <CardList cards={cardsData} />
@@ -162,31 +163,31 @@ export function TabsDefault() {
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Choose Tempo:</LinearGradient></h1>
               <CardList2 cards={cardsData4} />
             </div>
-            <div className='text-white w-3/5 border-0 px-4 lg:w-2/5 lg:border-r-2 pb-28'>
+          </div>
+          <div>
+            <div className='text-white border-0 px-4 md:w-2/5 w-[70%]  pb-16 flex items-center flex-wrap md:float-left pt-12 md:border-r-2 border-sky-500 justify-evenly'>
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                className='flex-shrink-0 border-dotted hover:bg-cyan-700 border-4 border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg'
+                className='h-12 flex flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg items-center'
               >
-                + New Music
-              </motion.button>
-              <h3 className='p-10 flex justify-left'>
-                Your Generated NFTs/Music
-              </h3>
-            </div>
-
-            <div className='w-full flex  flex-row justify-center items-center py-8 flex-wrap'>
-              <textarea
-                className='mr-[4vw] appearance-none bg-transparent w-[40vw] mb-6 text-white-700 py-[1vw] focus:outline-none text-lg border-2 rounded-lg pl-4'
-                placeholder="A pop music with selena's song's beat"
-              />
-              <button
-                className='flex-shrink-0 border-transparent bg-cyan-500 hover:bg-cyan-700 border-4 border-cyan-500 hover:border-cyan-700 text-lg text-white px-[2vw] py-[1vw] rounded-lg'
-                type='button'>
                 Compose
-              </button>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                className='h-12 flex flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg items-center'
+              >
+                New Music
+              </motion.button>
+            </div>
+            
+            <div className='md:w-2/4 w-[90%] sm:pl-8 flex pr-5 flex-row justify-center items-center py-4 md:pl-16 ml-6 md:ml-16 flex-wrap'>
+              <PromptSection/>
             </div>
           </div>
-
+          <br />
+          <h3 className='p-10 pt-20 pb-20 flex justify-center text-white'>
+            Your Generated NFTs/Music
+          </h3>
         </TabPanel>
         <TabPanel value="song-snippets">
           <div className="w-full flex flex-col">
@@ -214,7 +215,6 @@ export function TabsDefault() {
               <p><span className="mr-1 font-bold">Caution:</span> MeloSynthiaAI does not Support and is not responsible for any copyright infringement of the vocals given in NFTs.</p>
             </div>
           </div>
-
         </TabPanel>
       </TabsBody>
     </Tabs>
