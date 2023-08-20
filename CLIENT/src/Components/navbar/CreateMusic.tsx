@@ -177,23 +177,23 @@ export function TabsDefault() {
             </div>
           </div>
           <div>
-            <div className='text-white border-0 px-4 w-2/5  pb-24 flex items-center flex-wrap float-left pt-12 border-r-2 border-sky-500 justify-evenly'>
+            <div className='text-white border-0 px-4 md:w-2/5 w-[70%]  pb-16 flex items-center flex-wrap md:float-left pt-12 md:border-r-2 border-sky-500 justify-evenly'>
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                className='flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg'
+                className='h-12 flex flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg items-center'
               >
                 Compose
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                className='flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg'
+                className='h-12 flex flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg items-center'
               >
                 New Music
               </motion.button>
             </div>
-
-            <div className='w-2/4 flex pr-5 flex-row justify-center items-center py-4 pl-16 ml-16 flex-wrap'>
-              <PromptSection />
+            
+            <div className='md:w-2/4 w-[90%] sm:pl-8 flex pr-5 flex-row justify-center items-center py-4 md:pl-16 ml-6 md:ml-16 flex-wrap'>
+              <PromptSection/>
             </div>
           </div>
           <br />
