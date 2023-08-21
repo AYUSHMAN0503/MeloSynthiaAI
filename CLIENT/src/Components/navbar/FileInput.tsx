@@ -1,4 +1,3 @@
-"use client";
 import React, { useRef, useState } from "react";
 import { CloudArrowUpIcon } from "@heroicons/react/24/outline";
 const CustomFileInput = () => {
@@ -24,7 +23,7 @@ const CustomFileInput = () => {
         className="p-4 flex flex-col items-center gap-2  bg-violet-50 text-violet-500 rounded-lg hover:bg-violet-100 cursor-pointer"
       >
         <CloudArrowUpIcon className="w-6 h-6" />
-        <span>Choose some files to upload</span>
+        <span>Drop your vocal file here</span>
         <input
           type="file"
           ref={ref}

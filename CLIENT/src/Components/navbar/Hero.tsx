@@ -2,7 +2,6 @@ import styles from "@/index";
 import music from "@/assets/music.png";
 import { LinearGradient } from 'react-text-gradients'
 import { motion } from "framer-motion";
-import React from "react"
 import { Link } from "react-router-dom";
 import "./Test3.css"
 const scrollToTop = () => {

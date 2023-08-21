@@ -4,7 +4,6 @@ import { socialMedia} from "@/index";
 import { Link } from "react-router-dom";
 import React from "react";
 import {MdArrowUpward} from "react-icons/md"
-import linkedin from "@/assets/icons8-linkedin.svg"
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };

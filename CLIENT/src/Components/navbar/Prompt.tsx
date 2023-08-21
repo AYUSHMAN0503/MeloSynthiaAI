@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Sending from "@/assets/sending.svg"
 const PromptSection: React.FC = () => {
   const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
   const [currentPrompt, setCurrentPrompt] = useState<string>('');
@@ -19,10 +17,6 @@ const PromptSection: React.FC = () => {
     if (event.key === 'Enter') {
       handleAddPrompt();
     }
-  };
-
-  const toggleHistory = () => {
-    setIsModalOpen(!isModalOpen);
   };
 
   return (
