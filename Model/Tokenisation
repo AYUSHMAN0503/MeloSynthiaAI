@@ -1,0 +1,54 @@
+import mido
+from mido import MidiFile, MidiTrack, Message
+
+# Generate the MIDI content (replace this with your own generation logic)
+# Create a MIDI file object
+generated_midi = MidiFile()
+
+# Add a track to the MIDI file
+track = MidiTrack()
+generated_midi.tracks.append(track)
+
+# Add note-on and note-off messages to the track to create a melody
+notes = [60, 62, 64, 65, 67, 69, 71, 72]  # MIDI note numbers (C4 to C5)
+for note in notes:
+    track.append(Message('note_on', note=note, velocity=64, time=100))
+    track.append(Message('note_off', note=note, velocity=64, time=100))
+
+# Save the generated MIDI content to a file
+generated_midi_file = 'generated_melody.mid'
+generated_midi.save(generated_midi_file)
+
+# Load the generated MIDI file
+midi_file = MidiFile(generated_midi_file)
+
+# Define a list to store the tokenized events
+tokenized_events = []
+
+# Iterate through the MIDI tracks and events
+for track in midi_file.tracks:
+    for event in track:
+        # Extract relevant event information
+        event_type = event.type
+        if hasattr(event, 'note'):
+            pitch = event.note
+        else:
+            pitch = None
+        if hasattr(event, 'velocity'):
+            velocity = event.velocity
+        else:
+            velocity = None
+        
+        # Create a token dictionary
+        token = {
+            'event_type': event_type,
+            'pitch': pitch,
+            'velocity': velocity
+        }
+        
+        # Append the token to the list
+        tokenized_events.append(token)
+
+# Print the tokenized events
+for token in tokenized_events:
+    print(token)
