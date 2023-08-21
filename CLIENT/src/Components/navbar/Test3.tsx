@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Navbar,
-  MobileNav,
   IconButton,
   Collapse,
 } from "@material-tailwind/react";
@@ -9,7 +8,6 @@ import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transpar
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
-import { useState } from "react";
 import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });

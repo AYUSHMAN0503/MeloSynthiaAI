@@ -13,7 +13,6 @@ import Signin from "./Components/navbar/Signin";
 import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
-import FeaturesSection from "./Components/FeaturesSection";
 import Marketplace from "./Components/Marketplace";
 
 function App() {

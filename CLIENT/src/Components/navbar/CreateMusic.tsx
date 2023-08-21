@@ -70,7 +70,7 @@ const cardsData2 = [
 const cardsData3 = [
   {
     title: '00:30'
-  },  
+  },
   {
     title: '01:00'
   },
@@ -87,17 +87,13 @@ const cardsData4 = [
   }
 ];
 
-
 export const CreateMusic = () => {
-
   return (
     <Animatedpage>
       <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 mb-8 mt-8 text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
         Generate your melodies with MeloSynthiaAI
       </h1>
-
       <TabsDefault />
-
       <div className='container mx-auto p-8'>
         <h2 className='text-4xl font-bold text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
           Users who immersed themselves in ethereal symphonies!!
@@ -128,21 +124,14 @@ export function TabsDefault() {
             value="dashboard"
             className={`border border-gold text-purple-500 px-4 py-2 rounded-t-lg ${activeTab === 'dashboard' ? 'bg-gold-200' : 'bg-app-bg'
               }`}
-            onClick={() => setActiveTab('dashboard')}
-          >
-            Dashboard
-          </Tab>
+            onClick={() => setActiveTab('dashboard')}>Dashboard</Tab>
           <Tab
             value="song-snippets"
             className={`border border-gold text-purple-500 px-4 py-2 rounded-t-lg ${activeTab === 'song-snippets' ? 'bg-gold-200' : 'bg-app-bg'
               }`}
-            onClick={() => setActiveTab('song-snippets')}
-          >
-            Song Snippets
-          </Tab>
+            onClick={() => setActiveTab('song-snippets')}>Song Snippets</Tab>
         </TabsHeader>
       </div>
-
 
       <TabsBody>
         <TabPanel value="dashboard">
@@ -179,9 +168,9 @@ export function TabsDefault() {
                 New Music
               </motion.button>
             </div>
-            
+
             <div className='md:w-2/4 w-[90%] sm:pl-8 flex pr-5 flex-row justify-center items-center py-4 md:pl-16 ml-6 md:ml-16 flex-wrap'>
-              <PromptSection/>
+              <PromptSection />
             </div>
           </div>
           <br />
@@ -208,7 +197,7 @@ export function TabsDefault() {
             </div>
             <div className="w-full flex flex-wrap justify-center py-6 px-2 mt-4 gap-6">
               <CustomFileInput />
-              <button className="w-32 h-12 content-center flex-wrap self-center flex justify-center bg-transparent bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Create
+              <button className="w-32 h-12 content-center flex-wrap self-center flex justify-center bg-transparent bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-blue-500 rounded">Create
               </button>
             </div>
             <div className="text-white w-full flex justify-center text-lg m-4">

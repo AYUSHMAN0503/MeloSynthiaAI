@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { LinearGradient } from 'react-text-gradients';
-import musical from "@/assets/musical.jpg";
-import { m } from 'framer-motion';
 
 export const NewsLetter = () => {
   const [email, setEmail] = useState('');
