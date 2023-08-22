@@ -14,4 +14,6 @@ module.exports = {
 
   port: 5000,
   jwt_secret: process.env.JWT_SECRET_TOKEN,
+
+  online_domain: "https://melosynthia-ai.onrender.com/",
 };
