@@ -4,10 +4,9 @@
   "description": "Backend for melosynthiaai",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install",
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "build": "npm install"
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,8 +16,8 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.1",
-    "nodemailer": "^6.9.4",
     "mongoose": "^7.4.3",
+    "nodemailer": "^6.9.4",
     "nodemon": "^3.0.1"
   }
 }
