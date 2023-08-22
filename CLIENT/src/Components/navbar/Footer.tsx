@@ -64,7 +64,7 @@ return (
                       <Link to="/PrivacyPolicy" className="hover:underline">Privacy Policy</Link>
                     </li>
                     <li>
-                      <Link to="/PrivacyPolicy" className="hover:underline">Contact</Link>
+                      <Link to="/ContactUs" className="hover:underline">Contact</Link>
                     </li>
                     </ul>
                   </div>
