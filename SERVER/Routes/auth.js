@@ -28,7 +28,7 @@ router.post('/signup', async (req, res) => {
     await user.save();
 
     const authToken = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: '1d' });
-
+    console.log("User created successfully: ", user.username);
     res.status(201).send({
       message: 'User created successfully',
       success: true,
@@ -36,7 +36,7 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (error) {
-    console.log(error);
+    console.log("Internal server error in signup: ", error);
     res.status(500).send({
       status: false,
       message: 'Server error'
@@ -59,21 +59,20 @@ router.post('/signin', async (req, res) => {
     });
 
     const authenticatePassword = await bcrypt.compare(password, user.password);
-    console.log(authenticatePassword);
     if (!authenticatePassword) return res.status(400).send({
       message: "Incorrect password",
       success: false
     });
 
     const authToken = jwt.sign({ id: user.id }, jwt_secret);
-
+    console.log("User logged in successfully: ", user.username);
     res.status(200).send({
       message: "User logged in successfully",
       success: true,
       authToken,
     });
   } catch (error) {
-    console.log(error);
+    console.log("Internal server error in signin: ", error);
     res.status(500).send({
       message: "Internal server error",
       success: false,
@@ -99,9 +98,7 @@ router.post('/request-otp', async (req, res) => {
 
     await user.save();
 
-    const sentStatus = await sendOtp(user.username, email, otp);
-
-    console.log(sentStatus);
+    await sendOtp(user.username, email, otp);
 
     res.status(200).send({
       message: "Password reset request initiated. Check your email for OTP.",
@@ -121,7 +118,6 @@ router.post('/request-otp', async (req, res) => {
 router.post('/reset-password', async (req, res) => {
   const { email, otp, password } = req.body;
   console.log("reset password request: ");
-  console.table({email, otp, password});
 
   try {
     if (!email || !otp || !password) return res.status(400).send({
@@ -151,7 +147,7 @@ router.post('/reset-password', async (req, res) => {
     user.resetOtp = undefined;
     user.resetOtpExpiration = undefined;
     await user.save();
-
+    console.log("Password reset successful: ", user.username);
     res.status(200).send({
       success: true,
       message: "Password reset successful"
