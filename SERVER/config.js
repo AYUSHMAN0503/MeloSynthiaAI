@@ -1,15 +1,17 @@
-module.exports = {
+require('dotenv').config();
 
-  dbUrl: 'mongodb+srv://avinash2002a:XCsACSsiKGBZhXRX@cluster0.uubfwez.mongodb.net/melosynthia',
+module.exports = {
+  dbUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.uubfwez.mongodb.net/melosynthia`,
 
   smtp: {
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
     auth: {
-      user: 'fastmail4209211@gmail.com',
-      pass: 'jXWmn5x3Q!SoAPf',
+      user: process.env.SMTP_AUTH_USER,
+      pass: process.env.SMTP_AUTH_PASSWORD,
     },
   },
 
   port: 5000,
-  jwt_token: "ilovemusic",
+  jwt_secret: process.env.JWT_SECRET_TOKEN,
 };

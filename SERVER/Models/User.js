@@ -18,6 +18,8 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  resetOtp: Number,
+  resetOtpExpiration: Date
 });
 
 module.exports = mongoose.model('User', userSchema);
