@@ -15,7 +15,7 @@ It also facilitates people to buy NFTs from other users to use in their own song
 - **AI-powered music generation:** Our platform uses AI to generate lyrics and music that are both original and creative.
 - **Song Snippets:** Users can add their vocals and ask AI to generate a song for them accordingly.
 - **NFT mining:** Users can mint their generated creation as NFTs for free,which can then be sold or traded on our marketplace.
-- **Decentralized Marketplace:** Our marketplace is decentralized, which means that users have control over their own music and lyrics.
+- **HD tunes:** Our model will give you high quality tunes.
 - **Collaboration:** Users can buy NFTs from other users to use in their own songs.
 
 ## AI Models

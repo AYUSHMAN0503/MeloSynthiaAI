@@ -32,7 +32,7 @@ const AboutUs: React.FC = () => {
         <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
           Meet Our Team - WEB 3 Sailors
         </h2>
-        <p className="mt-2">A talented group of individuals who are building awesome things.</p>
+        <p className="mt-2">A talented group of individuals striving to build awesome things.</p>
       </div>
 
       <section className="align items-end py-10">

@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
       </h1>
 
       <p className="mb-4 text-xl">
-        Last Updated: August 20, 2023
+        Last Updated: August 23, 2023
       </p>
 
       <p>
@@ -55,7 +55,6 @@ const PrivacyPolicy = () => {
       <ul className="list-disc pl-6 mb-6">
         <li>Email address</li>
         <li>First name and last name</li>
-        <li>Phone number</li>
         <li>Phone number</li>
       </ul>
 
