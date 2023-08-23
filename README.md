@@ -53,7 +53,7 @@ Start the server
 
 Contributions are always welcome!
 
-To merge your changes from the cloned repository back into the original repository on GitHub, you typically follow these steps:
+To merge your changes from the cloned repository back into the original repository on GitHub, you have to typically follow these steps:
 
 - Step 1: Add the original repository as a remote (if you haven't done it already)
 
@@ -98,6 +98,7 @@ Now, go to the original repository on GitHub and create a pull request from your
 ## 📝Documentation
 
 [React+Typescript](https://react-typescript-cheatsheet.netlify.app/)
+[Blockchain intro](https://www.ibm.com/topics/blockchain)
 
 ## Copyright
 
