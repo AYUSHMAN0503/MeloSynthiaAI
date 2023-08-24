@@ -7,7 +7,7 @@ const TermsOfService = () => {
       <h1 className="text-6xl font-bold mb-7 text-center pt-2">< LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Melosynthia AI Terms of Service</LinearGradient></h1>
 
       <p className="mb-4 text-2xl">
-        Last Updated: August 11, 2023
+        Last Updated: August 24, 2023
       </p>
 
       <p>
