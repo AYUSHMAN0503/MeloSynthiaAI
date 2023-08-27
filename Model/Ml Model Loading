@@ -1,0 +1,19 @@
+from flask import Flask, request, jsonify
+import joblib
+
+app = Flask(__name__)
+
+model = joblib.load("your_model.pkl")  # Replace with actual model file
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.get_json()
+    input_data = data['input']  # Assuming input is passed as 'input' field in JSON
+
+    # Perform prediction using the loaded model
+    prediction = model.predict([[input_data]])  # Assuming a single input value
+    
+    return jsonify({'prediction': prediction[0]})
+
+if __name__ == '__main__':
+    app.run()
