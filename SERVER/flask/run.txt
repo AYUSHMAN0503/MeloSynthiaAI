@@ -1,0 +1,9 @@
+1. Installation steps: 
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python predict.py
+
+
+2. Test command (paste it in terminal): 
+curl -X POST -H "Content-Type: application/json" -d '{"query": "This is a sample query."}' http://127.0.0.1:7000/predict
