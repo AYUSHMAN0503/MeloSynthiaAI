@@ -1,0 +1,129 @@
+!pip install keras
+
+!pip install keras_preprocessing
+import keras_preprocessing
+
+!pip install pad_sequences
+import pad_sequences
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+import string, os
+import tensorflow as tf
+
+# keras module for building LSTM
+from keras_preprocessing.sequence import pad_sequences
+from tensorflow.keras.layers import Embedding, Dropout, LSTM, Dense, Bidirectional
+from keras.preprocessing.text import Tokenizer
+from keras.callbacks import EarlyStopping
+from keras.models import Sequential
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('/content/drive/MyDrive/Colab Notebooks/lyrics-data.csv')
+
+df.head()
+
+df.drop(['ALink', 'SName','SLink'],axis=1,inplace=True)
+
+df.shape
+
+df['language'].value_counts()
+
+df = df[df['language']=='en']
+
+df = df[:350]
+
+df.shape
+
+df['Number_of_words'] = df['Lyric'].apply(lambda x:len(str(x).split()))
+df.head()
+
+df['Number_of_words'].describe()
+
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+plt.figure(figsize=(12,6))
+sns.distplot(df['Number_of_words'],kde = False,color="red",bins=200)
+plt.title("Frequency distribution of number of words for each text extracted", size=20)
+
+tokenizer = Tokenizer()
+tokenizer.fit_on_texts(df['Lyric'].astype(str).str.lower())
+
+total_words = len(tokenizer.word_index)+1
+tokenized_sentences = tokenizer.texts_to_sequences(df['Lyric'].astype(str))
+tokenized_sentences[0]
+
+input_sequences = list()
+for i in tokenized_sentences:
+    for t in range(1, len(i)):
+        n_gram_sequence = i[:t+1]
+        input_sequences.append(n_gram_sequence)
+
+# Pre padding
+max_sequence_len = max([len(x) for x in input_sequences])
+input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding='pre'))
+
+input_sequences[:10]
+
+X, labels = input_sequences[:,:-1],input_sequences[:,-1]
+y = tf.keras.utils.to_categorical(labels, num_classes=total_words)
+
+model = Sequential()
+model.add(Embedding(total_words, 40, input_length=max_sequence_len-1))
+model.add(Bidirectional(LSTM(250)))
+model.add(Dropout(0.1))
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+earlystop = EarlyStopping(monitor='loss', min_delta=0, patience=3, verbose=0, mode='auto')
+history = model.fit(X, y, epochs=1, verbose=1, callbacks=[earlystop])
+
+plt.plot(history.history['accuracy'], label='train acc')
+plt.legend()
+plt.show()
+plt.savefig('AccVal_acc')
+
+def complete_this_song(seed_text, next_words):
+    for _ in range(next_words):
+        token_list = tokenizer.texts_to_sequences([seed_text])[0]
+        token_list = pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
+        #predicted = model.predict_classes(token_list, verbose=0)
+        predict_x=model.predict(token_list, verbose=0)
+        classes_x=np.argmax(predict_x,axis=1)
+        output_word = ""
+        for word, index in tokenizer.word_index.items():
+            if index == classes_x:
+                output_word = word
+                break
+        seed_text += " " + output_word
+    return seed_text
+
+complete_this_song("the sky is blue", 40)
+
+
+
+
+
+!pip install keras.models
+
+from tensorflow.keras.models import load_model
+model.save('/content/drive/MyDrive/Colab Notebooks/song_lyrics_generator.h5')
+
+import tensorflow as tf
+
+!pip install gradio
+import gradio as gr
+
+interface = gr.Interface(fn= complete_this_song,
+                         inputs= ['text', gr.inputs.Slider(0,250, label='No. of words')],
+                         outputs='text')
+
+interface = gr.Interface(fn= complete_this_song,
+                         inputs= ['text', gr.inputs.Slider(0,250, label='No. of words')],
+                         outputs='text')
+
+interface.launch()
