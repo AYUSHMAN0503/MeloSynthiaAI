@@ -3,7 +3,7 @@ const router = express.Router();
 const { authenticateUser } = require('../Middleware/auth');
 const { fileUpload, createTempUrl, deleteTempFile } = require('../Utils/fileUpload');
 const Query = require('../Models/Query');
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-commonjs')
 
 
 router.post('/query', authenticateUser, async (req, res) => {
