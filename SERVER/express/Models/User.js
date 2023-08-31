@@ -19,7 +19,9 @@ const userSchema = new Schema({
     default: Date.now
   },
   resetOtp: Number,
-  resetOtpExpiration: Date
+  resetOtpExpiration: Date,
+  isVerified: Boolean,
+  verificationToken: String,
 });
 
 module.exports = mongoose.model('User', userSchema);

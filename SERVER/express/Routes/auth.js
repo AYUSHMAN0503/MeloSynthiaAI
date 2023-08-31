@@ -66,11 +66,12 @@ router.post('/signin', async (req, res) => {
 
     const authToken = jwt.sign({ id: user.id }, jwt_secret);
     console.log("User logged in successfully: ", user.username);
-    res.status(200).send({
-      message: "User logged in successfully",
-      success: true,
-      authToken,
-    });
+    res.status(200)
+      .cookie("authToken", authToken, { httpOnly: true, secure: true, sameSite: "none" })
+      .send({
+        message: "User logged in successfully",
+        success: true,
+      });
   } catch (error) {
     console.log("Internal server error in signin: ", error);
     res.status(500).send({
