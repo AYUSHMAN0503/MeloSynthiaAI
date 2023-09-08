@@ -69,18 +69,21 @@ const cardsData2 = [
 ];
 const cardsData3 = [
   {
-    title: '00:30'
+    title: 'Minuscule'
   },
   {
-    title: '01:00'
+    title: 'Moderate'
+  },
+  {
+    title: 'Substantial'
   },
 ];
 const cardsData4 = [
   {
-    title: 'Slow'
+    title: 'Gentle'
   },
   {
-    title: 'Normal'
+    title: 'Standard'
   },
   {
     title: 'Fast'
@@ -152,8 +155,12 @@ export function TabsDefault() {
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Choose Tempo:</LinearGradient></h1>
               <CardList2 cards={cardsData4} />
             </div>
+            <div className='md:w-3/4 w-[90%] sm:pl-9 flex flex-row items-center py-8 md:pl-16 ml-6 md:ml-16 flex-wrap justify-start'>
+              <PromptSection />
+            </div>
           </div>
-          <div>
+
+          {/*<div>
             <div className='text-white border-0 px-4 md:w-2/5 w-[70%]  pb-16 flex items-center flex-wrap md:float-left pt-12 md:border-r-2 border-sky-500 justify-evenly'>
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -168,13 +175,9 @@ export function TabsDefault() {
                 New Music
               </motion.button>
             </div>
+            </div>*/}
 
-            <div className='md:w-2/4 w-[90%] sm:pl-8 flex pr-5 flex-row justify-center items-center py-4 md:pl-16 ml-6 md:ml-16 flex-wrap'>
-              <PromptSection />
-            </div>
-          </div>
-          <br />
-          <h3 className='p-10 pt-20 pb-20 flex justify-center text-white'>
+          <h3 className='p-10 pt-20 pb-20 flex justify-center text-white text-xl'>
             Your Generated NFTs/Music
           </h3>
         </TabPanel>

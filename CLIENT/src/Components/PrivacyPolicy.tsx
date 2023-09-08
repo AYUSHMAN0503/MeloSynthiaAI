@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
       </h1>
 
       <p className="mb-4 text-xl">
-        Last Updated: August 31, 2023
+        Last Updated: 8th September, 2023
       </p>
 
       <p>
