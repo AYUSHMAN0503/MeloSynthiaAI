@@ -18,6 +18,9 @@ const PromptSection: React.FC = () => {
       handleAddPrompt();
     }
   };
+  
+
+
 
   return (
     <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full">
