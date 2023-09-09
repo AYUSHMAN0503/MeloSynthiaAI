@@ -8,10 +8,17 @@ import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transpar
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
+
 import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
+declare global {
+  interface Window {
+    ethereum?: unknown; // Declare ethereum property on window
+  }
+}
+
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
   React.useEffect(() => {
@@ -22,8 +29,8 @@ export function NavbarDefault() {
   }, []);
 
 
-
   const navList = (
+
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-4">
 
       <Link to="#" >
@@ -44,15 +51,16 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
         </motion.button>
       </Link>
-      <Link to="#"><motion.button
+      <Link to="#" ><motion.button
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60">
+        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60" >
        Connect Wallet
       </motion.button>
       </Link>
 
     </ul>
   );
+  
 
   return (<>
 
@@ -145,3 +153,4 @@ export function NavbarDefault() {
     </>
   );
 }
+
