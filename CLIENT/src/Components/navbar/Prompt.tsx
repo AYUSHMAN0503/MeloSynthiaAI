@@ -1,13 +1,35 @@
 import React, { useState } from 'react';
+import axios from 'axios'
+// const [isModalOpen, setIsModalOpen] = useState()
+
+
+
 const PromptSection: React.FC = () => {
   const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
   const [currentPrompt, setCurrentPrompt] = useState<string>('');
   // const [promptHistory, setPromptHistory] = useState<string[]>([]);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
+  
+  const [musicData, setMusicData] = useState(null);
   const handleAddPrompt = () => {
     if (currentPrompt.trim() !== '') {
-      setPrompts([...prompts, currentPrompt]);
+      setPrompts([...prompts, currentPrompt])
+      axios({
+        method: "POST",
+        url: "/query",
+       
+      })
+        .then((response) => {
+          const res = response.data;
+          setMusicData(res);
+        })
+        .catch((error) => {
+          if (error.response) {
+            console.log(error.response);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        });
+      
       // setPromptHistory([...promptHistory, currentPrompt]);
       setCurrentPrompt('');
     }
@@ -35,11 +57,13 @@ const PromptSection: React.FC = () => {
           value={currentPrompt}
           onChange={(e) => setCurrentPrompt(e.target.value)}
           onKeyPress={handleKeyPress}
+          
         />
         <button
           className="bg-white border-zinc-00 border text-white rounded-r-md p-2 ml-1 hover:bg-blue-600 transition duration-200"
           onClick={handleAddPrompt}
         >
+          {musicData && <audio src={musicData} controls />}
         <svg style={{color:"rgb(46, 175, 255)"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
         </button>
       </div>
