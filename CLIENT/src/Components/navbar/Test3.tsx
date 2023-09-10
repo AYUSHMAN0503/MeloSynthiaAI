@@ -13,11 +13,7 @@ import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
-declare global {
-  interface Window {
-    ethereum?: unknown; // Declare ethereum property on window
-  }
-}
+
 const connectWallet = () => {
   if (window.ethereum) {
     window.ethereum.request({ method: "eth_requestAccounts" });
