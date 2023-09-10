@@ -5,6 +5,7 @@ import { LinearGradient } from 'react-text-gradients';
 import Testimonial from '../testimonials';
 import testimonials from '../testimonialsData';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
+import axios from "axios";
 import {
   Tabs,
   TabsHeader,
@@ -91,6 +92,10 @@ const cardsData4 = [
 ];
 
 export const CreateMusic = () => {
+  // const [musicData, setMusicData] = useState(null);
+
+ 
+
   return (
     <Animatedpage>
       <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 mb-8 mt-8 text-center bg-gradient-to-r from-gold-500 to-purple-500 text-transparent bg-clip-text'>
@@ -118,7 +123,28 @@ export const CreateMusic = () => {
 
 export function TabsDefault() {
   const [activeTab, setActiveTab] = useState('dashboard');
-
+  const handleSubmit = (e) => {
+    // prevent the default behavior of the form
+    e.preventDefault();
+  
+    // get the values from the form inputs
+    const genre = e.target.genre.value;
+    const style = e.target.style.value;
+    const length = e.target.length.value;
+    const tempo = e.target.tempo.value;
+    const query = e.target.query.value;
+  
+    // send a POST request to the backend endpoint with the values
+    axios.post('/query', { genre, style, length, tempo, query })
+      .then(response => {
+        // handle the response from the backend
+        console.log(response.data);
+      })
+      .catch(error => {
+        // handle any error from the request
+        console.error(error);
+      });
+  };
   return (
     <Tabs value={activeTab}>
       <div className="flex justify-center  ml-64 md:ml-0"> {/* Center the tabs */}
@@ -138,10 +164,11 @@ export function TabsDefault() {
 
       <TabsBody>
         <TabPanel value="dashboard">
-          <div className='container pt-14 lg:px-6 pb-6 flex flex-wrap pr-0'>
+          <div className= 'container pt-14 lg:px-6 pb-6 flex flex-wrap pr-0'onClick={handleSubmit} >
             <div className="container mx-auto py-8">
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}> Choose Your Genre:</LinearGradient></h1>
-              <CardList cards={cardsData} />
+              <CardList cards={cardsData}    />
+             
             </div>
             <div className="container mx-auto py-8">
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Choose Style:</LinearGradient></h1>
