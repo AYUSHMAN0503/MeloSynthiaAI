@@ -50,9 +50,7 @@ const ContactUs: React.FC = () => {
 
     setErrors(newErrors);
 
-    // Submit the form if there are no errors
     if (Object.keys(newErrors).length === 0) {
-      // Perform form submission logic here
       alert('Form submitted successfully!');
     }
   };

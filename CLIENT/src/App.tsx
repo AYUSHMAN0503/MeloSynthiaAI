@@ -2,14 +2,12 @@ import {NavbarDefault} from "./Components/navbar/Test3";
 import Footer from "./Components/navbar/Footer";
 import Home from "./Home";
 import styles from "@/index";
-import Signup from "./Components/navbar/signup";
 import AboutUs from "./Components/navbar/AboutUs";
 import {Future} from "./Components/Future";
 import {
   BrowserRouter as Router,
   Routes,
   Route } from "react-router-dom";
-import Signin from "./Components/navbar/Signin";
 import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
