@@ -26,7 +26,7 @@ return (
             Beyond human creativity - Immerse yourself in the ethereal symphonies of AI-composed melodies.</p>
         </div>
         <div className="py-3" >
-          <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-2">
             <div className="md:flex md:justify-between">
               <div className="font-poppins font-normal sm:grid grid-cols-2 gap-8 sm:gap-48" >
                 <div>
@@ -37,7 +37,7 @@ return (
                     About and Beyond
                   </button>
                  
-                <ul className={about ? 'text-gray-500 dark:text-gray-400 font-medium ' : 'hidden'} onClick={scrollToTop}>
+                <ul className={about ? 'text-white font-medium ' : 'hidden'} onClick={scrollToTop}>
                     <li className="mb-4" >
                       <Link to="/AboutUs" className="hover:underline">About </Link>
                     </li>
@@ -56,7 +56,7 @@ return (
                     }}>
                     Terms Of Use
                   </button>
-                  <ul className={terms ? 'text-gray-500 dark:text-gray-400 font-medium' : 'hidden'} onClick={scrollToTop}>
+                  <ul className={terms ? 'text-white  font-medium' : 'hidden'} onClick={scrollToTop}>
                     <li className="mb-4">
                       <Link to="/TermsOfService" className="hover:underline">Terms Of Service</Link>
                     </li>

@@ -4,7 +4,7 @@ import { FaMusic, FaBitcoin } from 'react-icons/fa'
 function Steps({ title, desc, icon }:any) {
   return (
     <>
-      <div className='border border-slate-800 px-8 py-10 group hover:bg-cyan-400 duration-500 ease-in-out rounded-2xl'>
+      <div className='px-8 py-10 group hover:bg-cyan-400 duration-500 ease-in-out rounded-2xl'>
         <div className='flex items-center flex-col space-y-4 '>
           <div className='relative'>
             {/* Hexagon */}

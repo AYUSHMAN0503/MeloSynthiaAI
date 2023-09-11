@@ -19,7 +19,7 @@ const FeaturesSection: React.FC = () => {
           <div className="w-full md:w-1/2 md:pr-10 text-center md:text-left">
             <div className="flex flex-col space-y-6">
               {/* Feature Box 1 */}
-              <div className="flex items-center space-x-4 border border-white rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
+              <div className="flex items-center space-x-4 rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
                 <div className="bg-white rounded-full p-3">
                   {/* Icon */}
                   <RiNftFill />
@@ -31,7 +31,7 @@ const FeaturesSection: React.FC = () => {
                 </div>
               </div>
               {/* ... Feature Box 2 ... */}
-              <div className="flex items-center space-x-4 border border-white rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
+              <div className="flex items-center space-x-4  rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
                 <div className="bg-white rounded-full p-3">
                   {/* Icon */}
                   <PiFileAudioFill />
@@ -43,7 +43,7 @@ const FeaturesSection: React.FC = () => {
                 </div>
               </div>
               {/* ... Feature Box 3 ... */}
-              <div className="flex items-center space-x-4 border border-white rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
+              <div className="flex items-center space-x-4  rounded-lg p-4  hover:scale-105  transition duration-500 shadow-md shadow-white/70">
                 <div className="bg-white rounded-full p-3">
                   {/* Icon */}
                   <SiApplemusic />
