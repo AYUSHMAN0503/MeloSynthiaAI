@@ -1,16 +1,18 @@
 from flask import Flask, request, send_file
 import os
-from callModel import predictMusic 
+from callModel import predictMusic
 
 app = Flask(__name__)
 
-# allowed_ips = ['127.0.0.1', '192.168.1.1']  # Add the IP addresses you want to allow
+allowed_ips = ['127.0.0.1', '192.168.1.1']  # Add the IP addresses you want to allow
+# allowed_ips = ['192.168.1.1']  # Add the IP addresses you want to allow
 
-# @app.before_request
-# def restrict_ips():
-#     client_ip = request.remote_addr
-#     if client_ip not in allowed_ips:
-#         return abort(403)  # Forbidden
+@app.before_request
+def restrict_ips():
+    print("requesting ip: ", request.remote_addr)
+    client_ip = request.remote_addr
+    if client_ip not in allowed_ips:
+        return abort(403)  # Forbidden
 
 @app.route('/predict', methods=['POST'])  # Change this line to accept only POST requests
 def predict():
@@ -35,7 +37,7 @@ def predict():
         return {'error': str(e)}, 500
 
 
-@app.route('/getGradioMusic', methods=['GET'])
+@app.route('/getGradioMusic', methods=['POST'])
 def getGradioMusic():
   try: 
     data = request.get_json(force=True)

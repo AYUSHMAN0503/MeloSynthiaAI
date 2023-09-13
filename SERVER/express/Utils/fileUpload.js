@@ -2,6 +2,7 @@ const cloudinary = require('cloudinary');
 const config = require('../config');
 const fs = require('fs');
 const path = require('path');
+const videoToAudio = require('video-to-audio');
 
 cloudinary.v2.config({
   cloud_name: config.cloudinary.cloud_name,
@@ -39,6 +40,13 @@ const createTempUrl = (file, resource_type = "auto") => {
 
 const deleteTempFile = (filePath) => {
   fs.unlinkSync(filePath);
+}
+
+const videoToAudioConverter = async (videoUrl) => {
+  const tempUrl = createTempUrl(videoUrl, "video");
+  const audioUrl = await fileUpload(tempUrl, "video");
+  deleteTempFile(tempUrl);
+  return audioUrl;
 }
 
 module.exports = {
