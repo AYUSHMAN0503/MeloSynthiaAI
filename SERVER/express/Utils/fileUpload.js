@@ -2,7 +2,8 @@ const cloudinary = require('cloudinary');
 const config = require('../config');
 const fs = require('fs');
 const path = require('path');
-const videoToAudio = require('video-to-audio');
+const ffmpeg = require('fluent-ffmpeg');
+
 
 cloudinary.v2.config({
   cloud_name: config.cloudinary.cloud_name,
@@ -13,6 +14,7 @@ cloudinary.v2.config({
 
 
 const fileUpload = async (file, resource_type = "auto") => {
+  file = path.resolve(__dirname, file);
   try {
     const response = await cloudinary.v2.uploader.upload(file, { resource_type });
     return response.secure_url;
@@ -22,7 +24,7 @@ const fileUpload = async (file, resource_type = "auto") => {
   }
 }
 
-const createTempUrl = (file, resource_type = "auto") => {
+const createTempUrl = (file, name, resource_type = "auto") => {
   const tempDir = path.join(__dirname, '../temp');
   if (!fs.existsSync(tempDir)) {
     try {
@@ -32,7 +34,7 @@ const createTempUrl = (file, resource_type = "auto") => {
     }
   }
 
-  const musicFilePath = path.join(tempDir, 'music.mp3');
+  const musicFilePath = path.join(tempDir, name);
   fs.writeFileSync(musicFilePath, file);
 
   return musicFilePath;
@@ -42,15 +44,39 @@ const deleteTempFile = (filePath) => {
   fs.unlinkSync(filePath);
 }
 
-const videoToAudioConverter = async (videoUrl) => {
-  const tempUrl = createTempUrl(videoUrl, "video");
-  const audioUrl = await fileUpload(tempUrl, "video");
-  deleteTempFile(tempUrl);
-  return audioUrl;
+/**
+ *    input - string, path of input file
+ *    output - string, path of output file
+ *    callback - function, node-style callback fn (error, result)        
+*/
+function videoToAudioConverter(input, output, callback) {
+  input = path.resolve(__dirname, input);
+  output = path.join(__dirname, output);
+  console.log('input: ', input);
+  console.log('output: ', output);
+  ffmpeg(input)
+    .output(output)
+    .on('end', function () {
+      console.log('conversion ended');
+      callback(null);
+    }).on('error', function (e) {
+      console.log('error: ', e.code, e.msg);
+      callback(e);
+    }).run();
 }
+
+// videoToAudioConverter('../temp/videoplayback.mp4', '../temp/audio.mp3', function (err) {
+//   if (!err) {
+//     console.log('conversion complete');
+//   } else {
+//     console.log('error: ', err);
+//   }
+// });
+ 
 
 module.exports = {
   fileUpload,
   createTempUrl,
-  deleteTempFile
+  deleteTempFile,
+  videoToAudioConverter,
 };
