@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "116438ad-b0b9-4483-8a7c-fadd59a0efba",
+		"name": "melosynthia - hackatron",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28853624"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authtoken",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZGIwNGFhMTYzZTlmYTZhMTAzODdhZSIsImlhdCI6MTY5MzQ2Mzc2Nn0.A6VlEE_ZF-2tpLzXXe-ZV3-Wq1T8l7QdWjdg71xG2W0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"avinash2002a@gmail.com\",\n  \"password\": \"musicIsLove\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"avinash\",\n  \"email\": \"avinash2002a@gmail.com\",\n  \"password\": \"hello avinash\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"avinash2002a@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/request-otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"request-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify-otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"avinash2002a@gmail.com\",\n  \"password\": \"musicIsLove\",\n  \"otp\": \"389662\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "music",
+			"item": [
+				{
+					"name": "search query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"genere\": \"hip-hop\",\n  \"style\": \"LoFi\",\n  \"length\": 30000,\n  \"tempo\": \"slow\",\n  \"query\": \"90's style music\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/music/query",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"music",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get queries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/music/getAllQueries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"music",
+								"getAllQueries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gradioMusicGen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"melody\",\n    \"text\": \"relaxing, ambient and synthwave style\",\n    \"audio\": \"https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav\",\n    \"duration\": 1, \n    \"top_k\": 50,\n    \"top_p\": 0.7,\n    \"temperature\": 0.8,\n    \"classifier_free_guidance\": 5\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/music/getGradioMusic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"music",
+								"getGradioMusic"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

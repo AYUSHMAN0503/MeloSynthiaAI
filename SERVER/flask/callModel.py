@@ -16,3 +16,18 @@ def predictMusic(model: str, text: str, audio: str, duration: int | float, top_k
         fn_index=1
     )
     return result
+
+
+# def predictMusic():
+#   client = Client("https://artorias1-musicgen.hf.space/")
+#   result = client.predict(["Music/bach.mp3"],fn_index=2)
+#   client.inspect()
+  
+
+# def predictMusicNew():
+#   client = Client("https://artorias1-musicgen.hf.space/")
+#   result = client.predict("Howdy!",	fn_index=3)
+#   print(result)
+#   return result
+
+# predictMusicNew()
