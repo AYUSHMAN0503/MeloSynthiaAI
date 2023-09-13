@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { authenticateUser } = require('../Middleware/auth');
-const { fileUpload, createTempUrl, deleteTempFile } = require('../Utils/fileUpload');
+const { fileUpload, createTempUrl, deleteTempFile, videoToAudioConverter } = require('../Utils/fileUpload');
 const Query = require('../Models/Query');
 const fetch = require('node-fetch-commonjs')
+const path = require('path');
 
 
 router.post('/query', authenticateUser, async (req, res) => {
@@ -92,23 +93,27 @@ router.post('/getGradioMusic', authenticateUser, async (req, res) => {
 
     const musicBuffer = await response.arrayBuffer();
     const music = Buffer.from(musicBuffer);
-    const tempUrl = createTempUrl(music);
-    const musicUrl = await fileUpload(tempUrl);
-    deleteTempFile(tempUrl);
-    console.log({ musicUrl });
 
-    const queryData = new Query({
-      userId: req.user.id,
-      query,
-      genere,
-      style,
-      duration: length,
-      tempo,
-      musicUrl
-    });
-    await queryData.save();
+    const tempVideoUrl = createTempUrl(music, 'video.mp4');
+    const tempMusicUrl = '../temp/music.mp3';
 
-    res.status(200).json({ musicUrl });
+    videoToAudioConverter(tempVideoUrl, tempMusicUrl, function (err) {});
+
+    const uploadedMusicUrl = await fileUpload(tempMusicUrl);
+    console.log({ uploadedMusicUrl });
+
+    // const queryData = new Query({
+    //   userId: req.user.id,
+    //   query: text,
+    //   genere,
+    //   style,
+    //   duration: length,
+    //   tempo,
+    //   uploadedMusicUrl
+    // });
+    // await queryData.save();
+
+    res.status(200).json({ url:uploadedMusicUrl });
 
   } catch (error) {
     console.error('An error occurred:', error);
