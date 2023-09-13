@@ -2,7 +2,7 @@
 
 ![Alt text](logo/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
 
-Theme no 5: 🤖AI
+Theme no 5: 🤖AI (Artificial Intelligence)
 💡Idea: NFT Based AI Music Marketplace
 **Introducing MeloSynthiaAI, the decentralized NFT-based music marketplace that empowers users to generate lyrics and music with AI.**  
 
