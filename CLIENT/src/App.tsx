@@ -13,6 +13,7 @@ import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
 import Marketplace from "./Components/Marketplace";
 import ContactUs from "./Components/ContactUs";
+import Melobot from "./Components/navbar/Melobot";
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
       < Route path="/Marketplace" element={<Marketplace/>} />
       < Route path="/ContactUs" element={<ContactUs/>} /> 
+      < Route path="/Melobot" element={<Melobot/>} /> 
 
 
     </Routes>
