@@ -6,10 +6,23 @@ const Melobot = () => {
   const [input, setInput] = useState('');
 
   const sendMessage = async () => {
-    setMessages([...messages, { role: 'User', content: input }]);
-    const response = await axios.post('/api/melobot', { message: input });
-    setMessages([...messages, { role: 'User', content: input }, { role: 'Melobot', content: response.data }]);
-    setInput('');
+    if (input.trim() !== '') {
+      const userMessage = { role: 'User', content: input };
+      setMessages((prevMessages) => [...prevMessages, userMessage]);
+
+      const response = await axios.post('/api/melobot', { message: input });
+      const melobotMessage = { role: 'Melobot', content: response.data };
+      setMessages((prevMessages) => [...prevMessages, melobotMessage]);
+
+      setInput('');
+    }
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      sendMessage();
+    }
   };
 
   return (
@@ -24,11 +37,13 @@ const Melobot = () => {
             </div>
           ))}
         </div>
+        <p className="mb-2 text-gray-500">Ex: Type how to use MeloSynthia</p>
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress}
             className="flex-grow border-2 border-pink-500 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
           />
           <button onClick={sendMessage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-stretch sm:self-auto">Send</button>
