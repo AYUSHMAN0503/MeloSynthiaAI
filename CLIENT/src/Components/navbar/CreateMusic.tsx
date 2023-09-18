@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
 import Testimonial from '../testimonials';
 import testimonials from '../testimonialsData';
-import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
-import axios from "axios";
+// import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
+// import axios from "axios";
 import {
   Tabs,
   TabsHeader,
@@ -123,27 +123,53 @@ export const CreateMusic = () => {
 
 export function TabsDefault() {
   const [activeTab, setActiveTab] = useState('dashboard');
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     // prevent the default behavior of the form
     e.preventDefault();
-  
+   
+      
+    
+      // const handleClick = async () => {
+      //   try {
+      //     const response = await fetch('/getGradioMusic', {
+      //       method: 'POST',
+      //       headers: {
+      //         'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify({
+      //         text: inputValue,
+      //         // Include other parameters here
+      //       })
+      //     });
+    
+      //     if (!response.ok) {
+      //       throw new Error('Network response was not ok');
+      //     }
+    
+      //     const data = await response.json();
+    
+      //     // Do something with the data
+      //   } catch (error) {
+      //     console.error('Error:', error);
+      //   }
+      // };
     // get the values from the form inputs
-    const genre = e.target.genre.value;
-    const style = e.target.style.value;
-    const length = e.target.length.value;
-    const tempo = e.target.tempo.value;
-    const query = e.target.query.value;
+    // const genre = e.target.genre.value;
+    // const style = e.target.style.value;
+    // const length = e.target.length.value;
+    // const tempo = e.target.tempo.value;
+    // const query = e.target.query.value;
   
-    // send a POST request to the backend endpoint with the values
-    axios.post('/query', { genre, style, length, tempo, query })
-      .then(response => {
-        // handle the response from the backend
-        console.log(response.data);
-      })
-      .catch(error => {
-        // handle any error from the request
-        console.error(error);
-      });
+    // // send a POST request to the backend endpoint with the values
+    // axios.post('/query', { genre, style, length, tempo, query })
+    //   .then(response => {
+    //     // handle the response from the backend
+    //     console.log(response.data);
+    //   })
+    //   .catch(error => {
+    //     // handle any error from the request
+    //     console.error(error);
+    //   });
   };
   return (
     <Tabs value={activeTab}>
@@ -168,7 +194,7 @@ export function TabsDefault() {
             <div className="container mx-auto py-8">
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}> Choose Your Genre:</LinearGradient></h1>
               <CardList cards={cardsData}    />
-             
+                         
             </div>
             <div className="container mx-auto py-8">
               <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Choose Style:</LinearGradient></h1>

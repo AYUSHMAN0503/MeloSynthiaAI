@@ -2,5 +2,5 @@
 
 interface Window {
     ethereum: any
-
+    
 }

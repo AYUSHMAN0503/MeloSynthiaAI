@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Select } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 const BuyNFTs = () => {

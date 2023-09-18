@@ -15,7 +15,7 @@ const PromptSection: React.FC = () => {
       setPrompts([...prompts, currentPrompt])
       axios({
         method: "POST",
-        url: "/query",
+        url: "http://localhost:5000/music/getGradioMusic",
        
       })
         .then((response) => {
@@ -26,7 +26,7 @@ const PromptSection: React.FC = () => {
           if (error.response) {
             console.log(error.response);
             console.log(error.response.status);
-            console.log(error.response.headers);
+            console.log(error.responses.headers);
           }
         });
       

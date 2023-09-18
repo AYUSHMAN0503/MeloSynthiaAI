@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LinearGradient } from 'react-text-gradients';
+// import { LinearGradient } from 'react-text-gradients';
 
 const ContactUs: React.FC = () => {
   const [formValues, setFormValues] = useState({
