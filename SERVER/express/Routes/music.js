@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+// const cors = require("cors")
 const { authenticateUser } = require("../Middleware/auth");
 const {
   fileUpload,
@@ -11,7 +11,9 @@ const {
 const Query = require("../Models/Query");
 const fetch = require("node-fetch-commonjs");
 const path = require("path");
+const cors = require("cors");
 
+router.use(cors());
 router.post("/query", authenticateUser, async (req, res) => {
   try {
     const { genere, style, length, tempo, query } = req.body;

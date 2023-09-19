@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const config = require("./config");
 const MongooseURI = config.dbUrl;
-
+// const cors = require("cors")
 const connectDb = async () => {
   console.log(MongooseURI);
   mongoose
