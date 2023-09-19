@@ -7,10 +7,11 @@ import axios from 'axios'
 const PromptSection: React.FC = () => {
   const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
   const [currentPrompt, setCurrentPrompt] = useState<string>('');
-  // const [promptHistory, setPromptHistory] = useState<string[]>([]);
+  const [promptHistory, setPromptHistory] = useState<string[]>([]);
   
-  const [musicData, setMusicData] = useState(null);
+   const [musicData, setMusicData] = useState(null);
   const handleAddPrompt = () => {
+    
     if (currentPrompt.trim() !== '') {
       setPrompts([...prompts, currentPrompt])
       axios({
@@ -29,8 +30,9 @@ const PromptSection: React.FC = () => {
             console.log(error.responses.headers);
           }
         });
+ 
       
-      // setPromptHistory([...promptHistory, currentPrompt]);
+      setPromptHistory([...promptHistory, currentPrompt]);
       setCurrentPrompt('');
     }
   };
@@ -41,7 +43,7 @@ const PromptSection: React.FC = () => {
     }
   };
   
-
+ 
 
 
   return (
