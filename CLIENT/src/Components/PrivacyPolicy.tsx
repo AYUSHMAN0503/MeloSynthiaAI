@@ -2,6 +2,9 @@ import React from 'react';
 import { LinearGradient } from 'react-text-gradients';
 
 const PrivacyPolicy = () => {
+  const today = new Date();
+  const date = `${today.getDate()}th ${today.toLocaleString('default', { month: 'long' })}, ${today.getFullYear()}`;
+
   return (
     <div className="bg-app-bg text-white p-6">
       <h1 className="text-6xl font-bold mb-7 text-center pt-2">
@@ -11,7 +14,7 @@ const PrivacyPolicy = () => {
       </h1>
 
       <p className="mb-4 text-xl">
-        Last Updated: 8th September, 2023
+        Last Updated: {date}
       </p>
 
       <p>

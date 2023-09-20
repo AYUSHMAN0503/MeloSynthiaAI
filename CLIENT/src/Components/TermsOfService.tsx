@@ -1,12 +1,15 @@
 import React from 'react';
 
 const TermsOfService = () => {
+  const today = new Date();
+  const date = `${today.getDate()}th ${today.toLocaleString('default', {month: 'long'})}, ${today.getFullYear}}`;
+
   return (
   <div className="bg-app-bg text-white p-6">
       <h1 className="text-6xl font-bold mb-7 text-center pt-2 bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text">Melosynthia AI Terms of Service</h1>
 
       <p className="mb-4 text-2xl">
-        Last Updated: September 9, 2023
+        Last Updated: {date}
       </p>
 
       <p>

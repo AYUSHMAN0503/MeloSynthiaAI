@@ -1,7 +1,6 @@
-import instagram from "@/assets/instagram.svg"
-import twitter from "@/assets/twitter.svg"
-import facebook from "@/assets/facebook.svg"
-import linkedin from "@/assets/linkedin.svg"
+import discord from "@/assets/discord.svg"
+import github from "@/assets/github.svg"
+import youtube from "@/assets/youtube.svg"
 import { Link } from "react-router-dom"
 
 const styles = {
@@ -34,25 +33,20 @@ const styles = {
   
   export default styles;
 
-   export const socialMedia = [
+  export const socialMedia = [
     {
       id: "social-media-1",
-      icon: instagram,
-      link: "https://www.instagram.com/",
+      icon: discord,
+      link: "https://www.discord.com/",
     },
     {
       id: "social-media-2",
-      icon: facebook,
-      link: "https://www.facebook.com/",
+      icon: github,
+      link: "https://www.github.com/",
     },
     {
       id: "social-media-3",
-      icon: twitter,
-      link: "https://www.twitter.com/",
-    },
-    {
-      id: "social-media-4",
-      icon: linkedin,
-      link: "https://www.linkedin.com/",
+      icon: youtube,
+      link: "https://www.youtube.com/",
     },
   ];
