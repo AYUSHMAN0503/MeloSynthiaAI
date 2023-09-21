@@ -69,12 +69,12 @@ const cardsData2 = [
 
 ];
 const cardsData3 = [
-  {
+  /*{
     title: 'Minuscule'
   },
   {
     title: 'Moderate'
-  },
+  },*/
   {
     title: 'Substantial'
   },
