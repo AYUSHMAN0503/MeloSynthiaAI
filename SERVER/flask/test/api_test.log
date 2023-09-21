@@ -1,0 +1,50 @@
+2023-09-21 22:13:36,616 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this jazz music file and remix it with a modern jazz style, adding some piano improvisations. at 1695314616.6162028 for duration 1 seconds
+2023-09-21 22:14:49,981 - INFO - Response: 200
+2023-09-21 22:14:49,981 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this jazz music file and remix it with a modern jazz style, adding some piano improvisations. at 1695314689.9816911 for duration 2 seconds
+2023-09-21 22:16:39,335 - INFO - Response: 200
+2023-09-21 22:16:39,335 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this jazz music file and remix it with a modern jazz style, adding some piano improvisations. at 1695314799.3355694 for duration 3 seconds
+2023-09-21 22:19:10,569 - INFO - Response: 200
+2023-09-21 22:19:10,570 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this jazz music file and remix it with a modern jazz style, adding some piano improvisations. at 1695314950.570068 for duration 4 seconds
+2023-09-21 22:22:29,469 - INFO - Response: 200
+2023-09-21 22:22:29,469 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this jazz music file and remix it with a modern jazz style, adding some piano improvisations. at 1695315149.4691813 for duration 5 seconds
+2023-09-21 22:26:04,762 - INFO - Response: 200
+2023-09-21 22:26:04,763 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Transform this pop song into an electro-pop fusion track, incorporating synthesizers and electronic beats. at 1695315364.7631013 for duration 1 seconds
+2023-09-21 22:27:15,413 - INFO - Response: 200
+2023-09-21 22:27:15,413 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Transform this pop song into an electro-pop fusion track, incorporating synthesizers and electronic beats. at 1695315435.4136214 for duration 2 seconds
+2023-09-21 22:29:18,795 - INFO - Response: 200
+2023-09-21 22:29:18,795 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Transform this pop song into an electro-pop fusion track, incorporating synthesizers and electronic beats. at 1695315558.795451 for duration 3 seconds
+2023-09-21 22:32:21,090 - INFO - Response: 200
+2023-09-21 22:32:21,090 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Transform this pop song into an electro-pop fusion track, incorporating synthesizers and electronic beats. at 1695315741.090247 for duration 4 seconds
+2023-09-21 22:36:04,042 - INFO - Response: 200
+2023-09-21 22:36:04,042 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Transform this pop song into an electro-pop fusion track, incorporating synthesizers and electronic beats. at 1695315964.0427744 for duration 5 seconds
+2023-09-21 22:40:02,298 - INFO - Response: 200
+2023-09-21 22:40:02,299 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Convert this orchestral piece into a classical orchestra arrangement with strings, woodwinds, and brass instruments. at 1695316202.299039 for duration 1 seconds
+2023-09-21 22:41:21,414 - INFO - Response: 200
+2023-09-21 22:41:21,414 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Convert this orchestral piece into a classical orchestra arrangement with strings, woodwinds, and brass instruments. at 1695316281.4144442 for duration 2 seconds
+2023-09-21 22:43:16,977 - INFO - Response: 200
+2023-09-21 22:43:16,977 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Convert this orchestral piece into a classical orchestra arrangement with strings, woodwinds, and brass instruments. at 1695316396.9775643 for duration 3 seconds
+2023-09-21 22:45:41,308 - INFO - Response: 200
+2023-09-21 22:45:41,308 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Convert this orchestral piece into a classical orchestra arrangement with strings, woodwinds, and brass instruments. at 1695316541.308788 for duration 4 seconds
+2023-09-21 22:48:42,459 - INFO - Response: 200
+2023-09-21 22:48:42,460 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Convert this orchestral piece into a classical orchestra arrangement with strings, woodwinds, and brass instruments. at 1695316722.460123 for duration 5 seconds
+2023-09-21 22:52:40,237 - INFO - Response: 500
+2023-09-21 22:52:40,238 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Remix this hip-hop track, infusing it with fresh beats, samples, and a dynamic rap verse. at 1695316960.238226 for duration 1 seconds
+2023-09-21 22:53:50,666 - INFO - Response: 200
+2023-09-21 22:53:50,666 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Remix this hip-hop track, infusing it with fresh beats, samples, and a dynamic rap verse. at 1695317030.666596 for duration 2 seconds
+2023-09-21 22:55:35,301 - INFO - Response: 200
+2023-09-21 22:55:35,301 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Remix this hip-hop track, infusing it with fresh beats, samples, and a dynamic rap verse. at 1695317135.301586 for duration 3 seconds
+2023-09-21 22:57:55,181 - INFO - Response: 200
+2023-09-21 22:57:55,181 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Remix this hip-hop track, infusing it with fresh beats, samples, and a dynamic rap verse. at 1695317275.1815853 for duration 4 seconds
+2023-09-21 23:00:53,847 - INFO - Response: 200
+2023-09-21 23:00:53,848 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Remix this hip-hop track, infusing it with fresh beats, samples, and a dynamic rap verse. at 1695317453.8481 for duration 5 seconds
+2023-09-21 23:04:37,775 - INFO - Response: 200
+2023-09-21 23:04:37,775 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this energetic rock song and create an ambient chillout version, emphasizing atmospheric textures and calming rhythms. at 1695317677.7752726 for duration 1 seconds
+2023-09-21 23:06:09,597 - INFO - Response: 200
+2023-09-21 23:06:09,597 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this energetic rock song and create an ambient chillout version, emphasizing atmospheric textures and calming rhythms. at 1695317769.5972936 for duration 2 seconds
+2023-09-21 23:08:03,937 - INFO - Response: 200
+2023-09-21 23:08:03,937 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this energetic rock song and create an ambient chillout version, emphasizing atmospheric textures and calming rhythms. at 1695317883.9374287 for duration 3 seconds
+2023-09-21 23:10:33,810 - INFO - Response: 200
+2023-09-21 23:10:33,811 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this energetic rock song and create an ambient chillout version, emphasizing atmospheric textures and calming rhythms. at 1695318033.8111129 for duration 4 seconds
+2023-09-21 23:13:41,592 - INFO - Response: 200
+2023-09-21 23:13:41,592 - INFO - Making request to http://127.0.0.1:5000/music/getGradioMusic with query: Take this energetic rock song and create an ambient chillout version, emphasizing atmospheric textures and calming rhythms. at 1695318221.5925727 for duration 5 seconds
+2023-09-21 23:17:32,869 - INFO - Response: 200
