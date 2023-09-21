@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 // const [isModalOpen, setIsModalOpen] = useState()
-
-
+// interface(http://localhost:5000/music/getGradioMusic)
 
 const PromptSection: React.FC = () => {
   const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
@@ -17,11 +16,13 @@ const PromptSection: React.FC = () => {
       axios({
         method: "POST",
         url: "http://localhost:5000/music/getGradioMusic",
+
        
       })
         .then((response) => {
           const res = response.data;
           setMusicData(res);
+          console.log(res)
         })
         .catch((error) => {
           if (error.response) {
@@ -47,6 +48,7 @@ const PromptSection: React.FC = () => {
 
 
   return (
+    <div className="bg-app-bg border rounded-lg  shadow-md w-full" >
     <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full">
       <div className="flex flex-col space-y-3">
     <h3 className='text-white font-semibold'>Enter your prompt here:</h3>
@@ -65,7 +67,7 @@ const PromptSection: React.FC = () => {
           className="bg-white border-zinc-00 border text-white rounded-r-md p-2 ml-1 hover:bg-blue-600 transition duration-200"
           onClick={handleAddPrompt}
         >
-          {musicData && <audio src={musicData} controls />}
+          
         <svg style={{color:"rgb(46, 175, 255)"}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
         </button>
       </div>
@@ -88,6 +90,11 @@ const PromptSection: React.FC = () => {
           )}
         </AnimatePresence>
       </div> */}
+    </div>
+    <div className="border border-gray-300 p-6 rounded-md w-90 ">
+    {musicData && <audio src={musicData.url} controls />}
+    </div>
+
     </div>
   );
 };
