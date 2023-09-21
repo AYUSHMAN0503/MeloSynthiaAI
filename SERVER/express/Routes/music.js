@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-// const cors = require("cors")
 const { authenticateUser } = require("../Middleware/auth");
 const {
   fileUpload,
@@ -72,7 +71,9 @@ router.get("/getAllQueries", authenticateUser, async (req, res) => {
   }
 });
 
-router.post("/getGradioMusic", async (req, res) => {
+
+// removed authentication middleware for testing and development
+router.post('/getGradioMusic', async (req, res) => {
   try {
     const {
       model,
@@ -84,6 +85,26 @@ router.post("/getGradioMusic", async (req, res) => {
       temperature,
       classifier_free_guidance,
     } = req.body;
+
+    const requiredParameters = [
+      "model",
+      "text",
+      "audio",
+      "duration",
+      "top_k",
+      "top_p",
+      "temperature",
+      "classifier_free_guidance"];
+
+    requiredParameters.forEach((item) => {
+      if (req.body[item] === undefined) {
+        return res.status(400).json({
+          error: 'Bad Request',
+          message: 'Missing required parameters',
+          missing_paramerters: requiredParameters.filter((item) => req.body[item] === undefined)
+        });
+      }
+    })
 
     const requestOptions = {
       method: "POST",
@@ -100,22 +121,22 @@ router.post("/getGradioMusic", async (req, res) => {
       }),
     };
 
-    const response = await fetch(
-      "http://127.0.0.1:7000/getGradioMusic",
-      requestOptions
-    );
+    const response = await fetch('http://127.0.0.1:7000/getGradioMusic', requestOptions);
 
     const musicBuffer = await response.arrayBuffer();
     const music = Buffer.from(musicBuffer);
 
-    const tempVideoUrl = createTempUrl(music, "video.mp4");
-    const tempMusicUrl = "../temp/music.mp3";
+    const tempVideoUrl = createTempUrl(music, 'video.mp4');
 
-    videoToAudioConverter(tempVideoUrl, tempMusicUrl, function (err) {});
+    // code to convert video to audio (but not required)
+    // const tempMusicUrl = '../temp/music.mp3';
+    // videoToAudioConverter(tempVideoUrl, tempMusicUrl, function (err) { });
 
-    const uploadedMusicUrl = await fileUpload(tempMusicUrl);
+    const uploadedMusicUrl = await fileUpload(tempVideoUrl);
     console.log({ uploadedMusicUrl });
 
+
+    // code to save to database (only for authenticated users)
     // const queryData = new Query({
     //   userId: req.user.id,
     //   query: text,

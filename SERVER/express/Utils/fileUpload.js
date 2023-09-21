@@ -13,6 +13,10 @@ cloudinary.v2.config({
 });
 
 
+/*
+*    input - file - Buffer, file to be uploaded
+*    output - string, url of uploaded file
+*/
 const fileUpload = async (file, resource_type = "auto") => {
   file = path.resolve(__dirname, file);
   try {
@@ -24,6 +28,11 @@ const fileUpload = async (file, resource_type = "auto") => {
   }
 }
 
+
+/*
+*    input - file - Buffer, file to be uploaded
+*    output - string, url of file in temp directory
+*/
 const createTempUrl = (file, name, resource_type = "auto") => {
   const tempDir = path.join(__dirname, '../temp');
   if (!fs.existsSync(tempDir)) {
@@ -40,11 +49,14 @@ const createTempUrl = (file, name, resource_type = "auto") => {
   return musicFilePath;
 }
 
+/*
+*    input - filePath - string, path of file to be deleted
+*/
 const deleteTempFile = (filePath) => {
   fs.unlinkSync(filePath);
 }
 
-/**
+/*
  *    input - string, path of input file
  *    output - string, path of output file
  *    callback - function, node-style callback fn (error, result)        
@@ -65,14 +77,6 @@ function videoToAudioConverter(input, output, callback) {
     }).run();
 }
 
-// videoToAudioConverter('../temp/videoplayback.mp4', '../temp/audio.mp3', function (err) {
-//   if (!err) {
-//     console.log('conversion complete');
-//   } else {
-//     console.log('error: ', err);
-//   }
-// });
- 
 
 module.exports = {
   fileUpload,
