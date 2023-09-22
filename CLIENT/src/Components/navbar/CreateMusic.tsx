@@ -4,8 +4,7 @@ import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
 import Testimonial from '../testimonials';
 import testimonials from '../testimonialsData';
-// import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
-// import axios from "axios";
+
 import {
   Tabs,
   TabsHeader,
@@ -69,16 +68,11 @@ const cardsData2 = [
 
 ];
 const cardsData3 = [
-  /*{
-    title: 'Minuscule'
-  },
-  {
-    title: 'Moderate'
-  },*/
   {
     title: 'Substantial'
   },
 ];
+
 const cardsData4 = [
   {
     title: 'Gentle'
@@ -257,8 +251,10 @@ export function TabsDefault() {
               </button>
             </div>
             <div className="text-white w-full flex justify-center text-lg m-4">
+              <p className='mr-1 font-semibold'> This UI is for future reference only! We are currently working on it and you will be able to enjoy this feature very soon!</p></div>
+            {/* <div className="text-white w-full flex justify-center text-lg m-4">
               <p><span className="mr-1 font-bold">Caution:</span> MeloSynthiaAI does not Support and is not responsible for any copyright infringement of the vocals given in NFTs.</p>
-            </div>
+            </div> */}
           </div>
         </TabPanel>
       </TabsBody>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const TermsOfService = () => {
   const today = new Date();
-  const date = `${today.getDate()}th ${today.toLocaleString('default', {month: 'long'})}, ${today.getFullYear}}`;
+  const date = `${today.getDate()}th ${today.toLocaleString('default', { month: 'long' })}, ${today.getFullYear()}`;
 
   return (
   <div className="bg-app-bg text-white p-6">

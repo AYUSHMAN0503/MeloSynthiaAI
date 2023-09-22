@@ -48,7 +48,7 @@ const Hero = () => {
             </div>
           </div>
         </div>   <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-          The next level AI music generation platform created by team web3 sailors named MeloSynthiaAI. Here Melo stands for Melody and Synthia for Synthesis..
+          The next level AI music generation platform created by WEB3 SAILORS named MeloSynthiaAI! Here Melo stands for Melody and Synthia for Synthesis..
         </p>
 
       </div>

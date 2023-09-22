@@ -41,15 +41,15 @@ function ShowSteps() {
             <motion.div variants={childVariants}>
               <Steps
                 title='Connect your wallet'
-                desc='Use Trust Wallet, Metamask or any wallet to connect to the app.'
+                desc='Connect with metaamask to complete the transactions!!'
                 icon='1'
                 textSize='text-xl'
               />
             </motion.div>
             <motion.div variants={childVariants}>
               <Steps
-                title='Create your NFT Item'
-                desc='Upload your NFTs and set a title, description and price.'
+                title='Create your music'
+                desc='Create your unique piece of music alongside lyrics using prompts.'
                 icon='2'
                 textSize='text-xl'
               />
@@ -57,7 +57,7 @@ function ShowSteps() {
             <motion.div variants={childVariants}>
               <Steps
                 title='List them for sale'
-                desc='Earn ETH and BIT for all your NFTs that you sell on our marketplace.'
+                desc='List them as NFTs in marketplace and earn money.'
                 icon='3'
                 textSize='text-xl'
               />

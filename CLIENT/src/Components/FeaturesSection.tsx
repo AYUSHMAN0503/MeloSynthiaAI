@@ -3,6 +3,7 @@ import musical from "@/assets/musical2.png"
 import { RiNftFill } from 'react-icons/ri';
 import { PiFileAudioFill } from 'react-icons/pi';
 import { SiApplemusic } from 'react-icons/si';
+
 const FeaturesSection: React.FC = () => {
   return (
     <section className="bg-app-bg py-10">
@@ -11,11 +12,11 @@ const FeaturesSection: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
             MeloSynthia AI features
           </h2>
-          <p className="text-xl md:text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">MeloSynthia AI where creativity meets creation..</p>
+          <p className="text-xl md:text-2xl font-normal mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Where the creativity meets creation!!</p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-start">
-          {/* Features description (Centered) */}
+          {/* Features description */}
           <div className="w-full md:w-1/2 md:pr-10 text-center md:text-left">
             <div className="flex flex-col space-y-6">
               {/* Feature Box 1 */}
@@ -23,11 +24,10 @@ const FeaturesSection: React.FC = () => {
                 <div className="bg-white rounded-full p-3">
                   {/* Icon */}
                   <RiNftFill />
-                  {/* icon SVG code here */}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Marketplace</h3>
-                  <p className="text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ullam officiis, nihil nam molestiae optio doloribus ex ducimus culpa, ipsam modi magni?</p>
+                  <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">NFT Marketplace</h3>
+                  <p className="text-gray-100">The Marketplace feature felicitates the exchange of NFTs, representing unique music and lyrics created by you, via TRON's technology.</p>
                 </div>
               </div>
               {/* ... Feature Box 2 ... */}
@@ -35,11 +35,10 @@ const FeaturesSection: React.FC = () => {
                 <div className="bg-white rounded-full p-3">
                   {/* Icon */}
                   <PiFileAudioFill />
-                  {/* icon SVG code here */}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Highest quality audio</h3>
-                  <p className="text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aut nisi, in asperiores reprehenderit tempore enim iste assumenda commodi earum!</p>
+                  <p className="text-gray-100">MeloSynthia's audio content is characterized by exceptional fidelity, encompassing impeccable audio resolution, minimal compression artifacts & optimal dynamic range.</p>
                 </div>
               </div>
               {/* ... Feature Box 3 ... */}
@@ -47,18 +46,16 @@ const FeaturesSection: React.FC = () => {
                 <div className="bg-white rounded-full p-3">
                   {/* Icon */}
                   <SiApplemusic />
-                  {/*icon SVG code here */}
-
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">Song Snippets</h3>
-                  <p className="text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, explicabo maiores unde quisquam cumque sit mollitia deleniti beatae possimus nihil?</p>
+                  <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">MeloBOT </h3>
+                  <p className="text-gray-100">MeloBOT gives you musical recommendations according to your taste and mood. It also solves your queries regarding MeloSynthia AI..</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Image on the left (Desktop) */}
+          {/* Image (Desktop) */}
           <div className="w-full md:w-1/2">
             <img src={musical} alt="Feature" className="hidden w-full h-auto md:flex" />
           </div>
