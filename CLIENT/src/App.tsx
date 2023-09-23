@@ -14,7 +14,7 @@ import PrivacyPolicy from "./Components/PrivacyPolicy";
 import Marketplace from "./Components/Marketplace";
 import ContactUs from "./Components/ContactUs";
 import Melobot from "./Components/navbar/Melobot";
-
+import NftMarketplace from "./Components/NftMarketplace";
 function App() {
  
   return ( <>
@@ -32,6 +32,7 @@ function App() {
       < Route path="/Marketplace" element={<Marketplace/>} />
       < Route path="/ContactUs" element={<ContactUs/>} /> 
       < Route path="/Melobot" element={<Melobot/>} /> 
+      < Route path="/NFT" element={<NftMarketplace/>} /> 
 
 
     </Routes>

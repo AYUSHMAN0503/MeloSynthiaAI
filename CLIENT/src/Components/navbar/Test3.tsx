@@ -45,7 +45,7 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">MeloBOT</motion.button>
       </Link>
 
-      <Link to="/Marketplace" >
+      <Link to="/NFT" >
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }} className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
