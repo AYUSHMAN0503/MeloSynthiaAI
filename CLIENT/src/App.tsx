@@ -11,7 +11,7 @@ import {
 import { CreateMusic } from "./Components/navbar/CreateMusic";
 import TermsOfService from "./Components/TermsOfService";
 import PrivacyPolicy from "./Components/PrivacyPolicy";
-import Marketplace from "./Components/Marketplace";
+
 import ContactUs from "./Components/ContactUs";
 import Melobot from "./Components/navbar/Melobot";
 import NftMarketplace from "./Components/NftMarketplace";
@@ -30,7 +30,6 @@ function App() {
       < Route path="/Create Music" element={<CreateMusic/>} />
       < Route path="/TermsOfService" element={<TermsOfService/>} />
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
-      < Route path="/Marketplace" element={<Marketplace/>} />
       < Route path="/ContactUs" element={<ContactUs/>} /> 
       < Route path="/Melobot" element={<Melobot/>} /> 
       < Route path="/NFT" element={<NftMarketplace/>} /> 
