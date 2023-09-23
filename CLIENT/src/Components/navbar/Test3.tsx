@@ -73,7 +73,7 @@ export function NavbarDefault() {
     <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0"onClick={scrollToTop}>
       <div className="container mx-auto flex items-center xs:justify-between text-blue-gray-900 pl-1 xs:pl-8 "style={{maxWidth:"revert",paddingRight:"2rem"}} >
         <Link to="/">
-          <img src={logo} alt="" width={200} className="xl:w-72" /></Link>
+          <img src={logo} alt="" width={200} className="xl:w-72 scale-125" /></Link>
      
         <div className=" flex-col justify-center">
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
