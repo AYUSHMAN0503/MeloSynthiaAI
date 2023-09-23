@@ -1,8 +1,19 @@
 import React from 'react'
 import "./NFT.css"
 import Bg from "./../assets/musical.jpg"
+import { Link } from 'react-router-dom'
+import Animatedpage from './Animatedpage'
 const NftMarketplace : React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+  const scrollToHalf = () => {
+    const windowHeight = window.innerHeight;
+    const halfWindowHeight = windowHeight / 1.1;
+    window.scrollTo({ top: halfWindowHeight, left: 0, behavior: 'smooth' });
+  };
   return (
+    <Animatedpage>
     <div>
 
         <section id="home" className="f z gd xe ye ze mt-24 kg">
@@ -21,12 +32,12 @@ const NftMarketplace : React.FC = () => {
                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae debitis esse aliquid officiis. Qui, eveniet. Ullam excepturi dolor possimus a.
                   </p>
                   <div className="flex flex-wrap items-center">
-                    <a href="explore-items.html" className="pa ka _a yc _c ld pd yd he sf vf eh nh vh ii aj">
+                    <a onClick={scrollToHalf} href="#"className="pa ka _a yc _c ld pd yd he sf vf eh nh vh ii aj">
                      Buy NFT
                     </a>
-                    <a href="explore-items.html" className="pa ka _a yc _c ld pd yd he sf vf eh nh vh ii aj">
+                    <Link onClick={scrollToTop} to="/SellNft" className="pa ka _a yc _c ld pd yd he sf vf eh nh vh ii aj">
                      Sell NFT
-                    </a>
+                    </Link>
                     
                   </div>
                 </div>
@@ -972,7 +983,7 @@ const NftMarketplace : React.FC = () => {
           </div>
         </section>
     
-</div>
+</div></Animatedpage>
   )
 }
 export default NftMarketplace

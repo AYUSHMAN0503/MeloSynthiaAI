@@ -17,7 +17,6 @@ const PromptSection: React.FC = () => {
         method: "POST",
         url: "http://localhost:5000/music/getGradioMusic",
 
-       
       })
         .then((response) => {
           const res = response.data;
@@ -32,7 +31,6 @@ const PromptSection: React.FC = () => {
           }
         });
  
-      
       setPromptHistory([...promptHistory, currentPrompt]);
       setCurrentPrompt('');
     }
@@ -44,9 +42,6 @@ const PromptSection: React.FC = () => {
     }
   };
   
- 
-
-
   return (
     <div className="bg-app-bg border rounded-lg  shadow-md w-full" >
     <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full">
