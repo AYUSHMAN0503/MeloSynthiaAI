@@ -21,31 +21,37 @@ const cardsData = [
     title: 'Hip-Hop',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1546528377-65924be33e1e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+    genre: 'type: Hip-Hop ',
   },
   {
     title: 'Classic',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1558584673-c834fb1cc3ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80',
+     genre: 'type: Classic '
   },
   {
     title: 'Jazz',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    genre: 'type: Jazz'
   },
   {
     title: 'Cultural',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1568219656418-15c329312bf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    genre: 'type:Cultural'
   },
   {
     title: 'Melody',
     description: 'Description for Card 1',
     imageUrl: 'https://plus.unsplash.com/premium_photo-1681593282801-5e6ae37eac2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+    genre: 'type: Melody'
   },
   {
     title: 'Symphony',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+     genre: 'type: Symphony'
   },
 
 ];
@@ -54,41 +60,47 @@ const cardsData2 = [
     title: 'Ambient',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+   style: "type: ambient" 
   },
   {
     title: 'LoFi',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1630713815150-2c847025c1d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    style: "type: lofi"
   },
   {
     title: 'Slowed-Reverb',
     description: 'Description for Card 1',
     imageUrl: 'https://images.unsplash.com/photo-1631044176346-804c33ade61c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bG8lMjBmaXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80',
+    style: "type: slowed-reverb"
   },
 
 ];
 const cardsData3 = [
   {
-    title: 'Substantial'
+    title: 'Substantial',
+    length: "music"
   },
 ];
 
 const cardsData4 = [
   {
-    title: 'Gentle'
+    title: 'Gentle',
+    tempo: 'music in slow motion'
   },
   {
-    title: 'Standard'
+    title: 'Standard',
+    tempo: 'music in right pace'
   },
   {
-    title: 'Fast'
+    title: 'Fast',
+    tempo:'fast-pace music'
   }
 ];
 
 export const CreateMusic = () => {
-  // const [musicData, setMusicData] = useState(null);
+  
 
- 
 
   return (
     <Animatedpage>
