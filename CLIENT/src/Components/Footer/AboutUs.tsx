@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import { motion } from "framer-motion"
 import { useSwipeable } from 'react-swipeable';
-import TeamMembers from '../TeamMembers';
+import TeamMembers from './TeamMembers';
 import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
 

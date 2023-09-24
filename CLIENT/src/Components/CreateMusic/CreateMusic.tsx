@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 // import { motion } from 'framer-motion';
 import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
-import Testimonial from '../testimonials';
-import testimonials from '../testimonialsData';
+import Testimonial from './testimonials';
+import testimonials from './testimonialsData';
 
 import {
   Tabs,

@@ -2,7 +2,7 @@ import React from 'react'
 import "./NFT.css"
 import Bg from "./../assets/musical.jpg"
 import { Link } from 'react-router-dom'
-import Animatedpage from './Animatedpage'
+import Animatedpage from '../Animatedpage'
 
 const NftMarketplace : React.FC = () => {
   const scrollToTop = () => {
