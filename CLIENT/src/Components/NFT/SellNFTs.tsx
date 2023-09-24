@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Animatedpage from './Animatedpage';
+import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
 
 

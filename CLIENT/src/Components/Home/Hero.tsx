@@ -3,7 +3,6 @@ import music from "@/assets/music.png";
 import { LinearGradient } from 'react-text-gradients'
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import "./Test3.css"
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };

@@ -1,21 +1,21 @@
 import {NavbarDefault} from "./Components/navbar/Test3";
-import Footer from "./Components/navbar/Footer";
-import Home from "./Home";
+import Footer from "./Components/Footer/Footer";
+import Home from "./Components/Home/Home";
 import styles from "@/index";
-import AboutUs from "./Components/navbar/AboutUs";
-import {Future} from "./Components/Future";
+import AboutUs from "./Components/Footer/AboutUs";
+import {Future} from "./Components/Footer/Future";
 import {
   BrowserRouter as Router,
   Routes,
   Route } from "react-router-dom";
-import { CreateMusic } from "./Components/navbar/CreateMusic";
-import TermsOfService from "./Components/TermsOfService";
-import PrivacyPolicy from "./Components/PrivacyPolicy";
+import { CreateMusic } from "./Components/CreateMusic/CreateMusic";
+import TermsOfService from "./Components/Footer/TermsOfService";
+import PrivacyPolicy from "./Components/Footer/PrivacyPolicy";
 
-import ContactUs from "./Components/ContactUs";
-import Melobot from "./Components/navbar/Melobot";
-import NftMarketplace from "./Components/NftMarketplace";
-import SellNFTs from "./Components/SellNFTs";
+import ContactUs from "./Components/Footer/ContactUs";
+import Melobot from "./Components/Melobot";
+import NftMarketplace from "./Components/NFT/NftMarketplace";
+import SellNFTs from "./Components/NFT/SellNFTs";
 function App() {
  
   return ( <>
