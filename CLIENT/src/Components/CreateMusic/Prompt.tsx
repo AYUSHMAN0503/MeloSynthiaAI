@@ -49,6 +49,7 @@ const PromptSection: React.FC = () => {
 
 
 return (
+  <>
   <div className="bg-app-bg border rounded-lg  shadow-md w-full" >
     <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full">
       <div className="flex flex-col space-y-3">
@@ -76,9 +77,44 @@ return (
     </div>
     <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 ">
       {musicData && <audio src={musicData.url}  controls />}
+    </div> 
     </div>
+    <div className="bg-app-bg rounded-lg  shadow-md w-full" >
+    <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full mt-8">
+      <div className="flex flex-col space-y-3">
+        <h3 className='text-white font-semibold'>Enter your Lyrics prompt here:</h3>
+      </div>
+      <div className="flex mt-4 px-0.5 h-16 ">
+        <input
+          type="text"
+          className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+          placeholder="Ayushman Dalla"
+          value={currentPrompt}
+          onChange={(e) => setCurrentPrompt(e.target.value)}
+          onKeyPress={handleKeyPress}
 
-  </div>
+        />
+        <button
+          className="bg-white border-zinc-00 border text-white rounded-r-md p-2 ml-1 hover:bg-blue-600 transition duration-200"
+          onClick={handleAddPrompt}
+        >
+
+          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
+        </button>
+      </div>
+
+    </div>
+    <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 ">
+      {musicData && <audio src={musicData.url}  controls />}
+    </div>
+ 
+ </div>
+
+
+  {/* <div className=' w-full'>
+  <textarea name="" id="" className='w-full rounded-lg p-2 text-black bg-transparent border-2'></textarea>
+ </div> */}
+ </>
 );
 };
 
