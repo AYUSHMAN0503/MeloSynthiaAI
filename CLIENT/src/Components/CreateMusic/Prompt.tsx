@@ -108,6 +108,11 @@ return (
       {musicData && <audio src={musicData.url}  controls />}
     </div>
  
+{/* dibianchu ke nft minting ke lie button*/}
+ <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600 '>
+  Mint your Nft
+ </button>
+
  </div>
 
 

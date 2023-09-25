@@ -198,8 +198,8 @@ export function TabsDefault() {
         <TabPanel value="dashboard">
           <div className= 'container pt-14 lg:px-6 pb-6 flex flex-wrap pr-0'onClick={handleSubmit} >
             <div className="container mx-auto py-8">
-              <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}> Choose Your Genre:</LinearGradient></h1>
-              <CardList cards={cardsData}    />
+              <h1 className="text-2xl font-semibold mb-4 text-white"><LinearGradient gradient={['to left', '#17acff ,#ff68f0'] }> Choose Your Genre:</LinearGradient></h1>
+              <CardList  cards={cardsData}  />
                          
             </div>
             <div className="container mx-auto py-8">
