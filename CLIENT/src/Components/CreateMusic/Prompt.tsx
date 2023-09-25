@@ -88,7 +88,7 @@ return (
         <input
           type="text"
           className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
-          placeholder="Ayushman Dalla"
+          placeholder="Describe your prompt. For ex: write when you ready come and get it"
           value={currentPrompt}
           onChange={(e) => setCurrentPrompt(e.target.value)}
           onKeyPress={handleKeyPress}
