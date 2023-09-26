@@ -1,7 +1,8 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 import os
 from callModel import predictMusic
+from callMelobot import get_chatbot_response
 
 app = Flask(__name__)
 
@@ -68,6 +69,14 @@ def getGradioMusic():
     except Exception as e:
         print("Error:", str(e))
         return {'error': str(e)}, 500
+
+@app.route('/melobot', methods=['POST'])
+def chatbot_response_endpoint():
+    user_message = request.json.get('message')
+    print("==>", user_message)
+    chatbot_response = get_chatbot_response(user_message)
+    print("==>", chatbot_response)
+    return jsonify({'message': chatbot_response})
 
 
 if __name__ == '__main__':
