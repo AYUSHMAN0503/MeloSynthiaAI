@@ -15,6 +15,56 @@ const { flaskUrl } = require("../config");
 router.use(cors());
 
 // removed authentication middleware for testing and development
+/**
+ * @swagger
+ * /music/getMusic:
+ *   post:
+ *     summary: Get music from text
+ *     description: Get music from text
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - model
+ *               - text
+ *               - audio
+ *               - duration
+ *               - top_k
+ *               - top_p
+ *               - temperature
+ *               - classifier_free_guidance
+ *             properties:
+ *               model:
+ *                 type: string
+ *                 description: model name
+ *               text:
+ *                 type: string
+ *                 description: query to generate music
+ *               audio:
+ *                 type: string
+ *                 description: audio file to generate music
+ *               duration:
+ *                 type: number
+ *                 description: duration of the generated music
+ *               top_k:
+ *                 type: number
+ *                 description: top k
+ *               top_p:
+ *                 type: number
+ *                 description: top p
+ *               temperature:
+ *                 type: number
+ *                 description: temperature
+ *               classifier_free_guidance:
+ *                 type: boolean
+ *                 description: classifier free guidance
+ *     responses:
+ *       200:
+ *         description: Successful response
+ */
+
 router.post('/getGradioMusic', async (req, res) => {
   try {
 
@@ -91,6 +141,32 @@ router.post('/getGradioMusic', async (req, res) => {
   }
 });
 
+
+/**
+ * @swagger
+ * /music/getLyrics:
+ *   post:
+ *     summary: Get lyrics from text
+ *     description: Get lyrics from text
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - text
+ *               - key
+ *             properties:
+ *               text:
+ *                 type: string
+ *                 description: query to generate lyrics
+ *               key:
+ *                 type: string
+ *                 description: api key to get lyrics. Get it from https://huggingface.co/settings/tokens
+ *     responses:
+ *       200:
+ *         description: Successful response
+ */
 router.post('/getLyrics', async (req, res) => {
   try {
 
