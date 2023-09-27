@@ -17,7 +17,7 @@ router.use(cors());
 // removed authentication middleware for testing and development
 /**
  * @swagger
- * /music/getMusic:
+ * /music/getGradioMusic:
  *   post:
  *     summary: Get music from text
  *     description: Get music from text
@@ -192,6 +192,7 @@ router.post('/getLyrics', async (req, res) => {
 
     const response = await fetch(`${flaskUrl}/getLyrics`, requestOptions);
     const lyrics = await response.json();
+    console.log({lyrics})
 
     if (response.error) {
       return res.status(400).json({ error: response.error });
