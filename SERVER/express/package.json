@@ -23,6 +23,7 @@
     "mongoose": "^7.4.3",
     "node-fetch-commonjs": "^3.3.1",
     "nodemailer": "^6.9.4",
+    "swagger-ui-express": "^5.0.0",
     "video-to-audio": "^1.0.1"
   },
   "devDependencies": {

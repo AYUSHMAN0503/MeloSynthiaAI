@@ -9,7 +9,6 @@ app.use(express.json());
 app.get('/', (res) => {
   res.send('Welcome to MelosynthioAI!');
 });
-app.use('/auth', require('./Routes/auth'));
 app.use('/music', require('./Routes/music.js'));
 
 

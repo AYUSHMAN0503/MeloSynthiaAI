@@ -1,7 +1,7 @@
 from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 import os
-from callModel import predictMusic
+from callModel import predictMusic, predictLyrics
 from callMelobot import get_chatbot_response
 
 app = Flask(__name__)
@@ -77,6 +77,27 @@ def chatbot_response_endpoint():
     chatbot_response = get_chatbot_response(user_message)
     print("==>", chatbot_response)
     return jsonify({'message': chatbot_response})
+
+@app.route('/getLyrics', methods=['POST'])
+def getLyrics():
+    try:
+        data = request.get_json(force=True)
+
+        text = data.get("text")
+        key = data.get("key")
+        if text is None:
+            return "No text provided", 404
+
+        print(text)
+
+        response = predictLyrics(text, key)
+        print("-> response: ", response)
+
+        return response
+
+    except Exception as e:
+        print("Error:", str(e))
+        return {'error': str(e)}, 500
 
 
 if __name__ == '__main__':

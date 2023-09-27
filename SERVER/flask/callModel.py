@@ -1,3 +1,4 @@
+import requests
 from gradio_client import Client
 
 def predictMusic(model: str, text: str, audio: str, duration: int | float, top_k: int | float, top_p: int | float, temperature: int | float, classifier_free_guidance: int | float):
@@ -16,3 +17,20 @@ def predictMusic(model: str, text: str, audio: str, duration: int | float, top_k
     )
     return result
 
+
+
+def predictLyrics(payload: str, key: str):
+    API_URL = "https://api-inference.huggingface.co/models/ECE1786-AG/lyrics-generator"
+    headers = {"Authorization": f'Bearer {key}'}
+    print("-> payload: ", payload)
+    print("-> headers: ", headers)
+
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+	
+if __name__ == "__main__":
+    output = predictLyrics({
+        "inputs": "twinkle twinkle little star",
+    })
+
+    print(output)
