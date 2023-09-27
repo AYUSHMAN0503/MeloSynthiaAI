@@ -1,80 +1,86 @@
 const express = require("express");
 const router = express.Router();
-const { authenticateUser } = require("../Middleware/auth");
 const {
   fileUpload,
   createTempUrl,
   deleteTempFile,
   videoToAudioConverter,
 } = require("../Utils/fileUpload");
-const Query = require("../Models/Query");
 const fetch = require("node-fetch-commonjs");
-const path = require("path");
 const cors = require("cors");
+const { requestParamsGuard } = require("../Utils/requestGuard");
+const { flaskUrl } = require("../config");
+
 
 router.use(cors());
-router.post("/query", authenticateUser, async (req, res) => {
-  try {
-    const { genere, style, length, tempo, query } = req.body;
-    console.log({ query, genere, style, length, tempo });
-
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query, genere, style, length, tempo }),
-    };
-
-    const response = await fetch(
-      "http://localhost:7000/predict",
-      requestOptions
-    );
-    const musicBuffer = await response.arrayBuffer();
-    const music = Buffer.from(musicBuffer);
-
-    const tempUrl = createTempUrl(music);
-    const musicUrl = await fileUpload(tempUrl);
-    deleteTempFile(tempUrl);
-    console.log({ musicUrl });
-
-    // todo save musicUrl to query collection:
-    const queryData = new Query({
-      userId: req.user.id,
-      query,
-      genere,
-      style,
-      duration: length,
-      tempo,
-      musicUrl,
-    });
-
-    await queryData.save();
-
-    res.setHeader("Content-Disposition", "attachment; filename=batch.mp3");
-    res.setHeader("Content-Type", "audio/mpeg");
-    res.send(music);
-  } catch (error) {
-    console.error("An error occurred:", error);
-    res.status(500).json({ error: "An error occurred" });
-  }
-});
-
-router.get("/getAllQueries", authenticateUser, async (req, res) => {
-  try {
-    const queries = await Query.find({ userId: req.user.id })
-      .select("-userId -__v -createdAt -updatedAt -musicUrl")
-      .sort({ createdAt: -1 })
-      .lean();
-    res.status(200).json({ queries });
-  } catch (error) {
-    console.error("An error occurred:", error);
-    res.status(500).json({ error: "An error occurred" });
-  }
-});
-
 
 // removed authentication middleware for testing and development
+/**
+ * @swagger
+ * /music/getMusic:
+ *   post:
+ *     summary: Get music from text
+ *     description: Get music from text
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - model
+ *               - text
+ *               - audio
+ *               - duration
+ *               - top_k
+ *               - top_p
+ *               - temperature
+ *               - classifier_free_guidance
+ *             properties:
+ *               model:
+ *                 type: string
+ *                 description: model name
+ *               text:
+ *                 type: string
+ *                 description: query to generate music
+ *               audio:
+ *                 type: string
+ *                 description: audio file to generate music
+ *               duration:
+ *                 type: number
+ *                 description: duration of the generated music
+ *               top_k:
+ *                 type: number
+ *                 description: top k
+ *               top_p:
+ *                 type: number
+ *                 description: top p
+ *               temperature:
+ *                 type: number
+ *                 description: temperature
+ *               classifier_free_guidance:
+ *                 type: boolean
+ *                 description: classifier free guidance
+ *     responses:
+ *       200:
+ *         description: Successful response
+ */
+
 router.post('/getGradioMusic', async (req, res) => {
   try {
+
+    const requiredParameters = [
+      { name: "model", description: "model name" },
+      { name: "text", description: "query to generate music" },
+      { name: "audio", description: "audio file to generate music" },
+      { name: "duration", description: "duration of the generated music" },
+      { name: "top_k", description: "top k" },
+      { name: "top_p", description: "top p" },
+      { name: "temperature", description: "temperature" },
+      { name: "classifier_free_guidance", description: "classifier free guidance" }
+    ]
+
+    requestParamsGuard(req, res, requiredParameters);
+
     const {
       model,
       text,
@@ -85,26 +91,6 @@ router.post('/getGradioMusic', async (req, res) => {
       temperature,
       classifier_free_guidance,
     } = req.body;
-
-    const requiredParameters = [
-      "model",
-      "text",
-      "audio",
-      "duration",
-      "top_k",
-      "top_p",
-      "temperature",
-      "classifier_free_guidance"];
-
-    requiredParameters.forEach((item) => {
-      if (req.body[item] === undefined) {
-        return res.status(400).json({
-          error: 'Bad Request',
-          message: 'Missing required parameters',
-          missing_paramerters: requiredParameters.filter((item) => req.body[item] === undefined)
-        });
-      }
-    })
 
     const requestOptions = {
       method: "POST",
@@ -121,7 +107,7 @@ router.post('/getGradioMusic', async (req, res) => {
       }),
     };
 
-    const response = await fetch('http://127.0.0.1:7000/getGradioMusic', requestOptions);
+    const response = await fetch(`${flaskUrl}/getGradioMusic`, requestOptions);
 
     const musicBuffer = await response.arrayBuffer();
     const music = Buffer.from(musicBuffer);
@@ -154,5 +140,69 @@ router.post('/getGradioMusic', async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 });
+
+
+/**
+ * @swagger
+ * /music/getLyrics:
+ *   post:
+ *     summary: Get lyrics from text
+ *     description: Get lyrics from text
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - text
+ *               - key
+ *             properties:
+ *               text:
+ *                 type: string
+ *                 description: query to generate lyrics
+ *               key:
+ *                 type: string
+ *                 description: api key to get lyrics. Get it from https://huggingface.co/settings/tokens
+ *     responses:
+ *       200:
+ *         description: Successful response
+ */
+router.post('/getLyrics', async (req, res) => {
+  try {
+
+    const requiredParameters = [
+      {
+        name: "text",
+        description: "query to get lyrics"
+      },
+      {
+        name: "key",
+        description: "api key to get lyrics. Get it from https://huggingface.co/settings/tokens"
+      }
+    ];
+
+    requestParamsGuard(req, res, requiredParameters);
+
+    const { text, key } = req.body;
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text, key }),
+    };
+
+    const response = await fetch(`${flaskUrl}/getLyrics`, requestOptions);
+    const lyrics = await response.json();
+
+    if (response.error) {
+      return res.status(400).json({ error: response.error });
+    }
+    res.status(200).json({ lyrics });
+
+  } catch (error) {
+    console.error("An error occurred:", error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+})
+
 
 module.exports = router;
