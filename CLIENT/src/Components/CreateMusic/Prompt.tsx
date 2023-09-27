@@ -134,7 +134,8 @@ return (
 
     </div>
     <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold ">
-        <p className="text-pink-500">{JSON.stringify(lyricsData)}</p> 
+    <p className="text-pink-500">{Object.keys(lyricsData).length > 0 && JSON.stringify(lyricsData).replace(/\\n/g, '. ')}</p>
+
       </div>
 
     </div>
