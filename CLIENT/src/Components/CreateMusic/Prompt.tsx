@@ -6,8 +6,10 @@ const PromptSection: React.FC = () => {
   const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
   const [currentPrompt, setCurrentPrompt] = useState<string>('');
   const [promptHistory, setPromptHistory] = useState<string[]>([]);
-
+  
+  const [lyricsPrompt, setLyricsPrompt] = useState<string>('');
   const [musicData, setMusicData] = useState(null);
+const[lyricsData, setLyricsData]= useState({});
   const handleAddPrompt = async () => {
     if (currentPrompt.trim() !== '') {
     const requestData = {
@@ -39,6 +41,33 @@ const PromptSection: React.FC = () => {
       }
     }
   };
+  const handleAddLyricsPrompt = () => {
+    if (lyricsPrompt.trim() !== '') {
+      
+      const requestData = {
+        // Replace with your actual lyrics model value
+        text: lyricsPrompt,
+        key: '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', // Replace with your actual lyrics model key
+      };
+
+      // Make a POST request to your lyrics backend endpoint
+      axios.post('http://localhost:5000/music/getLyrics', requestData)
+      .then((response) => {
+        // Handle the response, set lyrics data to display in the UI
+        if (Array.isArray(response.data.lyrics) && response.data.lyrics.length > 0) {
+          // Join the array of lyrics into a single string
+          const lyricsText = response.data.lyrics.map((lyric: { generated_text: unknown; }) => lyric.generated_text).join('\n');
+          setLyricsData(lyricsText);
+        } else {
+          setLyricsData("Lyrics not found");
+        }
+      })
+      .catch((error) => {
+        // Handle any errors from the request
+        console.error('Error:', error);
+      });
+  }
+};
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -47,6 +76,7 @@ const PromptSection: React.FC = () => {
   };
 
 
+  
 
 return (
   <>
@@ -89,25 +119,26 @@ return (
           type="text"
           className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
           placeholder="Describe your prompt. For ex: write when you ready come and get it"
-          value={currentPrompt}
-          onChange={(e) => setCurrentPrompt(e.target.value)}
-          onKeyPress={handleKeyPress}
+          value={lyricsPrompt}
+         onChange={(e) => setLyricsPrompt(e.target.value)}
 
         />
         <button
           className="bg-white border-zinc-00 border text-white rounded-r-md p-2 ml-1 hover:bg-blue-600 transition duration-200"
-          onClick={handleAddPrompt}
+           onClick={handleAddLyricsPrompt}
         >
 
           <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
         </button>
+      
+
+    </div>
+    <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold ">
+        <p className="text-pink-500">{JSON.stringify(lyricsData)}</p> 
       </div>
 
     </div>
-    <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 ">
-      {musicData && <audio src={musicData.url}  controls />}
-    </div>
- 
+   
 {/* dibianchu ke nft minting ke lie button*/}
  <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600 '>
   Mint your Nft
