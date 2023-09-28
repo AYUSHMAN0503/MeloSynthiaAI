@@ -144,7 +144,7 @@ return (
    
 {/* dibianchu ke nft minting ke lie button*/}
  <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600 '>
-  Mint your Nft
+ Add to your wallet
  </button>
 
  </div>

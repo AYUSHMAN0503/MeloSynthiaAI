@@ -3,7 +3,7 @@ import "./NFT.css"
 import Bg from "./../assets/musical.jpg"
 import { Link } from 'react-router-dom'
 import Animatedpage from '../Animatedpage'
-
+import { List } from './ListForSell'
 const NftMarketplace : React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -42,8 +42,9 @@ const NftMarketplace : React.FC = () => {
               </div>
             </div>
           </div>
+        
         </section>
-
+  <List/>
         <section className="wg mt-0">
           <div className="a">
             <div className="ra td vd _d">
