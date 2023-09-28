@@ -81,7 +81,7 @@ const[lyricsData, setLyricsData]= useState({});
 return (
   <>
   <div className="bg-app-bg border rounded-lg  shadow-md w-full" >
-    <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full">
+    <div className="bg-app-bg rounded-lg p-4 shadow-md w-full">
       <div className="flex flex-col space-y-3">
         <h3 className='text-white font-semibold'>Enter your prompt here:</h3>
       </div>
@@ -105,10 +105,12 @@ return (
       </div>
 
     </div>
-    <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 ">
+    <div className="flex items-center justify-center border-t border-gray-300 p-6 rounded-md w-90 ">
       {musicData && <audio src={musicData.url}  controls />}
     </div> 
     </div>
+
+    
     <div className="bg-app-bg rounded-lg  shadow-md w-full" >
     <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full mt-8">
       <div className="flex flex-col space-y-3">
@@ -142,7 +144,7 @@ return (
    
 {/* dibianchu ke nft minting ke lie button*/}
  <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600 '>
-  Mint your Nft
+ Add to your wallet
  </button>
 
  </div>
