@@ -14,6 +14,7 @@ const NftMarketplace : React.FC = () => {
     window.scrollTo({ top: halfWindowHeight, left: 0, behavior: 'smooth' });
   };
   return (
+    <Animatedpage>
     <div>
       <section id="home" className="f z gd xe ye ze mt-24 kg mb-0">
         <span className="e _"></span>
@@ -516,6 +517,7 @@ const NftMarketplace : React.FC = () => {
           </div>
         </section>    
     </div>
+    </Animatedpage>
   )
 }
 
