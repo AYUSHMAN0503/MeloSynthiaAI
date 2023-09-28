@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import Animatedpage from './Animatedpage';
+import { Button } from "@material-tailwind/react";
 const Melobot = () => {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState('');
@@ -26,6 +27,7 @@ const Melobot = () => {
   };
 
   return (
+    <Animatedpage>
     <div className="flex flex-col h-screen justify-center items-center bg-app-bg px-4">
       <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text mt-2">MeloBOT</h1>
       <h3 className="text-xl font-semibold text-gray-600 mb-4">Your one stop solution on queries regarding MeloSynthia and personalized musical recommendations</h3>
@@ -46,10 +48,12 @@ const Melobot = () => {
             onKeyPress={handleKeyPress}
             className="flex-grow border-2 border-pink-500 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
           />
-          <button onClick={sendMessage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-stretch sm:self-auto">Send</button>
+          {/* <button onClick={sendMessage} className= "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-stretch sm:self-auto">Send</button> */}
+          <Button color='blue' size='sm' className='m-4 font-thin hover:bg-blue-700' onClick={sendMessage}> Send</Button>
         </div>
       </div>
     </div>
+    </Animatedpage>
   );
 };
 
