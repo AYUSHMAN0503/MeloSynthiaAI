@@ -102,7 +102,7 @@ return (
           onClick={handleAddPrompt}
         >
 
-          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
+          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>Send</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
         </button>
       </div>
 
@@ -132,20 +132,24 @@ return (
            onClick={handleAddLyricsPrompt}
         >
 
-          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>ionicons-v5-q</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
+          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>Send</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
         </button>
       
 
     </div>
-    <div className="flex items-center  border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold ">
-    {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && (
+    <div className="flex items-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold">
+  {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && (
     <p className="text-pink-500">
-      {lyricsData.replace(/\n/g, '.')}
+      {lyricsData.split('\n').map((line, index) => (
+        <span key={index}>
+          {line}
+          <br />
+        </span>
+      ))}
     </p>
   )}
+</div>
 
-
-      </div>
 
     </div>
    
