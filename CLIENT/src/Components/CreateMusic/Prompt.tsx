@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 
-
+interface MusicData {
+  url: string; // Define the url property in the MusicData interface
+}
 const PromptSection: React.FC = () => {
   const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
   const [currentPrompt, setCurrentPrompt] = useState<string>('');
   const [promptHistory, setPromptHistory] = useState<string[]>([]);
   
   const [lyricsPrompt, setLyricsPrompt] = useState<string>('');
-  const [musicData, setMusicData] = useState(null);
+  const [musicData, setMusicData] = useState<MusicData | null>(null);
 const[lyricsData, setLyricsData]= useState({});
   const handleAddPrompt = async () => {
     if (currentPrompt.trim() !== '') {
@@ -133,8 +135,13 @@ return (
       
 
     </div>
-    <div className="flex items-center justify-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold ">
-    <p className="text-pink-500">{Object.keys(lyricsData).length > 0 && JSON.stringify(lyricsData).replace(/\\n/g, '. ')}</p>
+    <div className="flex items-center  border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold ">
+    {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && (
+    <p className="text-pink-500">
+      {lyricsData.replace(/\n/g, '.')}
+    </p>
+  )}
+
 
       </div>
 
