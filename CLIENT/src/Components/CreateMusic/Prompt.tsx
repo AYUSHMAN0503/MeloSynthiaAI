@@ -108,7 +108,9 @@ return (
 
     </div>
     <div className="flex items-center justify-center border-t border-gray-300 p-6 rounded-md w-90 ">
-      {musicData && <audio src={musicData.url}  controls />}
+      
+      {musicData && <audio src={musicData.url} controls controlsList="nodownload" />}
+
     </div> 
     </div>
 
