@@ -51,12 +51,12 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
       </Link>
 
-      <Link to="#" >
+      {/* <Link to="#" >
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
         </motion.button>
-      </Link>
+      </Link> */}
       <Link to="#" ><motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60" onClick={connectWallet}>
