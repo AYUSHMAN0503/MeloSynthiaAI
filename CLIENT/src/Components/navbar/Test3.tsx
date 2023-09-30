@@ -48,9 +48,9 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
         </motion.button>
       </Link> */}
-      <Link to="/Popup" ><motion.button
+      <Link to="" ><motion.button
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60"  onClick={() => setShowPopup(true)}>
+        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60 "  onClick={() => setShowPopup(true)}>
        Connect Wallet
       </motion.button>
       {showPopup && <Popup onClose={function (): void {
