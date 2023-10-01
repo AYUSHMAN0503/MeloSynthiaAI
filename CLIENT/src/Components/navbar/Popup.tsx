@@ -1,7 +1,9 @@
+
 import { AnimatePresence, motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import "./Test3.css"
+import './Test3.css';
+
 interface PopupProps {
   onClose: () => void; // Function to close the popup
 }
@@ -10,7 +12,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [account, setAccount] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
-
+  const [popupVisible, setPopupVisible] = useState<boolean>(false);
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
@@ -19,6 +21,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
         setAccount(accounts[0]);
         const balance = await window.ethereum.request({ method: 'eth_getBalance', params: [accounts[0], 'latest'] });
         setBalance(balance);
+        setPopupVisible(true);
       } catch (error) {
         console.log(error);
       }
@@ -42,9 +45,36 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
     };
   }, [onClose]);
 
+  useEffect(() => {
+    // Check if MetaMask is installed
+    if (window.ethereum) {
+      // Check if the user is already logged in
+      window.ethereum
+        .request({ method: 'eth_accounts' })
+        .then((accounts: string[]) => {
+          if (accounts.length > 0) {
+            setAccount(accounts[0]);
+            window.ethereum
+              .request({ method: 'eth_getBalance', params: [accounts[0], 'latest'] })
+              .then((balance: string) => {
+                setBalance(balance);
+                setPopupVisible(true);
+              })
+              .catch((error: unknown) => {
+                console.error('Error fetching balance:', error);
+              });
+          }
+        })
+        .catch((error: unknown) => {
+          console.error('Error fetching accounts:', error);
+        });
+    }
+  }, []);
+
   return (
     <AnimatePresence>
-      <motion.div 
+       {popupVisible && (
+      <motion.div
         ref={popupRef}
         initial={{
           opacity: 0,
@@ -69,21 +99,21 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
         className="fixed top-2 right-2 bottom-0 w-1/4 z-9999 p-4 flex flex-col h-[500%] bg-gray-800 rounded-xl"
       >
         <div className="mt-8 flex flex-col">
-          {account ? (
-            <div className="">
+          {account && balance ? (
+            <div>
               <h3 className="text-pink-600">Account Address:</h3> {account}
               <h3 className="text-pink-600">Account Balance: </h3>
               {balance}
             </div>
           ) : (
-            <Link to="#">
+            <div>
               <button
                 className="px-8 py-2 bg-blue-500 text-white rounded mb-2 ml-10 z-10"
                 onClick={connectWallet}
               >
                 Connect MetaMask
               </button>
-            </Link>
+            </div>
           )}
           <div className="p-4 flex items-center justify-center">
             <motion.button
@@ -95,6 +125,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
           </div>
         </div>
       </motion.div>
+       )}
     </AnimatePresence>
   );
 };
