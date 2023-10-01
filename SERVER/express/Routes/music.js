@@ -17,7 +17,7 @@ router.use(cors());
 // removed authentication middleware for testing and development
 /**
  * @swagger
- * /music/getMusic:
+ * /music/getGradioMusic:
  *   post:
  *     summary: Get music from text
  *     description: Get music from text
