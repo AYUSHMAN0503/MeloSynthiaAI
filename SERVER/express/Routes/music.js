@@ -192,6 +192,7 @@ router.post('/getLyrics', async (req, res) => {
 
     const response = await fetch(`${flaskUrl}/getLyrics`, requestOptions);
     const lyrics = await response.json();
+    console.log({lyrics})
 
     if (response.error) {
       return res.status(400).json({ error: response.error });

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 import { Card2 } from './Card';
+import { LinearGradient } from 'react-text-gradients';
 
 interface CardData {
   title: string;
@@ -43,8 +44,10 @@ const CardList: React.FC<CardListProps> = ({ cards }) => {
         ))}
       </div>
       {selectedCardTitle && (
-        <div className='p-2 text-white'>
+        <div className='p-2 text-white font-semibold'>
+          <LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>
           Selected : {selectedCardTitle}
+          </LinearGradient>
         </div>
       )}
     </>
@@ -72,9 +75,11 @@ export const CardList2: React.FC<CardListProps2> = ({ cards }) => {
           />
         ))}
       </div>
+      
       {selectedCardTitle && (
-        <div className='p-2 text-white'>
-          Selected : {selectedCardTitle}
+        <div className='p-2 text-white font-semibold'>
+          <LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>
+          Selected : {selectedCardTitle}</LinearGradient>
         </div>
       )}
     </>

@@ -39,13 +39,13 @@ return (
                  
                 <ul className={about ? 'text-white font-medium ' : 'hidden'} onClick={scrollToTop}>
                     <li className="mb-4" >
-                      <Link to="/AboutUs" className="hover:underline">About </Link>
+                      <Link to="/AboutUs" className="hover:underline">About Us</Link>
                     </li>
                     <li className="mb-4">
                       <Link  to="/Future" className="hover:underline">Future</Link>
                     </li>
                     <li >
-                      <Link  to="/Future" className="hover:underline">Sitemap</Link>
+                      <Link  to="/Melobot" className="hover:underline">MeloBOT</Link>
                     </li>
                     </ul>
                   </div>

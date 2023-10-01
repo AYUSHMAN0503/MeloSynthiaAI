@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import {
   Navbar,
   IconButton,
@@ -8,25 +8,16 @@ import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transpar
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
-
-import { BsCart4 } from "react-icons/bs";
+import Popup from './Popup'
+// import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
 
-const connectWallet = () => {
-  if (window.ethereum) {
-    window.ethereum.request({ method: "eth_requestAccounts" });
-    // .then(result => {
-    //   accountChanged([result[0]])
-    // })
-  } else {
-    console.log("Install MetaMask please!!");
-    window.location.href = "https://metamask.io/";
-  }
-};
+
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -51,19 +42,22 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
       </Link>
 
-      <Link to="#" >
+      {/* <Link to="#" >
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
         </motion.button>
-      </Link>
-      <Link to="#" ><motion.button
+      </Link> */}
+      <a ><motion.button
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60" onClick={connectWallet}>
+        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60 "  onClick={() => setShowPopup(true)}>
        Connect Wallet
       </motion.button>
-      </Link>
+      {showPopup && <Popup onClose={function (): void {
+          throw new Error("Function not implemented.");
+        } } />}
 
+      </a>
     </ul>
   );
   
@@ -155,6 +149,7 @@ export function NavbarDefault() {
 
         </div>
       </Collapse>
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
     </Navbar>
     </>
   );

@@ -290,7 +290,7 @@ contract NFTMarketplace is ERC721URIStorage {
         emit OfferAccepted(tokenId, seller, bidder, offerAmount);
     }
     
-// Auction's code----->
+// Auction's code-----> 
 
     function createAuction(uint256 tokenId, uint256 durationInSeconds) public {
         require(ownerOf(tokenId) == msg.sender, "Only the owner can start an auction");
