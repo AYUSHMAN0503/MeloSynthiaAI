@@ -23,7 +23,7 @@ const options = {
       },
     ],
   },
-  apis: ['./Routes/*.js', './index.js'],
+  apis: ['./Routes/*/index.js', './index.js'],
 };
 
 const specs = swaggerJsdoc(options);
@@ -47,6 +47,7 @@ app.get('/', (_, res) => {
 
 app.use('/music', require('./Routes/music/index.js'));
 app.use('/lyrics', require('./Routes/lyrics/index.js'));
+app.use('/melobot', require('./Routes/melobot/index.js'));
 
 
 app.listen(port, () => {
