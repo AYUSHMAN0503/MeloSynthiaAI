@@ -1,4 +1,3 @@
-
 import { AnimatePresence, motion } from 'framer-motion';
 // import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
