@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 interface MusicData {
   url: string; // Define the url property in the MusicData interface
@@ -77,8 +78,14 @@ const[lyricsData, setLyricsData]= useState({});
     }
   };
 
+  {/*Redirection ka code*/}
+  const Navigate = useNavigate(); 
+  const handleMintAsNFT = () => {
+    // Div or backend devs can add any necessary logic here before the redirection
+    
+    Navigate('/UploadForm');
+  };
 
-  
 
 return (
   <>
@@ -155,13 +162,12 @@ return (
 
     </div>
    
-{/* dibianchu ke nft minting ke lie button*/}
- <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600 '>
- Add to your wallet
- </button>
+  {/* dibianchu ke nft minting ke lie button*/}
+  <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600'onClick={handleMintAsNFT}>
+      Mint as NFT
+  </button>
 
  </div>
-
 
   {/* <div className=' w-full'>
   <textarea name="" id="" className='w-full rounded-lg p-2 text-black bg-transparent border-2'></textarea>
