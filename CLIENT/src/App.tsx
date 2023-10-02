@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import styles from "@/index";
 import AboutUs from "./Components/Footer/AboutUs";
 import {Future} from "./Components/Footer/Future";
+import UploadForm from "./Components/CreateMusic/Form"
 import {
   BrowserRouter as Router,
   Routes,
@@ -34,7 +35,7 @@ function App() {
       < Route path="/Melobot" element={<Melobot/>} /> 
       < Route path="/NFT" element={<NftMarketplace/>} /> 
       < Route path="/SellNft" element={<SellNFTs/>} /> 
-
+      <Route path="/UploadForm" element={<UploadForm/>}/>
 
     </Routes>
 
