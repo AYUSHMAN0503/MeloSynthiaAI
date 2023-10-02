@@ -3,13 +3,13 @@ const router = express.Router();
 const {
   fileUpload,
   createTempUrl,
-} = require("../Utils/fileUpload");
-const Query = require("../Models/Query");
+} = require("../../Utils/fileUpload");
+const Music = require("../../Models/Music");
 const fetch = require("node-fetch-commonjs");
 const cors = require("cors");
-const { requestParamsGuard } = require("../Utils/requestGuard");
-const { flaskUrl } = require("../config");
-
+const { requestParamsGuard } = require("../../Utils/requestGuard");
+const { flaskUrl } = require("../../config");
+const { gradioGenerateMusicParams, musicParams } = require('./parameters.js')
 
 router.use(cors());
 
@@ -63,22 +63,9 @@ router.use(cors());
  *       200:
  *         description: Successful response
  */
-
 router.post('/getGradioMusic', async (req, res) => {
   try {
-
-    const requiredParameters = [
-      { name: "model", description: "model name" },
-      { name: "text", description: "query to generate music" },
-      { name: "audio", description: "audio file to generate music" },
-      { name: "duration", description: "duration of the generated music" },
-      { name: "top_k", description: "top k" },
-      { name: "top_p", description: "top p" },
-      { name: "temperature", description: "temperature" },
-      { name: "classifier_free_guidance", description: "classifier free guidance" }
-    ];
-
-    requestParamsGuard(req, res, requiredParameters);
+    requestParamsGuard(req, res, gradioGenerateMusicParams);
 
     const {
       model,
@@ -127,7 +114,7 @@ router.post('/getGradioMusic', async (req, res) => {
 
 
     // code to save to database for future use of data:
-    const queryData = new Query({
+    const queryData = new Music({
       query: text,
       duration,
       genTime,
@@ -143,68 +130,74 @@ router.post('/getGradioMusic', async (req, res) => {
 });
 
 
-/**
- * @swagger
- * /music/getLyrics:
- *   post:
- *     summary: Get lyrics from text
- *     description: Get lyrics from text
- *     requestBody:
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - text
- *               - key
- *             properties:
- *               text:
- *                 type: string
- *                 description: query to generate lyrics
- *               key:
- *                 type: string
- *                 description: api key to get lyrics. Get it from https://huggingface.co/settings/tokens
- *     responses:
- *       200:
- *         description: Successful response
- */
-router.post('/getLyrics', async (req, res) => {
+router.post('/generate', async (req, res) => {
+  const { body } = requestParamsGuard(req, res, gradioGenerateMusicParams);
   try {
-
-    const requiredParameters = [
-      {
-        name: "text",
-        description: "query to get lyrics"
-      },
-      {
-        name: "key",
-        description: "api key to get lyrics. Get it from https://huggingface.co/settings/tokens"
-      }
-    ];
-
-    requestParamsGuard(req, res, requiredParameters);
-
-    const { text, key } = req.body;
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text, key }),
-    };
-
-    const response = await fetch(`${flaskUrl}/getLyrics`, requestOptions);
-    const lyrics = await response.json();
-    console.log({ lyrics })
+      body: JSON.stringify(body),
+    }
+    const response = await fetch(`${flaskUrl}/generate_music`, requestOptions);
+    const responseData = await response.json();
 
     if (response.error) {
       return res.status(400).json({ error: response.error });
     }
-    res.status(200).json({ lyrics });
 
+    res.status(200).json({ responseData });
   } catch (error) {
     console.error("An error occurred:", error);
     res.status(500).json({ error: "An error occurred" });
   }
 })
+
+
+router.post('/get', async (req, res) => {
+  const { body: { filename } } = requestParamsGuard(req, res, musicParams);
+  try {
+    const musicRequestUrl = `${flaskUrl}/music?filename=${filename}`
+    const statsRequestUrl = `${flaskUrl}/stats?filename=${filename}`
+
+    const fetchMusic = await fetch(musicRequestUrl);
+    const fetchStats = await fetch(statsRequestUrl);
+
+    console.log(fetchMusic.status)
+    if (fetchMusic.status !== 200) {
+      const fetchMusicJson = await fetchMusic.json();
+
+      console.log({ fetchMusicJson })
+      return res.status(400).json({ message: fetchMusicJson.message });
+    }
+    else {
+      const musicBuffer = await fetchMusic.arrayBuffer();
+      const music = Buffer.from(musicBuffer);
+
+      const tempVideoUrl = createTempUrl(music, 'video.mp4');
+      const uploadedMusicUrl = await fileUpload(tempVideoUrl);
+      console.log({ uploadedMusicUrl });
+
+      const stats = await fetchStats.json();
+      console.log({ stats })
+
+      const queryData = new Music({
+        query: stats.text,
+        duration: stats.duration,
+        genTime: stats.genTime,
+        musicUrl: uploadedMusicUrl
+      })
+      await queryData.save();
+
+      return res.status(200).json({ uploadedMusicUrl });
+    }
+
+
+  } catch (error) {
+    console.error("An error occurred:", error);
+    res.status(500).json({ error: "An error occurred in finding music" });
+  }
+})
+
 
 
 module.exports = router;

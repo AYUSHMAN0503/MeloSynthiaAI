@@ -1,0 +1,1 @@
+{"genTime": 92.47260785102844, "model": "melody", "text": "fast electronic futuretic music", "audio": "https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav", "duration": 1, "top_k": 50, "top_p": 0.7, "temperature": 0.8, "classifier_free_guidance": 5}

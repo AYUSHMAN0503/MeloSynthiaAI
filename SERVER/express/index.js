@@ -45,7 +45,8 @@ app.get('/', (_, res) => {
   res.send('Welcome to MelosynthioAI!');
 });
 
-app.use('/music', require('./Routes/music.js'));
+app.use('/music', require('./Routes/music/index.js'));
+app.use('/lyrics', require('./Routes/lyrics/index.js'));
 
 
 app.listen(port, () => {

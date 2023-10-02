@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const querySchema = new mongoose.Schema({
+const musicSchema = new mongoose.Schema({
   query: {
     type: String,
     required: true
@@ -19,4 +19,4 @@ const querySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Query', querySchema);
+module.exports = mongoose.model('Music', musicSchema);
