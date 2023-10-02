@@ -4,6 +4,7 @@ import Animatedpage from '../Animatedpage';
 import { LinearGradient } from 'react-text-gradients';
 import Testimonial from './testimonials';
 import testimonials from './testimonialsData';
+import axios from "axios"
 
 import {
   Tabs,
@@ -14,7 +15,7 @@ import {
 } from "@material-tailwind/react";
 import CardList from './Cardlist';
 import { CardList2 } from './Cardlist';
-import CustomFileInput from './FileInput';
+// import CustomFileInput from './FileInput';
 import PromptSection from './Prompt';
 const cardsData = [
   {
@@ -98,9 +99,11 @@ const cardsData4 = [
   }
 ];
 
-export const CreateMusic = () => {
-  
 
+
+export const CreateMusic = () => {
+ 
+ 
 
   return (
     <Animatedpage>
@@ -127,55 +130,47 @@ export const CreateMusic = () => {
   );
 };
 
+
 export function TabsDefault() {
+  const [lyricsPrompt, setLyricsPrompt] = useState<string>('');
+
+const[lyricsData, setLyricsData]= useState({}); 
   const [activeTab, setActiveTab] = useState('dashboard');
+  const handleAddLyricsPrompt = () => {
+      if (lyricsPrompt.trim() !== '') {
+        
+        const requestData = {
+          // Replace with your actual lyrics model value
+          text: lyricsPrompt,
+          key: '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', // Replace with your actual lyrics model key
+        };
+  
+        // Make a POST request to your lyrics backend endpoint
+        axios.post('http://localhost:5000/music/getLyrics', requestData)
+        .then((response) => {
+          // Handle the response, set lyrics data to display in the UI
+          if (Array.isArray(response.data.lyrics) && response.data.lyrics.length > 0) {
+            // Join the array of lyrics into a single string
+            const lyricsText = response.data.lyrics.map((lyric: { generated_text: unknown; }) => lyric.generated_text).join('\n');
+            setLyricsData(lyricsText);
+          } else {
+            setLyricsData("Lyrics not found");
+          }
+        })
+        .catch((error) => {
+          // Handle any errors from the request
+          console.error('Error:', error);
+        });
+    }
+  };
+    
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     // prevent the default behavior of the form
     e.preventDefault();
    
-      
     
-      // const handleClick = async () => {
-      //   try {
-      //     const response = await fetch('/getGradioMusic', {
-      //       method: 'POST',
-      //       headers: {
-      //         'Content-Type': 'application/json'
-      //       },
-      //       body: JSON.stringify({
-      //         text: inputValue,
-      //         // Include other parameters here
-      //       })
-      //     });
     
-      //     if (!response.ok) {
-      //       throw new Error('Network response was not ok');
-      //     }
-    
-      //     const data = await response.json();
-    
-      //     // Do something with the data
-      //   } catch (error) {
-      //     console.error('Error:', error);
-      //   }
-      // };
-    // get the values from the form inputs
-    // const genre = e.target.genre.value;
-    // const style = e.target.style.value;
-    // const length = e.target.length.value;
-    // const tempo = e.target.tempo.value;
-    // const query = e.target.query.value;
   
-    // // send a POST request to the backend endpoint with the values
-    // axios.post('/query', { genre, style, length, tempo, query })
-    //   .then(response => {
-    //     // handle the response from the backend
-    //     console.log(response.data);
-    //   })
-    //   .catch(error => {
-    //     // handle any error from the request
-    //     console.error(error);
-    //   });
   };
   return (
     <Tabs value={activeTab}>
@@ -187,10 +182,10 @@ export function TabsDefault() {
               }`}
             onClick={() => setActiveTab('dashboard')}>Dashboard</Tab>
           <Tab
-            value="song-snippets"
-            className={`border border-gold text-purple-500 px-4 py-2 rounded-t-lg ${activeTab === 'song-snippets' ? 'bg-gold-200' : 'bg-app-bg'
+            value="Lyrical AI"
+            className={`border border-gold text-purple-500 px-4 py-2 rounded-t-lg ${activeTab === 'Lyrical AI' ? 'bg-gold-200' : 'bg-app-bg'
               }`}
-            onClick={() => setActiveTab('song-snippets')}>Song Snippets</Tab>
+            onClick={() => setActiveTab('Lyrical AI')}>Lyrical AI</Tab>
         </TabsHeader>
       </div>
 
@@ -219,51 +214,78 @@ export function TabsDefault() {
             </div>
           </div>
 
-          {/*<div>
-            <div className='text-white border-0 px-4 md:w-2/5 w-[70%]  pb-16 flex items-center flex-wrap md:float-left pt-12 md:border-r-2 border-sky-500 justify-evenly'>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className='h-12 flex flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg items-center'
-              >
-                Compose
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                className='h-12 flex flex-shrink-0 border hover:bg-cyan-700  border-cyan-700 text-lg text-white px-[1.5vw] py-[1vw] rounded-lg items-center'
-              >
-                New Music
-              </motion.button>
-            </div>
-            </div>*/}
+        
 
           <h3 className='p-10 pt-20 pb-20 flex justify-center text-white text-xl'>
             Your Generated NFTs/Music
           </h3>
         </TabPanel>
-        <TabPanel value="song-snippets">
+        <TabPanel value="Lyrical AI">
           <div className="w-full flex flex-col">
             <div className="text-center text-white px-4 py-8">
-              <h1 className="text-3xl font-semibold sm:text-5xl lg:text-7xl"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Song Snippets </LinearGradient></h1>
+              <h1 className="text-3xl font-semibold sm:text-5xl lg:text-7xl"><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Lyrical AI </LinearGradient></h1>
             </div>
-            <h2 className="text-white text-3xl md:text-4xl">Genre:</h2>
+            </div>
+            <div className="text-center text-white px-4 py-8">
+              <h1 className="text-4xl "><LinearGradient gradient={['to left', '#17acff ,#ff68f0']}>Empower to generate or craft lyrics</LinearGradient></h1>
+            </div>
+         
+           
             <div className="flex-row sm:gap-7 w-full justify-center py-4 flex-wrap grid grid-cols-2 ss:grid-cols-3 sm:grid-cols-4 gap-4  md:grid-cols-6 lg:grid-cols-6">
 
-              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Hip Hop</button>
+              {/* <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Hip Hop</button>
               <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Rock</button>
               <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Metal</button>
               <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Classical</button>
               <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Ambient</button>
               <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">LoFi</button>
               <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Cinematic</button>
-              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Slow & Reverb</button>
+              <button className="ring ring-yellow-400 py-2 px-3 rounded text-white text-lg hover:bg-gray-900">Slow & Reverb</button> */}
             </div>
-            <div className="w-full flex flex-wrap justify-center py-6 px-2 mt-4 gap-6">
-              <CustomFileInput />
-              <button className="w-32 h-12 content-center flex-wrap self-center flex justify-center bg-transparent bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-blue-500 rounded">Create
+            <div className="max-w-screen-sm mx-auto flex flex-wrap justify-center py-6 px-2 mt-4 gap-6">
+            <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full mt-8">
+      <div className="flex flex-col space-y-3">
+        <h3 className='text-white font-semibold'>Enter your Lyrics prompt here:</h3>
+      </div>
+      <div className="flex mt-4 px-0.5 h-16 ">
+        <input
+          type="text"
+          className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+          placeholder="Describe your prompt. For ex: write when you ready come and get it"
+          value={lyricsPrompt}
+         onChange={(e) => setLyricsPrompt(e.target.value)}
+
+        />
+        <button
+          className="bg-white border-zinc-00 border text-white rounded-r-md p-2 ml-1 hover:bg-blue-600 transition duration-200"
+           onClick={handleAddLyricsPrompt}
+        >
+
+          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>Send</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
+        </button>
+      
+
+    </div>
+    <div className="flex items-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold">
+  {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && (
+    <p className="text-pink-500">
+      {lyricsData.split('\n').map((line, index) => (
+        <span key={index}>
+          {line}
+          <br />
+        </span>
+      ))}
+    </p>
+  )}
+</div>
+
+
+    </div>
+              {/* <button className="w-32 h-12 content-center flex-wrap self-center flex justify-center bg-transparent bg-blue-500 text-white font-semibold hover:text-white py-2 px-4 border border-white hover:border-blue-500 rounded">Create
               </button>
             </div>
-            <div className="text-white w-full flex justify-center text-lg m-4">
-              <p className='mr-1 font-semibold'> This UI is for future reference only! We are currently working on it and you will be able to enjoy this feature very soon!</p></div>
+            <div className="text-white w-full flex justify-center text-lg m-4"> */}
+             
             {/* <div className="text-white w-full flex justify-center text-lg m-4">
               <p><span className="mr-1 font-bold">Caution:</span> MeloSynthiaAI does not Support and is not responsible for any copyright infringement of the vocals given in NFTs.</p>
             </div> */}
