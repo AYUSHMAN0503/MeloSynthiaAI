@@ -44,9 +44,6 @@ return (
                     <li className="mb-4">
                       <Link  to="/Future" className="hover:underline">Future</Link>
                     </li>
-                    <li className="mb-4">
-                      <Link  to="/Music" className="hover:underline">Creation</Link>
-                    </li>
                     
                     <li >
                       <Link  to="/Melobot" className="hover:underline">MeloBOT</Link>

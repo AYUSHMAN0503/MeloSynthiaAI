@@ -34,10 +34,10 @@ function UploadForm() {
 
   return (
     <div className="max-w-md mx-auto my-8 p-4 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-4">Lwde ka NFT bc</h2>
+      <h2 className="text-2xl font-semibold mb-4">NFT creation form!!</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-600 mb-1">Title</label>
+          <label htmlFor="title" className="block text-gray-600 mb-1">Give your NFT a name</label>
           <input
             type="text"
             id="title"
@@ -50,7 +50,7 @@ function UploadForm() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="description" className="block text-gray-600 mb-1">Description</label>
+          <label htmlFor="description" className="block text-gray-600 mb-1">Describe its details</label>
           <textarea
             id="description"
             name="description"
