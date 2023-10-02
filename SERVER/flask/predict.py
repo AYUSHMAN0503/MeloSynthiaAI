@@ -1,47 +1,28 @@
-from flask import Flask, request, send_file, jsonify
-from flask_cors import CORS
 import os
-from callModel import predictMusic, predictLyrics
-from callMelobot import get_chatbot_response
+import json
+from flask_cors import CORS
+from flask import Flask, request, send_file, jsonify
+from services.lyrics_gen.callModel import predictLyrics
+from services.melobot.callModel import melobot
+from services.music_gen.callModel import predictMusic, initiate_request, check_for_music, SUCCESS, ERROR, PENDING, remove_old_items
 
-app = Flask(__name__)
-
-# allowed_ips = ['127.0.0.1', '192.168.1.1']  # Add the IP addresses you want to allow
-# # allowed_ips = ['192.168.1.1']  # Add the IP addresses you want to allow
-
-# @app.before_request
-# def restrict_ips():
-#     print("requesting ip: ", request.remote_addr)
-#     client_ip = request.remote_addr
-#     if client_ip not in allowed_ips:
-#         return abort(403)  # Forbidden
+application = Flask(__name__)
 
 
-# Change this line to accept only POST requests
-@app.route('/predict', methods=['POST'])
-def predict():
-    try:
-        # Get the data from the POST request.
-        data = request.get_json(force=True)
-        print(data)
 
-        # Construct the path to the music file
-        music_file_path = 'Music/bach.mp3'
+allowed_ips = ['127.0.0.1', '192.168.1.1']  # Add the IP addresses you want to allow
+# allowed_ips = ['192.168.1.1']  # Add the IP addresses you want to allow
 
-        # Check if the music file exists
-        if not os.path.exists(music_file_path):
-            return "Music file not found", 404
-
-        # Return the music file as a response
-        return send_file(music_file_path, as_attachment=False)
-
-    except Exception as e:
-        print("Error:", str(e))
-        return {'error': str(e)}, 500
+@application.before_request
+def restrict_ips():
+    print("requesting ip: ", request.remote_addr)
+    client_ip = request.remote_addr
+    if client_ip not in allowed_ips:
+        return abort(403)  # Forbidden
 
 
-@app.route('/getGradioMusic', methods=['POST'])
-def getGradioMusic():
+@application.route('/gradio', methods=['POST'])
+def get_gradio_music():
     try:
         data = request.get_json(force=True)
 
@@ -70,30 +51,125 @@ def getGradioMusic():
         print("Error:", str(e))
         return {'error': str(e)}, 500
 
-@app.route('/melobot', methods=['POST'])
+@application.route('/generate_music', methods=['POST'])
+def generate_music():
+    try:
+        data = request.get_json(force=True)
+        print(data)
+        kwargs = {
+          "model": data.get("model"),
+          "text": data.get("text"),
+          "audio": data.get("audio"),
+          "duration": data.get("duration"),
+          "top_k": data.get("top_k"),
+          "top_p": data.get("top_p"),
+          "temperature": data.get("temperature"),
+          "classifier_free_guidance": data.get("classifier_free_guidance")
+        }
+
+        # print(kwargs)
+
+        music_gen_token = initiate_request(**kwargs)
+
+        print("-> filename: ", music_gen_token["filename"])
+
+        return jsonify(music_gen_token)
+
+    except Exception as e:
+        print("Error:", str(e))
+        return {'error': str(e)}, 500
+
+@application.route('/music', methods=['GET'])
+def check_update():
+    try:
+        # filename = request.json.get('filename')
+        filename = request.args.get('filename')
+        print(f"Checking filename: {filename}")
+        
+        result = check_for_music(filename)
+        print("-> result: ", result)
+        if result == SUCCESS:
+            print("File found")
+            folder_path = f"Music/{filename}"
+            sub_folders = os.listdir(folder_path)
+
+            for item in sub_folders:
+                item_path = os.path.join(folder_path, item)
+                if os.path.isdir(item_path):
+                    music_file_path = os.path.join(item_path, os.listdir(item_path)[0])
+                    return send_file(music_file_path, as_attachment=False)
+
+            return {'message': "Something went wrong", 'status': 400}, 400
+
+        elif result == ERROR:
+            print("File error")
+            return {'message': "Something went wrong", 'status': 400}, 400
+
+        elif result == PENDING:
+            print("File pending")
+            return {'message': "pending", 'status': 400}, 400
+
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return {'error': str(e), 'status': 500}
+
+@application.route('/stats', methods=['GET'])
+def get_stats():
+    try:
+        filename = request.args.get('filename')
+        print(f"Checking filename: {filename}")
+
+        result = check_for_music(filename)
+        print("-> result: ", result)
+        if result == SUCCESS:
+            print("File found")
+            folder_path = f"Music/{filename}"
+
+            stats_file_path = os.path.join(folder_path, "stats.json")
+            with open(stats_file_path) as json_file:
+                stats = json.load(json_file)
+                
+            remove_old_items("./Music/")
+            
+            return jsonify(stats)
+
+        elif result == ERROR:
+            print("File error")
+            return {'error': "Something went wrong"}, 400
+
+        elif result == PENDING:
+            print("File pending")
+            return jsonify({"message": "pending"})
+
+        else:
+            print("File not found")
+            return jsonify({"message": "not ready"})
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return {'error': str(e)}, 500
+
+@application.route('/melobot', methods=['POST'])
 def chatbot_response_endpoint():
     user_message = request.json.get('message')
-    print("==>", user_message)
-    chatbot_response = get_chatbot_response(user_message)
-    print("==>", chatbot_response)
+    print("==> user_message: ", user_message)  
+    chatbot_response = melobot(user_message)
+    print("==> user_response: ", chatbot_response)
     return jsonify({'message': chatbot_response})
 
-@app.route('/getLyrics', methods=['POST'])
+@application.route('/lyrics', methods=['POST'])
 def getLyrics():
     try:
         data = request.get_json(force=True)
 
         text = data.get("text")
         key = data.get("key")
-        if text is None:
-            return "No text provided", 404
-
+		
         print(text)
 
         response = predictLyrics(text, key)
         print("-> response: ", response)
 
-        return response
+        return response, 200
 
     except Exception as e:
         print("Error:", str(e))
@@ -101,7 +177,5 @@ def getLyrics():
 
 
 if __name__ == '__main__':
-    app.run(port=7000, debug=True)
-# CORS(app)
-# Replace with your frontend's URL
-CORS(app, origins=["http://localhost:5173"])
+    application.run(port=7000, debug=True)
+    CORS(application, origins=["http://localhost:5173", "http://localhost:5000"])

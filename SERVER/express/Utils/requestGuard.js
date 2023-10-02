@@ -6,6 +6,10 @@ function requestParamsGuard(req, res, requiredParameters) {
       message: 'Missing required parameters',
       missing_paramerters: requiredParameters.filter((item) => req.body[item.name] === undefined)
     });
+  } else {
+    return {
+      body: req.body,
+    }
   }
 }
 
