@@ -3,9 +3,8 @@ const router = express.Router();
 const {
   fileUpload,
   createTempUrl,
-  deleteTempFile,
-  videoToAudioConverter,
 } = require("../Utils/fileUpload");
+const Query = require("../Models/Query");
 const fetch = require("node-fetch-commonjs");
 const cors = require("cors");
 const { requestParamsGuard } = require("../Utils/requestGuard");
@@ -77,7 +76,7 @@ router.post('/getGradioMusic', async (req, res) => {
       { name: "top_p", description: "top p" },
       { name: "temperature", description: "temperature" },
       { name: "classifier_free_guidance", description: "classifier free guidance" }
-    ]
+    ];
 
     requestParamsGuard(req, res, requiredParameters);
 
@@ -107,7 +106,12 @@ router.post('/getGradioMusic', async (req, res) => {
       }),
     };
 
+    const initialTime = Date.now();
     const response = await fetch(`${flaskUrl}/getGradioMusic`, requestOptions);
+
+    const finalTime = Date.now();
+    const genTime = finalTime - initialTime;
+    console.log("Time taken to generate music: ", finalTime - initialTime);
 
     const musicBuffer = await response.arrayBuffer();
     const music = Buffer.from(musicBuffer);
@@ -122,17 +126,14 @@ router.post('/getGradioMusic', async (req, res) => {
     console.log({ uploadedMusicUrl });
 
 
-    // code to save to database (only for authenticated users)
-    // const queryData = new Query({
-    //   userId: req.user.id,
-    //   query: text,
-    //   genere,
-    //   style,
-    //   duration: length,
-    //   tempo,
-    //   uploadedMusicUrl
-    // });
-    // await queryData.save();
+    // code to save to database for future use of data:
+    const queryData = new Query({
+      query: text,
+      duration,
+      genTime,
+      musicUrl: uploadedMusicUrl
+    });
+    await queryData.save();
 
     res.status(200).json({ url: uploadedMusicUrl });
   } catch (error) {
@@ -192,7 +193,7 @@ router.post('/getLyrics', async (req, res) => {
 
     const response = await fetch(`${flaskUrl}/getLyrics`, requestOptions);
     const lyrics = await response.json();
-    console.log({lyrics})
+    console.log({ lyrics })
 
     if (response.error) {
       return res.status(400).json({ error: response.error });
