@@ -23,15 +23,22 @@ function UploadForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+  
     if (file) {
-      // Handle NFT creation logic here, e.g., send data to a backend API
-      const receipt = await mintNFT(title, description, file);
-
-      console.log('Transaction receipt:', receipt);
-      // Clear form fields
-      setTitle('');
-      setDescription('');
-      setFile(null);
+      try {
+        // Handle NFT creation logic here, e.g., send data to a backend API
+        const tokenId = await mintNFT(title, description, file);
+  
+        console.log('Minted NFT with Token ID:', tokenId);
+  
+        // Clear form fields
+        setTitle('');
+        setDescription('');
+        setFile(null);
+      } catch (error) {
+        console.error('Error minting NFT:', error);
+        // Handle the error (e.g., show an error message to the user)
+      }
     }
   };
 
@@ -70,7 +77,7 @@ function UploadForm() {
             type="file"
             id="file"
             name="file"
-            accept=".jpg, .png, .gif"
+            accept=".jpg, .png, .gif, .mp3"
             onChange={handleFileChange}
             className="hidden"
           />
