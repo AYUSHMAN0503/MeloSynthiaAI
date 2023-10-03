@@ -57,7 +57,7 @@ PyYAML
 referencing
 regex
 requests
-rpds-py
+# rpds-py
 safetensors
 semantic-version
 six
