@@ -21,6 +21,7 @@ router.use(cors());
  *     summary: Get music from text
  *     description: Get music from text
  *     requestBody:
+ *       required: true
  *       content:
  *         application/json:
  *           schema:
@@ -37,68 +38,54 @@ router.use(cors());
  *             properties:
  *               model:
  *                 type: string
+ *                 enum: ['melody', 'harmony', 'drums', 'bass', 'full']
  *                 description: model name
+ *                 default: 'melody'
  *               text:
  *                 type: string
  *                 description: query to generate music
+ *                 default: 'fast electronic futuristic music'
  *               audio:
  *                 type: string
  *                 description: audio file to generate music
+ *                 default: 'https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'
  *               duration:
  *                 type: number
  *                 description: duration of the generated music
+ *                 default: 1
  *               top_k:
  *                 type: number
  *                 description: top k
+ *                 default: 50
  *               top_p:
  *                 type: number
  *                 description: top p
+ *                 default: 0.9
  *               temperature:
  *                 type: number
  *                 description: temperature
+ *                 default: 0.8
  *               classifier_free_guidance:
  *                 type: boolean
  *                 description: classifier free guidance
+ *                 default: false
  *     responses:
  *       200:
  *         description: Successful response
  */
 router.post('/getGradioMusic', async (req, res) => {
   try {
-    requestParamsGuard(req, res, gradioGenerateMusicParams);
+    const { body } = requestParamsGuard(req, res, gradioGenerateMusicParams);
 
-    const {
-      model,
-      text,
-      audio,
-      duration,
-      top_k,
-      top_p,
-      temperature,
-      classifier_free_guidance,
-    } = req.body;
 
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model,
-        text,
-        audio,
-        duration,
-        top_k,
-        top_p,
-        temperature,
-        classifier_free_guidance,
-      }),
+      body: JSON.stringify(body),
     };
 
     const initialTime = Date.now();
-    const response = await fetch(`${flaskUrl}/getGradioMusic`, requestOptions);
-
-    const finalTime = Date.now();
-    const genTime = finalTime - initialTime;
-    console.log("Time taken to generate music: ", finalTime - initialTime);
+    const response = await fetch(`${flaskUrl}/gradio`, requestOptions);
 
     const musicBuffer = await response.arrayBuffer();
     const music = Buffer.from(musicBuffer);
@@ -114,13 +101,13 @@ router.post('/getGradioMusic', async (req, res) => {
 
 
     // code to save to database for future use of data:
-    const queryData = new Music({
-      query: text,
-      duration,
-      genTime,
-      musicUrl: uploadedMusicUrl
-    });
-    await queryData.save();
+    // const queryData = new Music({
+    //   query: text,
+    //   duration,
+    //   genTime,
+    //   musicUrl: uploadedMusicUrl
+    // });
+    // await queryData.save();
 
     res.status(200).json({ url: uploadedMusicUrl });
   } catch (error) {
@@ -129,7 +116,65 @@ router.post('/getGradioMusic', async (req, res) => {
   }
 });
 
-
+/**
+ * @swagger
+ * /music/generate:
+ *   post:
+ *     summary: Get music from text
+ *     description: Get music from text
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - model
+ *               - text
+ *               - audio
+ *               - duration
+ *               - top_k
+ *               - top_p
+ *               - temperature
+ *               - classifier_free_guidance
+ *             properties:
+ *               model:
+ *                 type: string
+ *                 enum: ['melody', 'harmony', 'drums', 'bass', 'full']
+ *                 description: model name
+ *                 default: 'melody'
+ *               text:
+ *                 type: string
+ *                 description: query to generate music
+ *                 default: 'fast electronic futuristic music'
+ *               audio:
+ *                 type: string
+ *                 description: audio file to generate music
+ *                 default: 'https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'
+ *               duration:
+ *                 type: number
+ *                 description: duration of the generated music
+ *                 default: 1
+ *               top_k:
+ *                 type: number
+ *                 description: top k
+ *                 default: 50
+ *               top_p:
+ *                 type: number
+ *                 description: top p
+ *                 default: 0.9
+ *               temperature:
+ *                 type: number
+ *                 description: temperature
+ *                 default: 0.8
+ *               classifier_free_guidance:
+ *                 type: boolean
+ *                 description: classifier free guidance
+ *                 default: false
+ *     responses:
+ *       200:
+ *         description: Successful response
+ */
 router.post('/generate', async (req, res) => {
   const { body } = requestParamsGuard(req, res, gradioGenerateMusicParams);
   try {
@@ -152,7 +197,37 @@ router.post('/generate', async (req, res) => {
   }
 })
 
-
+/**
+ * @swagger
+ * /music/get:
+ *   post:
+ *     summary: Retrieve music and statistics data based on a filename.
+ *     description: Retrieve music and statistics data for a given filename from external sources,
+ *                  process the data, and save it to the database.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - filename
+ *             properties:
+ *               filename:
+ *                 type: string
+ *                 default: "fd2787d0-ae9c-439b-862b-9a0f98d98912"
+ *                 description: The filename for which music and statistics data is requested.
+ *     responses:
+ *       200:
+ *         description: Successful retrieval and processing of music and statistics data.
+ *       400:
+ *         description: Bad request or error response during the data retrieval or processing.
+ *       500:
+ *         description: Internal server error during the operation.
+ * @param {express.Request} req - The Express request object.
+ * @param {express.Response} res - The Express response object.
+ * @returns {Promise<void>} - A promise that resolves when the response is sent.
+ */
 router.post('/get', async (req, res) => {
   const { body: { filename } } = requestParamsGuard(req, res, musicParams);
   try {

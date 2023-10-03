@@ -23,7 +23,12 @@ const options = {
       },
     ],
   },
-  apis: ['./Routes/*/index.js', './index.js'],
+  apis: [
+    './index.js',
+    './Routes/music/index.js',
+    './Routes/lyrics/index.js',
+    './Routes/melobot/index.js',
+  ],
 };
 
 const specs = swaggerJsdoc(options);

@@ -11,7 +11,7 @@ router.use(cors());
 
 /**
  * @swagger
- * /music/getLyrics:
+ * /lyrics:
  *   post:
  *     summary: Get lyrics from text
  *     description: Get lyrics from text
@@ -27,6 +27,7 @@ router.use(cors());
  *               text:
  *                 type: string
  *                 description: query to generate lyrics
+ *                 lyrics: 'fast electronic futuristic music'
  *               key:
  *                 type: string
  *                 description: api key to get lyrics. Get it from https://huggingface.co/settings/tokens
