@@ -3,16 +3,22 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "start": "concurrently \"npm run frontend\" \"npm run flask-backend\" \"npm run express-backend\"",
+    "flask-backend":"cd server/flask && venv\\Scripts\\activate && pip install -r requirements.txt && python predict.py",
+    "express-backend": "cd server/express && nodemon ",
+    "frontend": "cd client && npm run dev",
+    "postinstall": "npm install --prefix client && npm install --prefix server/express"
+},
+    
+   
+  
   "dependencies": {
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "framer-motion": "^10.15.1",
     "react": "^18.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",

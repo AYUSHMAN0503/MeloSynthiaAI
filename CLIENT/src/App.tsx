@@ -1,21 +1,22 @@
 import {NavbarDefault} from "./Components/navbar/Test3";
-import Footer from "./Components/navbar/Footer";
-import Home from "./Home";
+import Footer from "./Components/Footer/Footer";
+import Home from "./Components/Home/Home";
 import styles from "@/index";
-import Signup from "./Components/navbar/signup";
-import AboutUs from "./Components/navbar/AboutUs";
-import {Future} from "./Components/Future";
+import AboutUs from "./Components/Footer/AboutUs";
+import {Future} from "./Components/Footer/Future";
+import UploadForm from "./Components/CreateMusic/Form"
 import {
   BrowserRouter as Router,
   Routes,
   Route } from "react-router-dom";
-import Signin from "./Components/navbar/Signin";
-import { CreateMusic } from "./Components/navbar/CreateMusic";
-import TermsOfService from "./Components/TermsOfService";
-import PrivacyPolicy from "./Components/PrivacyPolicy";
-import FeaturesSection from "./Components/FeaturesSection";
-import Marketplace from "./Components/Marketplace";
+import { CreateMusic } from "./Components/CreateMusic/CreateMusic";
+import TermsOfService from "./Components/Footer/TermsOfService";
+import PrivacyPolicy from "./Components/Footer/PrivacyPolicy";
 
+import ContactUs from "./Components/Footer/ContactUs";
+import Melobot from "./Components/Melobot";
+import NftMarketplace from "./Components/NFT/NftMarketplace";
+import SellNFTs from "./Components/NFT/SellNFTs";
 function App() {
  
   return ( <>
@@ -25,14 +26,17 @@ function App() {
   <NavbarDefault/>
     <Routes>
       < Route path="/" element={<Home/>} />
-      < Route path="/Register" element={<Signin/>} />
-      < Route path="/Signup" element={<Signup/>} /> 
       < Route path="/AboutUs" element={<AboutUs/>} /> 
       < Route path="/Future" element={<Future/>} />
       < Route path="/Create Music" element={<CreateMusic/>} />
       < Route path="/TermsOfService" element={<TermsOfService/>} />
       < Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} /> 
-      < Route path="/Marketplace" element={<Marketplace/>} /> 
+      < Route path="/ContactUs" element={<ContactUs/>} /> 
+      < Route path="/Melobot" element={<Melobot/>} /> 
+      < Route path="/NFT" element={<NftMarketplace/>} /> 
+      < Route path="/SellNft" element={<SellNFTs/>} /> 
+      <Route path="/UploadForm" element={<UploadForm/>}/>
+
     </Routes>
 
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>

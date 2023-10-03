@@ -1,7 +1,6 @@
-import React from "react";
+import React , {useState} from "react";
 import {
   Navbar,
-  MobileNav,
   IconButton,
   Collapse,
 } from "@material-tailwind/react";
@@ -9,11 +8,13 @@ import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transpar
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
-import { useState } from "react";
-import { BsCart4 } from "react-icons/bs";
+import Popup from './Popup'
+// import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
+
+
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
   const [searchText, setSearchText] = useState("");
@@ -27,7 +28,8 @@ export function NavbarDefault() {
   const search = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(prev => prev = e.target.value);
   }
-
+    
+  const [showPopup, setShowPopup] = useState(false);
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -36,44 +38,48 @@ export function NavbarDefault() {
   }, []);
 
 
-
   const navList = (
+
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-4">
 
-      <Link to="#" >
+      <Link to="/Melobot" >
         <motion.button
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-graph-up self-center mr-1" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" /></svg>Trending</motion.button>
+          whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">MeloBOT</motion.button>
       </Link>
 
-      <Link to="/Marketplace" >
+      <Link to="/NFT" >
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }} className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
       </Link>
 
-      <Link to="#" >
+      {/* <Link to="#" >
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
         </motion.button>
-      </Link>
-      <Link to="/Register"><motion.button
+      </Link> */}
+      <a ><motion.button
         whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60">
-        Register
+        whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60 "  onClick={() => setShowPopup(true)}>
+       Connect Wallet
       </motion.button>
-      </Link>
+      {showPopup && <Popup onClose={function (): void {
+          throw new Error("Function not implemented.");
+        } } />}
 
+      </a>
     </ul>
   );
+  
 
   return (<>
 
     <Navbar className=" bg-opacity-60 backdrop-blur-md bg-gray-800 fixed top-0 left-0 right-0 z-50 w-full flex justify-between items-center navbar flex-wrap border-0"onClick={scrollToTop}>
       <div className="container mx-auto flex items-center xs:justify-between text-blue-gray-900 pl-1 xs:pl-8 "style={{maxWidth:"revert",paddingRight:"2rem"}} >
         <Link to="/">
-          <img src={logo} alt="" width={200} className="xl:w-72" /></Link>
+          <img src={logo} alt="" width={200} className="xl:w-72 scale-125" /></Link>
      
         <div className=" flex-col justify-center">
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
@@ -156,7 +162,9 @@ export function NavbarDefault() {
 
         </div>
       </Collapse>
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
     </Navbar>
     </>
   );
 }
+

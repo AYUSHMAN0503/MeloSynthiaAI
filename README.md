@@ -2,7 +2,7 @@
 
 ![Alt text](logo/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png)
 
-Theme no 5: 🤖AI
+Theme no 5: 🤖AI (Artificial Intelligence)
 💡Idea: NFT Based AI Music Marketplace
 **Introducing MeloSynthiaAI, the decentralized NFT-based music marketplace that empowers users to generate lyrics and music with AI.**  
 
@@ -15,7 +15,7 @@ It also facilitates people to buy NFTs from other users to use in their own song
 - **AI-powered music generation:** Our platform uses AI to generate lyrics and music that are both original and creative.
 - **Song Snippets:** Users can add their vocals and ask AI to generate a song for them accordingly.
 - **NFT mining:** Users can mint their generated creation as NFTs for free,which can then be sold or traded on our marketplace.
-- **Decentralized Marketplace:** Our marketplace is decentralized, which means that users have control over their own music and lyrics.
+- **HD tunes:** Our model will give you high quality tunes.
 - **Collaboration:** Users can buy NFTs from other users to use in their own songs.
 
 ## AI Models
@@ -53,7 +53,7 @@ Start the server
 
 Contributions are always welcome!
 
-To merge your changes from the cloned repository back into the original repository on GitHub, you typically follow these steps:
+To merge your changes from the cloned repository back into the original repository on GitHub, you have to typically follow these steps:
 
 - Step 1: Add the original repository as a remote (if you haven't done it already)
 
@@ -98,6 +98,8 @@ Now, go to the original repository on GitHub and create a pull request from your
 ## 📝Documentation
 
 [React+Typescript](https://react-typescript-cheatsheet.netlify.app/)
+
+[Blockchain intro](https://www.ibm.com/topics/blockchain)
 
 ## Copyright
 
