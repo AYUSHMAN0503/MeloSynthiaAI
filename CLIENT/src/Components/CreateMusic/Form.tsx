@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { mintNFT } from './connection'
 
 function UploadForm() {
   const [title, setTitle] = useState('');
@@ -19,12 +20,14 @@ function UploadForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (file) {
       // Handle NFT creation logic here, e.g., send data to a backend API
+      const receipt = await mintNFT(title, description, file);
 
+      console.log('Transaction receipt:', receipt);
       // Clear form fields
       setTitle('');
       setDescription('');
@@ -88,7 +91,7 @@ function UploadForm() {
           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none w-full"
           disabled={file ? false : true}
         >
-          Upload NFT
+          Mint NFT
         </button>
       </form>
     </div>

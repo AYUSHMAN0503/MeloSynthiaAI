@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface MusicData {
   url: string; // Define the url property in the MusicData interface
@@ -10,9 +10,9 @@ const PromptSection: React.FC = () => {
   const [currentPrompt, setCurrentPrompt] = useState<string>('');
   const [promptHistory, setPromptHistory] = useState<string[]>([]);
   
-  const [lyricsPrompt, setLyricsPrompt] = useState<string>('');
+ 
   const [musicData, setMusicData] = useState<MusicData | null>(null);
-const[lyricsData, setLyricsData]= useState({});
+
   const handleAddPrompt = async () => {
     if (currentPrompt.trim() !== '') {
     const requestData = {
@@ -44,33 +44,6 @@ const[lyricsData, setLyricsData]= useState({});
       }
     }
   };
-  const handleAddLyricsPrompt = () => {
-    if (lyricsPrompt.trim() !== '') {
-      
-      const requestData = {
-        // Replace with your actual lyrics model value
-        text: lyricsPrompt,
-        key: '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', // Replace with your actual lyrics model key
-      };
-
-      // Make a POST request to your lyrics backend endpoint
-      axios.post('http://localhost:5000/music/getLyrics', requestData)
-      .then((response) => {
-        // Handle the response, set lyrics data to display in the UI
-        if (Array.isArray(response.data.lyrics) && response.data.lyrics.length > 0) {
-          // Join the array of lyrics into a single string
-          const lyricsText = response.data.lyrics.map((lyric: { generated_text: unknown; }) => lyric.generated_text).join('\n');
-          setLyricsData(lyricsText);
-        } else {
-          setLyricsData("Lyrics not found");
-        }
-      })
-      .catch((error) => {
-        // Handle any errors from the request
-        console.error('Error:', error);
-      });
-  }
-};
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -89,15 +62,15 @@ const[lyricsData, setLyricsData]= useState({});
 
 return (
   <>
-  <div className="bg-app-bg border rounded-lg  shadow-md w-full" >
+  <div className="bg-app-bg border rounded-lg  shadow-md w-full h-60" >
     <div className="bg-app-bg rounded-lg p-4 shadow-md w-full">
       <div className="flex flex-col space-y-3">
         <h3 className='text-white font-semibold'>Enter your prompt here:</h3>
       </div>
-      <div className="flex mt-4 px-0.5  ">
+      <div className="flex mt-4 px-0.5 h-14 ">
         <input
           type="text"
-          className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+          className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300 "
           placeholder="A pop music with Selena Gomez song's beat..."
           value={currentPrompt}
           onChange={(e) => setCurrentPrompt(e.target.value)}
@@ -114,54 +87,18 @@ return (
       </div>
 
     </div>
-    <div className="flex items-center justify-center border-t border-gray-300 p-6 rounded-md w-90 ">
+    <div className="flex items-center justify-center border-t border-gray-300 p-6 rounded-md w-90 mt-4 ">
       
-      {musicData && <audio src={musicData.url} controls controlsList="nodownload" />}
+      {musicData && <audio src={musicData.url} controls  />}
 
     </div> 
     </div>
+    
+
+
 
     
-    <div className="bg-app-bg rounded-lg  shadow-md w-full" >
-    <div className="bg-app-bg border rounded-lg p-4 shadow-md w-full mt-8">
-      <div className="flex flex-col space-y-3">
-        <h3 className='text-white font-semibold'>Enter your Lyrics prompt here:</h3>
-      </div>
-      <div className="flex mt-4 px-0.5 h-16 ">
-        <input
-          type="text"
-          className="flex-grow border-zinc-700 border  rounded-l-md p-2  text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
-          placeholder="Describe your prompt. For ex: write when you ready come and get it"
-          value={lyricsPrompt}
-         onChange={(e) => setLyricsPrompt(e.target.value)}
-
-        />
-        <button
-          className="bg-white border-zinc-00 border text-white rounded-r-md p-2 ml-1 hover:bg-blue-600 transition duration-200"
-           onClick={handleAddLyricsPrompt}
-        >
-
-          <svg style={{ color: "rgb(46, 175, 255)" }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><title>Send</title><path d="M16,464,496,256,16,48V208l320,48L16,304Z" fill="#2eafff"></path></svg>
-        </button>
-      
-
-    </div>
-    <div className="flex items-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold">
-  {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && (
-    <p className="text-pink-500">
-      {lyricsData.split('\n').map((line, index) => (
-        <span key={index}>
-          {line}
-          <br />
-        </span>
-      ))}
-    </p>
-  )}
-</div>
-
-
-    </div>
-   
+   <div>
   {/* dibianchu ke nft minting ke lie button*/}
   <button className='border-2 rounded-lg m-5 p-3 text-white bg-sky-600'onClick={handleMintAsNFT}>
       Mint as NFT
