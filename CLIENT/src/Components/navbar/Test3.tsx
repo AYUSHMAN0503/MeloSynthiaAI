@@ -6,7 +6,7 @@ import {
   Collapse,
 } from "@material-tailwind/react";
 import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png"
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
 import { useState } from "react";
@@ -16,6 +16,18 @@ const scrollToTop = () => {
 };
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
+  const [searchText, setSearchText] = useState("");
+  const redirect = useNavigate();
+
+  const navigate = (e: any) => {
+    e.preventDefault();
+    redirect(`/${searchText}`)
+  }
+
+  const search = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(prev => prev = e.target.value);
+  }
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -67,8 +79,9 @@ export function NavbarDefault() {
           <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
             <div className="overflow-hidden z-0 rounded-full relative p-0.5">
               <form role="form" className="relative flex z-50 bg-slate-900 rounded-full h-10 xl:h-14 xl:w-80" >
-                <input type="text" placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none shadow-lg shadow-cyan-500" />
+                <input type="text" onChange={search} placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none shadow-lg shadow-cyan-500" />
                 <motion.button
+                onClick={navigate}
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
                   className="px-4 text-white bg-transparent rounded-full ">
