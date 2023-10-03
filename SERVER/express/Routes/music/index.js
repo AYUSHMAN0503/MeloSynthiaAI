@@ -13,7 +13,6 @@ const { gradioGenerateMusicParams, musicParams } = require('./parameters.js')
 
 router.use(cors());
 
-// removed authentication middleware for testing and development
 /**
  * @swagger
  * /music/getGradioMusic:
