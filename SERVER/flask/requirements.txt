@@ -1,5 +1,6 @@
 aiofiles~=23.2.1
-altair~=5.1.1
+# altair~=5.1.1
+altair~=5.0.1
 annotated-types~=0.5.0
 anyio~=3.7.1
 attrs~=23.1.0
