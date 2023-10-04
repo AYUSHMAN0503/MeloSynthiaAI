@@ -1,7 +1,7 @@
 import os
 import json
 from flask_cors import CORS
-from flask import Flask, request, send_file, jsonify
+from flask import Flask, abort, request, send_file, jsonify
 from services.lyrics_gen.callModel import predictLyrics
 from services.melobot.callModel import melobot
 from services.music_gen.callModel import predictMusic, initiate_request, check_for_music, SUCCESS, ERROR, PENDING, remove_old_items
@@ -178,4 +178,4 @@ def getLyrics():
 
 if __name__ == '__main__':
     application.run(port=7000, debug=True)
-    CORS(application, origins=["http://localhost:5173", "http://localhost:5000"])
+    CORS(application, origins=["http://localhost:5173" , "http://localhost:5000"])

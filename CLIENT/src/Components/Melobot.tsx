@@ -5,26 +5,37 @@ import { Button } from "@material-tailwind/react";
 const Melobot = () => {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState('');
+  const [responseData, setResponseData] = useState<any>(null); 
 
   const sendMessage = async () => {
-    if (input.trim() !== '') {
-      const userMessage = { role: 'User', content: input };
-      setMessages((prevMessages) => [...prevMessages, userMessage]);
+    const requestData = {
+      message: input,
+    };
+  
+    if (requestData) {
+      try {
+        // Send a POST request to the server with the message
+        const response = await axios.post('http://localhost:5000/melobot', requestData);
+        setResponseData(response.data);
+        // Handle the response as needed (e.g., updating state)
+        console.log('Server Response:', response.data);
+         setInput('');
 
-      const response = await axios.post('/api/melobot', { message: input });
-      const melobotMessage = { role: 'Melobot', content: response.data };
-      setMessages((prevMessages) => [...prevMessages, melobotMessage]);
-
-      setInput('');
+      // Add the message to the state
+      setMessages([...messages, { role: 'user', content: input }]);
+      } catch (error) {
+        // Handle any errors here
+        console.error('Error sending message:', error);
+      }
     }
   };
-
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       sendMessage();
     }
   };
+
 
   return (
     <Animatedpage>
@@ -38,7 +49,11 @@ const Melobot = () => {
               <p className={`p-2 rounded-lg ${message.role === 'User' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}>{message.content}</p>
             </div>
           ))}
+<div className="flex justify-end mr-4">
+{responseData && <div className="   p-2 rounded-lg bg-blue-500 text-white ">{responseData.message}</div>}
+</div>
         </div>
+        
         <p className="mb-2 text-gray-500">Ex: Type how to use MeloSynthia</p>
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0">
           <input
@@ -48,7 +63,7 @@ const Melobot = () => {
             onKeyPress={handleKeyPress}
             className="flex-grow border-2 border-pink-500 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
           />
-          {/* <button onClick={sendMessage} className= "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-stretch sm:self-auto">Send</button> */}
+         
           <Button color='blue' size='sm' className='m-4 font-thin hover:bg-blue-700' onClick={sendMessage}> Send</Button>
         </div>
       </div>
