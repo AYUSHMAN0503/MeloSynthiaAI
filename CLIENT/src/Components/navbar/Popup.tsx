@@ -6,6 +6,7 @@ interface PopupProps {
   onClose: () => void; // Function to close the popup
 }
 
+
 const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [account, setAccount] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
@@ -94,9 +95,9 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
               duration: 0.15,
             },
           }}
-          className="fixed top-2 right-2 bottom-0 w-1/4 z-9999 p-4 flex flex-col h-[500%] bg-gray-800 rounded-xl"
+          className="fixed top-2 right-2 bottom-2 w-1/5 z-9999 p-4 flex flex-col items-center justify-center h-[200%] bg-gray-800 rounded-xl "
         >
-          <div className="mt-8 flex flex-col">
+          <div className="mt-1 flex flex-col">
             {account && balance ? (
               <div>
                 <h3 className="text-pink-600">Account Address:</h3> {account}
@@ -106,7 +107,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
             ) : (
               <div>
                 <button
-                  className="px-8 py-2 bg-blue-500 text-white rounded mb-2 ml-10 z-10"
+                  className="px-7 py-4 bg-cyan-500 text-white rounded"
                   onClick={connectWallet}
                 >
                   Connect MetaMask
@@ -116,7 +117,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
             <div className="p-4 flex items-center justify-center">
               <motion.button
                 onClick={onClose}
-                className="px-5 py-2 bg-gray-500 text-white rounded"
+                className="mt-0 px-5 py-1 bg-gray-500 text-white rounded"
               >
                 Close
               </motion.button>
