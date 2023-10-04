@@ -6,8 +6,6 @@ interface PopupProps {
   onClose: () => void; // Function to close the popup
 }
 
-
-
 const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [account, setAccount] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);

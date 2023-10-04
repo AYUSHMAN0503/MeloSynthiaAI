@@ -5,11 +5,10 @@ import {
   Collapse,
 } from "@material-tailwind/react";
 import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png"
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
 import Popup from './Popup'
-// import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
@@ -17,9 +16,6 @@ const scrollToTop = () => {
 
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
-  const [searchText, setSearchText] = useState("");
-  const redirect = useNavigate();
-    
   const [showPopup, setShowPopup] = useState(false);
   React.useEffect(() => {
     window.addEventListener(
@@ -45,12 +41,6 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
       </Link>
 
-      {/* <Link to="#" >
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
-        </motion.button>
-      </Link> */}
       <a ><motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60 "  onClick={() => setShowPopup(true)}>
@@ -59,7 +49,6 @@ export function NavbarDefault() {
       {showPopup && <Popup onClose={function (): void {
           throw new Error("Function not implemented.");
         } } />}
-
       </a>
     </ul>
   );
