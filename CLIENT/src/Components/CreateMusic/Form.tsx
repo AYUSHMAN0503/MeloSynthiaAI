@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { mintNFT } from './connection'
 
 function UploadForm() {
   const [title, setTitle] = useState('');
@@ -20,34 +19,25 @@ function UploadForm() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-  
     if (file) {
-      try {
-        // Handle NFT creation logic here, e.g., send data to a backend API
-        const tokenId = await mintNFT(title, description, file);
-  
-        console.log('Minted NFT with Token ID:', tokenId);
-  
-        // Clear form fields
-        setTitle('');
-        setDescription('');
-        setFile(null);
-      } catch (error) {
-        console.error('Error minting NFT:', error);
-        // Handle the error (e.g., show an error message to the user)
-      }
+      // Handle NFT creation logic here, e.g., send data to a backend API
+
+      // Clear form fields
+      setTitle('');
+      setDescription('');
+      setFile(null);
     }
   };
 
   return (
     <div className="max-w-md mx-auto my-8 p-4 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-semibold mb-4">NFT creation form!!</h2>
+      <h2 className="text-2xl font-semibold mb-4">NFT Creation Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-600 mb-1">Give your NFT a name</label>
+          <label htmlFor="title" className="block text-gray-600 mb-1">Title</label>
           <input
             type="text"
             id="title"
@@ -60,7 +50,7 @@ function UploadForm() {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="description" className="block text-gray-600 mb-1">Describe its details</label>
+          <label htmlFor="description" className="block text-gray-600 mb-1">Description</label>
           <textarea
             id="description"
             name="description"
@@ -77,7 +67,7 @@ function UploadForm() {
             type="file"
             id="file"
             name="file"
-            accept=".jpg, .png, .gif, .mp3"
+            accept=".jpg, .png, .gif , .mp3"
             onChange={handleFileChange}
             className="hidden"
           />
@@ -98,7 +88,7 @@ function UploadForm() {
           className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none w-full"
           disabled={file ? false : true}
         >
-          Mint NFT
+          Upload NFT
         </button>
       </form>
     </div>
