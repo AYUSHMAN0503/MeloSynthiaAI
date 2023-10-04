@@ -95,13 +95,13 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
               duration: 0.15,
             },
           }}
-          className="fixed top-2 right-2 bottom-2 w-1/5 z-9999 p-4 flex flex-col items-center justify-center h-[200%] bg-gray-800 rounded-xl "
+          className="fixed top-2 right-2 bottom-2 sm:w-2/6 lg:w-2/6 xl:w-2/6 z-9999 p-4 flex flex-col items-center justify-center h-[250%] bg-gray-800 rounded-xl"
         >
           <div className="mt-1 flex flex-col">
             {account && balance ? (
               <div>
-                <h3 className="text-pink-600">Account Address:</h3> {account}
-                <h3 className="text-pink-600">Account Balance: </h3>
+                <h3 className="text-pink-600 mt-2">Account Address:</h3> {account}
+                <h3 className="text-pink-600 mt-2">Account Balance: </h3>
                 {balance}
               </div>
             ) : (
@@ -117,7 +117,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
             <div className="p-4 flex items-center justify-center">
               <motion.button
                 onClick={onClose}
-                className="mt-0 px-5 py-1 bg-gray-500 text-white rounded"
+                className="mt-0 px-5 py-1 bg-pink-500 text-white rounded"
               >
                 Close
               </motion.button>
