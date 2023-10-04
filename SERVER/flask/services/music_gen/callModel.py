@@ -76,7 +76,9 @@ def wait_for_gradio(filename: str, **kwargs):
 def predict_generation_time(duration: float) -> float:
     # Load the trained model from the specified file path
     module_dir = os.path.dirname(__file__)
+    print(module_dir)
     model_file_path = os.path.join(module_dir, './Models/duration_analysis.pkl')
+    print(model_file_path)
 
     with open(model_file_path, 'rb') as model_file:
         loaded_model = pickle.load(model_file)
@@ -97,6 +99,7 @@ def initiate_request(**kwargs):
 
         duration = kwargs["duration"]        
         generation_time = predict_generation_time(duration)
+        print(f"--> generation time: {generation_time}")
 
         # Start a new thread to wait for Gradio
         Thread(target=wait_for_gradio, args=(filename,), kwargs=kwargs).start()

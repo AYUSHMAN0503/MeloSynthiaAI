@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
 
   } catch (error) {
     console.error("An error occurred:", error);
-    res.status(500).json({ error: "An error occurred in lyrics generation." });
+    res.status(500).json({ message: "An error occurred in lyrics generation.", success: false, error });
   }
 })
 
