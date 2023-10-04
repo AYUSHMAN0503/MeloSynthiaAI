@@ -49,7 +49,7 @@ const FeaturesSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">MeloBOT </h3>
-                  <p className="text-gray-100">MeloBOT gives you musical recommendations according to your taste and mood. It also solves your queries regarding MeloSynthia AI..</p>
+                  <p className="text-gray-100">MeloBOT gives you musical recommendations according to your taste and mood. It also solves your queries regarding TRON..</p>
                 </div>
               </div>
             </div>

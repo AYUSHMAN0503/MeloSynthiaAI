@@ -18,6 +18,8 @@ export const Future = () => {
                 <li className='mb-11 text-pink-400'>While constructing NFTs on the platform, users can use BitTorrent File System (BTFS) to decentralise their metadata their metadata while creating NFTs on the platform. With BTFS is a next-generation file sharing protocol, cost-effective, scalable and high-performing storage and sharing solutions will empower our platform</li>
                 <li className='mb-11 text-pink-400'> BTFS, a next-generation file sharing protocol, will enable our platform with cost-effective, scalable, and high-performance storage and sharing options.</li>
                 <li className='mb-11 text-pink-400'>. Additionally, MeloSynthiaAI facilitates artists to manage their NFTs collections on the platform and raise their profile on the network. On MeloSynthiaAI, users can also receive updates from their favourite musicians about their most recent works which will be just a click away.</li>
+                <li className='mb-11 text-pink-400'> A fully functional search bar to improve user experience, so that the users can directly navigate..</li>
+
             </ul>
         </div>
     </div>

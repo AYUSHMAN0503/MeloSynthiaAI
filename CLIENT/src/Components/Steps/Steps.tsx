@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsWallet2} from 'react-icons/bs'
 import { FaMusic, FaBitcoin } from 'react-icons/fa'
 function Steps({ title, desc, icon }:any) {

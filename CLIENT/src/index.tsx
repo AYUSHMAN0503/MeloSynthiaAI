@@ -1,7 +1,6 @@
 import discord from "@/assets/discord.svg"
 import github from "@/assets/github.svg"
 import youtube from "@/assets/youtube.svg"
-import { Link } from "react-router-dom"
 
 const styles = {
     boxWidth: "xl:max-w-[1280px] w-full",

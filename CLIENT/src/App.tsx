@@ -16,7 +16,6 @@ import PrivacyPolicy from "./Components/Footer/PrivacyPolicy";
 import ContactUs from "./Components/Footer/ContactUs";
 import Melobot from "./Components/Melobot";
 import NftMarketplace from "./Components/NFT/NftMarketplace";
-import SellNFTs from "./Components/NFT/SellNFTs";
 function App() {
  
   return ( <>
@@ -34,7 +33,6 @@ function App() {
       < Route path="/ContactUs" element={<ContactUs/>} /> 
       < Route path="/Melobot" element={<Melobot/>} /> 
       < Route path="/NFT" element={<NftMarketplace/>} /> 
-      < Route path="/SellNft" element={<SellNFTs/>} /> 
       <Route path="/UploadForm" element={<UploadForm/>}/>
 
     </Routes>
@@ -42,8 +40,6 @@ function App() {
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
     <div className={`${styles.boxWidth}`}> <Footer/> </div>
     </div>
-
-
     
    </Router> 
   </div>

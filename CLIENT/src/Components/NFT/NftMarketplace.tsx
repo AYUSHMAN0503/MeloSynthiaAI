@@ -1,7 +1,5 @@
 import React from 'react'
 import "./NFT.css"
-import Bg from "./../assets/musical.jpg"
-import { Link } from 'react-router-dom'
 import Animatedpage from '../Animatedpage'
 import { List } from './ListForSell'
 const NftMarketplace : React.FC = () => {
@@ -24,19 +22,15 @@ const NftMarketplace : React.FC = () => {
               <div className="pb nf _k/2">
                 <div className="ra gc tk">
                   <h1 className="ia lh ph qh vh lk tl om 2xl:ud-text-[50px] sm:text-[46px] bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text">
-                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, sit?
+                   Welcome to NFT marketplace, here you can sell your musical-nfts & earn vey soon!!
                   </h1>
                   <p className="qa hh oh rh uh kk text-slate-400 mt-8">
-                  You're the light, you're the night, You're the colour of my blood, You're the cure, you're the pain
-                  You're the only thing I wanna touch, Never knew that it could mean so much, so much!!
+                  After generating the music and minting your musical NFT, paste the token id below and then set price for your NFT, and boom your NFT will be listed on out platform!
                   </p>
                   <div className="flex flex-wrap items-center mt-7">
                   <a onClick={scrollToHalf} href="#"className="pa ka _a yc _c ld pd yd he sf vf eh nh vh ii aj bg-cyan-400 border-cyan-400">
-                     Buy NFT
+                     Start Purchasing
                     </a>
-                    <Link onClick={scrollToTop} to="/SellNft" className="pa ka _a yc _c ld pd yd he sf vf eh nh vh ii aj bg-cyan-400 border-cyan-400">
-                     Sell NFT
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -60,7 +54,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        22-Bit Digital #551
+                        Lo-fi tuned NFT
                       </a>
                     </h3>
                     <div className="ka za yc ad">
@@ -68,7 +62,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Devid_Mill...
+                              @aarush
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -78,7 +72,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          5.49 ETH
+                          5.49 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -96,7 +90,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        25-Bit Digital #729
+                        YE's tunes
                       </a>
                     </h3>
                     <div className="ka za yc ad">
@@ -104,7 +98,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Devid_Meth...
+                              @Brett
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -114,7 +108,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          1.58 ETH
+                          1.58 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -132,7 +126,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        27-Bit Digital #395
+                        Taylor S pop vibe
                       </a>
                     </h3>
                     <div className="ka za yc ad">
@@ -140,7 +134,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Jemmy_Fra...
+                              @D-von
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -150,7 +144,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          3.25 ETH
+                          3.25 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -174,10 +168,6 @@ const NftMarketplace : React.FC = () => {
               <h2 className="ia gh ph qh vh ck bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text">
                 Core Features
               </h2>
-              <p className="hh oh uh text-slate-400 font-light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a
-                lacinia dolor, in pretium nunc. Morbi mollis arcu eget.
-              </p>
             </div>
             <div className="ea za xc lg:ml-20">
               <div className="pb nf hk/2 _k/3 2xl:ud-w-1/4">
@@ -191,7 +181,7 @@ const NftMarketplace : React.FC = () => {
                     Set Up Your Wallet
                   </h3>
                   <p className="eh oh uh text-slate-400 font-thin">
-                    Lorem ipsum dolor sit amet consectetur smit.
+                    Set up your wallet by connecting to Metamask!
                   </p>
                 </div>
               </div>
@@ -206,7 +196,7 @@ const NftMarketplace : React.FC = () => {
                     Add Your NFTs
                   </h3>
                   <p className="eh oh uh font-thin">
-                    Lorem ipsum dolor sit amet consectetur smit.
+                    Paste the Token ID and press Enter
                   </p>
                 </div>
               </div>
@@ -221,7 +211,7 @@ const NftMarketplace : React.FC = () => {
                     List Them For Sale
                   </h3>
                   <p className="eh oh uh font-thin">
-                    Lorem ipsum dolor sit amet consectetur smit.
+                    Set a price for your NFT & then list it!!
                   </p>
                 </div>
               </div>
@@ -245,7 +235,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 1
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -253,7 +243,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Devid_Mill...
+                              @Rana
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -263,7 +253,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          5.49 ETH
+                          5.49 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -271,8 +261,8 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
@@ -283,7 +273,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 2
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -291,7 +281,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Wilium_de...
+                              @VReddy
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -301,7 +291,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          2.85 ETH
+                          2.85 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -309,8 +299,8 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
@@ -322,7 +312,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 3
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -330,7 +320,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Liza_Auro...
+                              @Lionel
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -340,7 +330,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          0.25 ETH
+                          0.25 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -348,8 +338,8 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
@@ -360,7 +350,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 4
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -368,7 +358,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Lathium_Lui...
+                              @rizz_gomez
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -378,7 +368,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          3.24 ETH
+                          3.24 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -386,8 +376,8 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
@@ -398,7 +388,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 5
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -406,7 +396,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Marko...
+                              @inidie-vibe
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -416,7 +406,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          4.55 ETH
+                          4.55 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -424,8 +414,8 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
@@ -436,7 +426,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 6
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -444,7 +434,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Andrio_Hev...
+                              @ayanokoji
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -454,7 +444,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          0.89 ETH
+                          0.89 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -462,8 +452,8 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
@@ -474,7 +464,7 @@ const NftMarketplace : React.FC = () => {
                   <div>
                     <h3>
                       <a href="javascript:void(0)" className="sa ya hh nh vh cj">
-                        3d abstract illustration
+                        NFT selling illustration 7
                       </a>
                     </h3>
                     <div className="oa za yc ad">
@@ -482,7 +472,7 @@ const NftMarketplace : React.FC = () => {
                         <div className="za yc">
                           <div className="pb">
                             <h4 className="kh nh vh">
-                              @Mariya_Hie...
+                              @Dpatnaik
                               <span className="xa kh oh uh">
                                 owner
                               </span>
@@ -492,7 +482,7 @@ const NftMarketplace : React.FC = () => {
                       </div>
                       <div className="pb">
                         <h5 className="dh kh nh vh">
-                          1.75 ETH
+                          1.75 BTT
                           <span className="xa kh oh uh">
                             Listed Price
                           </span>
@@ -500,13 +490,53 @@ const NftMarketplace : React.FC = () => {
                       </div>
                     </div>
                     <div className="za yc ad sd wd ug">
-                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400">
-                        Place Bid
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
+              <div className="pb nf hk/2 _k/3 2xl:ud-w-1/4">
+                <div className="ja nd qd wd fe hf">
+                  <div>
+                    <h3>
+                      <a href="javascript:void(0)" className="sa ya hh nh vh cj">
+                        NFT selling illustration 8
+                      </a>
+                    </h3>
+                    <div className="oa za yc ad">
+                      <div className="pb">
+                        <div className="za yc">
+                          <div className="pb">
+                            <h4 className="kh nh vh">
+                              @rajendranJK
+                              <span className="xa kh oh uh">
+                                owner
+                              </span>
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="pb">
+                        <h5 className="dh kh nh vh">
+                          10.75 BTT
+                          <span className="xa kh oh uh">
+                            Listed Price
+                          </span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div className="za yc ad sd wd ug">
+                      <a href="javascript:void(0)" className="za yc _c ld he sf nf fh nh vh ii aj xj bg-cyan-400 w-full">
+                        BUY
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               <div className="pb nf">
                 <div className="rg ch">
                   <a href="javascript:void(0)" className="_a yc _c ld pd vd sf vf eh nh vh ii wi yi mb-4 mt-0 border-cyan-400 hover:border-cyan-400 hover:bg-cyan-400">

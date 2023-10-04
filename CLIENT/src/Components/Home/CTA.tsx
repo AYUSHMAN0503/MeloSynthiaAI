@@ -1,4 +1,3 @@
-import React from 'react'
 import gradient from "@/assets/Banner.jpeg"
 import { Link } from 'react-router-dom'
 

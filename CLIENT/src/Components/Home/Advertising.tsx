@@ -1,5 +1,4 @@
 import advertisement from "@/assets/advertisement.png"
- import React from 'react'
  
  const Advertising = () => {
    return (
