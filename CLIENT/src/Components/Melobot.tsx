@@ -5,7 +5,7 @@ import { Button } from "@material-tailwind/react";
 const Melobot = () => {
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState('');
-  const [responseData, setResponseData] = useState<any>(null); 
+  // const [responseData, setResponseData] = useState<any>(null); 
 
   const sendMessage = async () => {
     const requestData = {
@@ -16,13 +16,18 @@ const Melobot = () => {
       try {
         // Send a POST request to the server with the message
         const response = await axios.post('http://localhost:5000/melobot', requestData);
-        setResponseData(response.data);
+        // setResponseData(response.data);
         // Handle the response as needed (e.g., updating state)
         console.log('Server Response:', response.data);
          setInput('');
 
       // Add the message to the state
-      setMessages([...messages, { role: 'user', content: input }]);
+      // setMessages([...messages, { role: 'user', content: input }]);
+      // setMessages([...messages, { role: 'melobot', content: response.data.message }]);
+      setMessages(oldMessages =>{{
+        return [...oldMessages, { role: 'user', content: input },{ role: 'melobot', content: response.data.message }]
+
+      }})
       } catch (error) {
         // Handle any errors here
         console.error('Error sending message:', error);
@@ -45,13 +50,13 @@ const Melobot = () => {
       <div className="flex flex-col bg-white p-10 rounded-lg shadow-md w-full sm:w-1/2">
         <div className="overflow-y-auto h-64 mb-4 space-y-4">
           {messages.map((message, index) => (
-            <div key={index} className={`flex ${message.role === 'User' ? 'justify-end' : 'justify-start'}`}>
-              <p className={`p-2 rounded-lg ${message.role === 'User' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'}`}>{message.content}</p>
+            <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <p className={`p-2 rounded-lg ${message.role === 'user' ? 'bg-gray-300 text-black' : 'bg-blue-500 text-white'}`}>{message.content}</p>
             </div>
           ))}
-<div className="flex justify-end mr-4">
-{responseData && <div className="   p-2 rounded-lg bg-blue-500 text-white ">{responseData.message}</div>}
-</div>
+{/* <div className="flex justify-end mr-4">
+{responseData && <div className="p-2 rounded-lg bg-blue-500 text-white ">{responseData.message}</div>}
+</div> */}
         </div>
         
         <p className="mb-2 text-gray-500">Ex: Type how to use MeloSynthia</p>

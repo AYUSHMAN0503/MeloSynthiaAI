@@ -146,19 +146,26 @@ const[lyricsData, setLyricsData]= useState({});
         };
   
         // Make a POST request to your lyrics backend endpoint
-        axios.post('http://localhost:5000/music/getLyrics', requestData)
+        axios.post('http://localhost:5000/lyrics', requestData)
         .then((response) => {
+          // if (response.data.lyrics){
+          //   setLyricsData
+          // }
           // Handle the response, set lyrics data to display in the UI
-          if (Array.isArray(response.data.lyrics) && response.data.lyrics.length > 0) {
-            // Join the array of lyrics into a single string
-            const lyricsText = response.data.lyrics.map((lyric: { generated_text: unknown; }) => lyric.generated_text).join('\n');
-            setLyricsData(lyricsText);
-          } else {
-            setLyricsData("Lyrics not found");
-          }
+          // if (Array.isArray(response.data.lyrics) && response.data.lyrics.length > 0) {
+          //   // Join the array of lyrics into a single string
+          //   const lyricsText = response.data.lyrics.map((lyric: { generated_text: unknown; }) => lyric.generated_text).join('\n');
+          //   setLyricsData(lyricsText);
+          //   console.log(response.data.lyrics)
+          // } else {
+          //   setLyricsData("Lyrics not found");
+          // }
+          setLyricsData(response?.data?.lyrics ?? "lyrics not found")
+
         })
         .catch((error) => {
           // Handle any errors from the request
+          setLyricsData("Lyrics Not Found")
           console.error('Error:', error);
         });
     }
