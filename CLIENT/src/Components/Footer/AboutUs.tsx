@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import { useSwipeable } from 'react-swipeable';
 import TeamMembers from './TeamMembers';
 import Animatedpage from '../Animatedpage';
-import { LinearGradient } from 'react-text-gradients';
 
 const AboutUs: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);

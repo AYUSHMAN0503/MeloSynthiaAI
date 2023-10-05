@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TermsOfService = () => {
   const today = new Date();
   const date = `${today.getDate()}th ${today.toLocaleString('default', { month: 'long' })}, ${today.getFullYear()}`;

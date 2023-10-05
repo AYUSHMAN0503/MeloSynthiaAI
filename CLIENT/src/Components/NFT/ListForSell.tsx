@@ -7,9 +7,8 @@ export function List() {
   const [showWarning, setShowWarning] = useState<boolean>(false);
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const allowedChars = /^[a-zA-Z0-9]*$/; // Regular expression to allow only letters and numbers
+    const allowedChars = /^[a-zA-Z0-9]*$/; 
 
-    // Check if the pressed key is not allowed
     if (!allowedChars.test(event.key)) {
       event.preventDefault(); // Prevent the key press
       setShowWarning(true); // Show the warning message

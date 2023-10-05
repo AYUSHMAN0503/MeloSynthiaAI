@@ -1,4 +1,3 @@
-import React from 'react';
 import { LinearGradient } from 'react-text-gradients';
 
 const PrivacyPolicy = () => {

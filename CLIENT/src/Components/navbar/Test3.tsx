@@ -5,11 +5,10 @@ import {
   Collapse,
 } from "@material-tailwind/react";
 import logo from "@/assets/melosynthia-ai-high-resolution-logo-color-on-transparent-background.png"
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./Test3.css"
 import Popup from './Popup'
-// import { BsCart4 } from "react-icons/bs";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
@@ -17,18 +16,6 @@ const scrollToTop = () => {
 
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
-  const [searchText, setSearchText] = useState("");
-  const redirect = useNavigate();
-
-  const navigate = (e: any) => {
-    e.preventDefault();
-    redirect(`/${searchText}`)
-  }
-
-  const search = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(prev => prev = e.target.value);
-  }
-    
   const [showPopup, setShowPopup] = useState(false);
   React.useEffect(() => {
     window.addEventListener(
@@ -54,12 +41,6 @@ export function NavbarDefault() {
           whileTap={{ scale: 0.9 }} className="block text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50">NFT Marketplace</motion.button>
       </Link>
 
-      {/* <Link to="#" >
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }} className=" flex text-white py-2 px-4 rounded-lg hover:bg-gray-700 shadow-md shadow-white/50"><BsCart4 />
-        </motion.button>
-      </Link> */}
       <a ><motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }} className="bg-cyan-400  text-black font-medium py-2 px-4  my-0.9 rounded-lg shadow-md shadow-white/60 "  onClick={() => setShowPopup(true)}>
@@ -68,7 +49,6 @@ export function NavbarDefault() {
       {showPopup && <Popup onClose={function (): void {
           throw new Error("Function not implemented.");
         } } />}
-
       </a>
     </ul>
   );
@@ -81,39 +61,7 @@ export function NavbarDefault() {
         <Link to="/">
           <img src={logo} alt="" width={200} className="xl:w-72 scale-125" /></Link>
      
-        <div className=" flex-col justify-center">
-          <div className="relative w-full sm:max-w-2xl sm:mx-auto  hidden lg:flex">
-            <div className="overflow-hidden z-0 rounded-full relative p-0.5">
-              <form role="form" className="relative flex z-50 bg-slate-900 rounded-full h-10 xl:h-14 xl:w-80" >
-                <input type="text" onChange={search} placeholder="Enter your query here" className="rounded-full flex-1 px-6 py-4 text-white bg-slate-900 focus:outline-none shadow-lg shadow-cyan-500" />
-                <motion.button
-                onClick={navigate}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="px-4 text-white bg-transparent rounded-full ">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                </motion.button>
-              </form>
-              <div className="glow glow-1 z-10 bg-white absolute"></div>
-              <div className="glow glow-2 z-20 bg-cyan-400 absolute "></div>
-              <div className="glow glow-3 z-10 bg-cyan-400 absolute"></div>
-              <div className="glow glow-4 z-20 bg-white absolute "></div>
-            </div>
-          </div>
-        </div>
+        
         <div className="hidden lg:block">{navList}</div>
 
 
