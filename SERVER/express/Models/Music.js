@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const musicSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
   query: {
     type: String,
     required: true

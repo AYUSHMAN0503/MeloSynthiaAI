@@ -5,7 +5,7 @@ const fetch = require("node-fetch-commonjs");
 const cors = require("cors");
 const { requestParamsGuard } = require("../../Utils/requestGuard");
 const { flaskUrl } = require("../../config");
-const { lyricsGenParams } = require('./parameters.js')
+const { lyricsGenParams } = require('./parameters.js');
 
 router.use(cors());
 
@@ -47,15 +47,30 @@ router.post('/', async (req, res) => {
       body: JSON.stringify({ text, key }),
     };
 
-    const response = await fetch(`${flaskUrl}/lyrics`, requestOptions);
-    let lyrics = await response.json();
+    const maxRequestCount = 5;
+    let lyrics = null;
+    let response = null;
+    console.log("\n");
+    for (let i = 0; i < maxRequestCount; i++) {
+      try {
+        response = await fetch(`${flaskUrl}/lyrics`, requestOptions);
+        const [{ generated_text }] = await response.json();
+        lyrics = generated_text;
 
-    console.log('lyrics', lyrics);
-    lyrics = lyrics[0].generated_text;
+        console.log(`Lyrics in ${i}th request: `, lyrics);
 
-    if (response.error) {
-      return res.status(400).json({ error: response.error });
+        if (response.error || response.status !== 200 || !lyrics) continue;
+        else break
+
+      } catch (error) {
+        if (i === maxRequestCount - 1) {
+          console.error("An error occurred:", error);
+          res.status(500).json({ message: "An error occurred in lyrics generation.", success: false, error });
+        }
+      }
     }
+
+    console.log('Generated lyrics:', lyrics);
 
     const lyricsToSave = new Lyrics({ query: text, lyrics });
     await lyricsToSave.save();

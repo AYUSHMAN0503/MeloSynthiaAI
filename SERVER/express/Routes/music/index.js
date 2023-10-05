@@ -230,6 +230,25 @@ router.post('/generate', async (req, res) => {
 router.post('/get', async (req, res) => {
   const { body: { filename } } = requestParamsGuard(req, res, musicParams);
   try {
+    // check for music in database first:
+    const musicFromDB = await Music.findOne({ name: filename });
+    console.log({ musicFromDB })
+    if (musicFromDB) {
+      console.log("\n--> music already generated, returning data from database");
+      const { musicUrl, duration, genTime, query } = musicFromDB;
+      return res.status(200).json({
+        url: musicUrl,
+        status: 200,
+        stats: {
+          duration,
+          genTime,
+          text: query
+        },
+      })
+    }
+
+    // if the music is not already generated
+    console.log("--> music not already generated, generating new from flask");
     const musicRequestUrl = `${flaskUrl}/music?filename=${filename}`
     const statsRequestUrl = `${flaskUrl}/stats?filename=${filename}`
 
@@ -239,6 +258,7 @@ router.post('/get', async (req, res) => {
     console.log(fetchMusic.status);
 
     if (fetchMusic.status === 500) {
+      console.log("failed to get music from flask");
       const fetchMusicJson = await fetchMusic.json();
 
       console.log({ fetchMusicJson })
@@ -251,6 +271,7 @@ router.post('/get', async (req, res) => {
       return res.status(200).json({ message: fetchMusicJson.message, status: 200, success: false });
     }
     else if (fetchMusic.status === 200) {
+      console.log("got music from flask");
       const musicBuffer = await fetchMusic.arrayBuffer();
       const music = Buffer.from(musicBuffer);
       const tempVideoUrl = createTempUrl(music, 'video.mp4');
@@ -261,6 +282,7 @@ router.post('/get', async (req, res) => {
       console.log({ stats })
 
       const queryData = new Music({
+        name: filename,
         query: stats.text,
         duration: stats.duration,
         genTime: stats.genTime,

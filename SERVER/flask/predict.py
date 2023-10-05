@@ -84,7 +84,7 @@ def check_update():
     try:
         # filename = request.json.get('filename')
         filename = request.args.get('filename')
-        print(f"Checking filename: {filename}")
+        print(f"\n\nChecking filename: {filename}")
         
         result = check_for_music(filename)
         print("-> result: ", result)
@@ -99,15 +99,15 @@ def check_update():
                     music_file_path = os.path.join(item_path, os.listdir(item_path)[0])
                     return send_file(music_file_path, as_attachment=False)
 
-            return {'message': "Something went wrong", 'status': 400}, 400
+            return {'message': "No music in folder, possibly music is'nt generating in model", 'status': 400, 'error': False}, 400
 
         elif result == ERROR:
             print("File error")
-            return {'message': "Something went wrong", 'status': 400}, 400
+            return {'message': "Issue in generation / fetching music from gradio", 'status': 500, 'error': True}, 500
 
         elif result == PENDING:
-            print("File pending")
-            return {'message': "pending", 'status': 400}, 400
+            print("File pending / No such file found")
+            return {'message': "pending", 'status': 400, 'error': False}, 400
 
     except Exception as e:
         print(f"Error: {str(e)}")
