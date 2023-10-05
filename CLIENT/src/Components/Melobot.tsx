@@ -59,7 +59,7 @@ const Melobot = () => {
 </div> */}
         </div>
         
-        <p className="mb-2 text-gray-500">Ex: Type how to use MeloSynthia</p>
+        <p className="mb-2 text-gray-500">Ex: Type 'what can you do'</p>
         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0">
           <input
             type="text"

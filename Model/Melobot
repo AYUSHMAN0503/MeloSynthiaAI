@@ -11,7 +11,7 @@ patterns = [
     (r'(hi|hello|hey|hola)', ['Hello!', 'Hi there!', 'Hey!', 'Hi, MeloBot this side, what\'s up?']),
     (r'(what can you do|what can melobot do)', ['I can help you with music recommendations, tell you about things which can be done on melosynthia and can clarify your doubts regarding this ai', 'I can tell you about NFTs', 'I am but a robot after all']),
     (r'(how are you|how are you doing)', ['I am good, thank you!', 'I am just a chatbot, but I am fine.']),
-    (r'what can you do', ['I can help you generate music, create NFTs of generated lyrics, and provide music-related recommendations. Just ask me!']),
+    (r'what can you do', ['I can help you generate music, create NFTs of generated lyrics, and help you about TRON's ecosystem. Just ask me!']),
     (r'(how do you know what music to recommend to me)', ['I use machine learning algorithms to analyze your music preferences and past listening habits. The more you interact with me and provide feedback, the better I can fine-tune my recommendations.']),
     (r'(can you suggest new and trending songs or artists)', ['Absolutely! I can keep you updated on the latest music releases, popular artists, and trending tracks in various genres.']),
     (r'who created MeloSynthia', ['team web3 sailors created melosynthia']),
