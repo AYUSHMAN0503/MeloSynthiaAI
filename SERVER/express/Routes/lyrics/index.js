@@ -27,10 +27,11 @@ router.use(cors());
  *               text:
  *                 type: string
  *                 description: query to generate lyrics
- *                 lyrics: 'fast electronic futuristic music'
+ *                 default: 'fast electronic futuristic music'
  *               key:
  *                 type: string
  *                 description: api key to get lyrics. Get it from https://huggingface.co/settings/tokens
+ *                 default: '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'
  *     responses:
  *       200:
  *         description: Successful response
@@ -49,6 +50,7 @@ router.post('/', async (req, res) => {
     const response = await fetch(`${flaskUrl}/lyrics`, requestOptions);
     let lyrics = await response.json();
 
+    console.log('lyrics', lyrics);
     lyrics = lyrics[0].generated_text;
 
     if (response.error) {
@@ -62,7 +64,7 @@ router.post('/', async (req, res) => {
 
   } catch (error) {
     console.error("An error occurred:", error);
-    res.status(500).json({ error: "An error occurred in lyrics generation." });
+    res.status(500).json({ message: "An error occurred in lyrics generation.", success: false, error });
   }
 })
 

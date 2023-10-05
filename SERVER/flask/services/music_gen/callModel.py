@@ -97,6 +97,7 @@ def initiate_request(**kwargs):
 
         duration = kwargs["duration"]        
         generation_time = predict_generation_time(duration)
+        print(f"--> generation time: {generation_time}")
 
         # Start a new thread to wait for Gradio
         Thread(target=wait_for_gradio, args=(filename,), kwargs=kwargs).start()
