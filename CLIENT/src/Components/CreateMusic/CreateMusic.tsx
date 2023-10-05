@@ -142,11 +142,11 @@ const[lyricsData, setLyricsData]= useState({});
         const requestData = {
           // Replace with your actual lyrics model value
           text: lyricsPrompt,
-          key: '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', // Replace with your actual lyrics model key
+          key: `${import.meta.env.VITE_LYRICS_HFTOKEN}`, 
         };
   
         // Make a POST request to your lyrics backend endpoint
-        axios.post('http://localhost:5000/lyrics', requestData)
+        axios.post(`${import.meta.env.VITE_EXPRESS_URL}/lyrics`, requestData)
         .then((response) => {
           // if (response.data.lyrics){
           //   setLyricsData
