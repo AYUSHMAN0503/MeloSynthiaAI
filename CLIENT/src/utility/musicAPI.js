@@ -6,7 +6,7 @@ const generateMusic = async (prompt) => {
       "model": "melody",
       "text": prompt,
       "audio": "https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",
-      "duration": 1,
+      "duration": 20,
       "top_k": 50,
       "top_p": 0.7,
       "temperature": 0.8,
@@ -28,6 +28,7 @@ async function fetchData(filename) {
   try {
     const response = await axios.post('http://localhost:5000/music/get', { filename });
     if (response.data.status === 500) {
+      console.log('Failed to fetch data');
       throw new Error('Failed to fetch data');
     }
     return response.data;
@@ -45,16 +46,17 @@ async function scheduleFetchWithRetry(musicToken, maxRetries = 5) {
 
   // first initial request to check if music is already generated
   const data = await fetchData(musicToken.filename);
-  if (data.status === 200 && data.success) {
-    console.log("music already generated, returning data: ", data);
+  console.log({ initialFetchData: data });
+  if (data.status === 200 && (data?.success || data?.url)) {
+    console.log("music already generated, returning data: ");
     return data;
-  }
+  } console.log("music not already there, scheduling fetch");
 
   return new Promise(async (resolve, reject) => {
     const fetchDataAndRetry = async (retryCount) => { // Removed musicToken parameter here
       try {
         const data = await fetchData(musicToken.filename);
-        console.log("fetchDataAndRetry: ", data.status, retryCount)
+        console.log("fetchDataAndRetry: ", data, retryCount);
 
         if (data.status === 200 && !data.success && retryCount < maxRetries) {
           console.log("retry scheduled after: ", subsequentDelay, "ms")
@@ -63,8 +65,8 @@ async function scheduleFetchWithRetry(musicToken, maxRetries = 5) {
           }, subsequentDelay);
         }
         else if (data.status === 200 && data.success) resolve(data);
-        else reject("Failded to fetch music");
-
+        else if (retryCount >= maxRetries) reject("Server is taking too much time, please try again later.");
+        else reject("Something went wrong, please try again later.");
       } catch (error) {
         if (retryCount < maxRetries) {
           setTimeout(() => {
