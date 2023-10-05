@@ -26,7 +26,7 @@ const generateMusic = async (prompt) => {
 async function fetchData(filename) {
   console.log('fetching...', filename);
   try {
-    const response = await axios.post('http://localhost:5000/music/get', { filename });
+    const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/music/get`, { filename });
     if (response.data.status === 500) {
       console.log('Failed to fetch data');
       throw new Error('Failed to fetch data');

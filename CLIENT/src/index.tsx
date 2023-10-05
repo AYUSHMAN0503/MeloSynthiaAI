@@ -46,6 +46,6 @@ const styles = {
     {
       id: "social-media-3",
       icon: youtube,
-      link: "https://www.youtube.com/",
+      link: "https://www.youtube.com/watch?v=AZcOqDkUEe4",
     },
   ];
