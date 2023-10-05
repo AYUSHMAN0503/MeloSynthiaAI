@@ -13,7 +13,7 @@ const generateMusic = async (prompt) => {
       "classifier_free_guidance": 5
     };
 
-    const response = await axios.post(`http://127.0.0.1:5000/music/generate`, requestData);
+    const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/music/generate`, requestData);
     console.log({ response: response.data });
 
     return response.data.responseData;
