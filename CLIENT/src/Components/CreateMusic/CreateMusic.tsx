@@ -160,7 +160,7 @@ const[lyricsData, setLyricsData]= useState({});
           // } else {
           //   setLyricsData("Lyrics not found");
           // }
-          setLyricsData(response?.data?.lyrics ?? "lyrics not found")
+          setLyricsData(response?.data?.lyrics ?? "lyrics not found, try again...")
 
         })
         .catch((error) => {
