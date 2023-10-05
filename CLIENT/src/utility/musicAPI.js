@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import.meta.env.VITE_EXPRESS_URL
 const generateMusic = async (prompt) => {
   try {
     const requestData = {

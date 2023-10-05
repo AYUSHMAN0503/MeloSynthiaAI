@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { generateMusic, scheduleFetchWithRetry } from '@/utility/musicAPI';
 
+
 interface MusicData {
   url: string; // Define the url property in the MusicData interface
 }
@@ -12,9 +13,9 @@ interface MusicToken {
 }
 
 const PromptSection: React.FC = () => {
-  const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
+  // const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
   const [currentPrompt, setCurrentPrompt] = useState<string>('an gentle warm music with harp');
-  const [promptHistory, setPromptHistory] = useState<string[]>([]);
+  // const [promptHistory, setPromptHistory] = useState<string[]>([]);
   
  
   const [musicData, setMusicData] = useState<MusicData | null>(null);
@@ -39,7 +40,7 @@ const PromptSection: React.FC = () => {
 
   //     try {
   //       // Make a POST request to your backend endpoint
-  //       const response = await axios.post('http://localhost:5000/music/getGradioMusic', requestData);
+  //       const response = await axios.post('/music/getGradioMusic', requestData);
 
   //       // Handle the response, you can set musicData here
   //       setMusicData(response.data);

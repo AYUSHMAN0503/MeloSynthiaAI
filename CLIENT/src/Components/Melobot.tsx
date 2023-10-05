@@ -15,7 +15,7 @@ const Melobot = () => {
     if (requestData) {
       try {
         // Send a POST request to the server with the message
-        const response = await axios.post('http://localhost:5000/melobot', requestData);
+        const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/melobot`, requestData);
         // setResponseData(response.data);
         // Handle the response as needed (e.g., updating state)
         console.log('Server Response:', response.data);
