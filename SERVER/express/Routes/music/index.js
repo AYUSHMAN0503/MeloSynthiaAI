@@ -242,21 +242,20 @@ router.post('/get', async (req, res) => {
       const fetchMusicJson = await fetchMusic.json();
 
       console.log({ fetchMusicJson })
-      return res.status(500).json({ message: fetchMusicJson.message });
+      return res.status(500).json({ message: fetchMusicJson.message, status: 500 });
     }
     else if (fetchMusic.status !== 200) {
       const fetchMusicJson = await fetchMusic.json();
 
       console.log({ fetchMusicJson })
-      return res.status(200).json({ message: fetchMusicJson.message });
+      return res.status(200).json({ message: fetchMusicJson.message, status: 200, success: false });
     }
     else if (fetchMusic.status === 200) {
       const musicBuffer = await fetchMusic.arrayBuffer();
       const music = Buffer.from(musicBuffer);
-
       const tempVideoUrl = createTempUrl(music, 'video.mp4');
-      const uploadedMusicUrl = await fileUpload(tempVideoUrl);
-      console.log({ uploadedMusicUrl });
+      const url = await fileUpload(tempVideoUrl);
+      console.log({ url });
 
       const stats = await fetchStats.json();
       console.log({ stats })
@@ -265,11 +264,11 @@ router.post('/get', async (req, res) => {
         query: stats.text,
         duration: stats.duration,
         genTime: stats.genTime,
-        musicUrl: uploadedMusicUrl
+        musicUrl: url
       })
       await queryData.save();
 
-      return res.status(200).json({ uploadedMusicUrl });
+      return res.status(200).json({ url, status: 200, stats, success: true });
     }
 
   } catch (error) {
