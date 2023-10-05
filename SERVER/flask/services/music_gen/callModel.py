@@ -76,9 +76,7 @@ def wait_for_gradio(filename: str, **kwargs):
 def predict_generation_time(duration: float) -> float:
     # Load the trained model from the specified file path
     module_dir = os.path.dirname(__file__)
-    print(module_dir)
     model_file_path = os.path.join(module_dir, './Models/duration_analysis.pkl')
-    print(model_file_path)
 
     with open(model_file_path, 'rb') as model_file:
         loaded_model = pickle.load(model_file)
