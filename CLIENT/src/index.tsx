@@ -36,12 +36,12 @@ const styles = {
     {
       id: "social-media-1",
       icon: discord,
-      link: "https://www.discord.com/",
+      link: "https://www.discord.com",
     },
     {
       id: "social-media-2",
       icon: github,
-      link: "https://www.github.com/",
+      link: "https://www.github.com",
     },
     {
       id: "social-media-3",
