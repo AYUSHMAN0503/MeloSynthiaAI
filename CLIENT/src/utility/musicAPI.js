@@ -6,7 +6,7 @@ const generateMusic = async (prompt) => {
       "model": "melody",
       "text": prompt,
       "audio": "https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav",
-      "duration": 20,
+      "duration": 12,
       "top_k": 50,
       "top_p": 0.7,
       "temperature": 0.8,

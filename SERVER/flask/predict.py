@@ -178,4 +178,4 @@ def getLyrics():
 
 if __name__ == '__main__':
     application.run(port=7000, debug=True)
-    CORS(application, origins=["https://melosynthiaai.vercel.app/" , "https://melo-synthia-ai-lxn7.vercel.app/"])
+    CORS(application, origins=["http://localhost:5173" , "http://localhost:5000"])
