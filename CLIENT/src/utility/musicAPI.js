@@ -1,5 +1,6 @@
 import axios from 'axios';
 import.meta.env.VITE_EXPRESS_URL
+
 const generateMusic = async (prompt) => {
   try {
     const requestData = {
@@ -37,7 +38,7 @@ async function fetchData(filename) {
   }
 }
 
-async function scheduleFetchWithRetry(musicToken, maxRetries = 5) {
+async function scheduleFetchWithRetry(musicToken, maxRetries = 10) {
   console.log("started scheduled music fetch: ", musicToken);
   const initialDelay = Math.floor(musicToken.halt * 1000);
   const subsequentDelay = 10000;

@@ -72,21 +72,67 @@ def wait_for_gradio(filename: str, **kwargs):
     finally:
         sys.exit(0)
 
+def wait_for_gradio_facebook_model(filename:str, **kwargs):
+  try:
+    client_args = {
+            "src": "https://facebook-musicgen.hf.space/",
+            "output_dir": f"Music/{filename}"
+    }
+    predict_args = [
+      kwargs.get("text", "Howdy!"),
+      kwargs.get("audio", "https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav"),
+    ]
+
+    client = Client(**client_args)
+    
+    start_time = time.time()
+    result = client.predict(*predict_args, fn_index=0)
+    end_time = time.time()
+
+    print(f"--> {filename} success")
+    print(f"--> {filename} duration: {end_time - start_time:.2f} seconds")
+
+    stats = {
+            "genTime": end_time - start_time,
+            "model": kwargs.get("model", None),
+            "text": kwargs.get("text", None),
+            "audio": kwargs.get("audio", None),
+            "duration": kwargs.get("duration", None),
+            "top_k": kwargs.get("top_k", None),
+            "top_p": kwargs.get("top_p", None),
+            "temperature": kwargs.get("temperature", None),
+            "classifier_free_guidance": kwargs.get("classifier_free_guidance", None)
+        }
+
+    filepath = f"Music/{filename}/stats.json"
+    with open(filepath, 'w') as json_file:
+        json.dump(stats, json_file)
+
+  except Exception as e: 
+    print(f"--x {filename} failed, Error: {str(e)}")
+    error_dir = f"{client_args['output_dir']}_error"
+
+    # Create an error folder if it doesn't exist
+    if not os.path.exists(error_dir):
+        os.makedirs(error_dir)
+
 
 def predict_generation_time(duration: float) -> float:
-    # Load the trained model from the specified file path
-    module_dir = os.path.dirname(__file__)
-    model_file_path = os.path.join(module_dir, './Models/duration_analysis.pkl')
+    # # Load the trained model from the specified file path
+    # module_dir = os.path.dirname(__file__)
+    # model_file_path = os.path.join(module_dir, './Models/duration_analysis.pkl')
 
-    with open(model_file_path, 'rb') as model_file:
-        loaded_model = pickle.load(model_file)
+    # with open(model_file_path, 'rb') as model_file:
+    #     loaded_model = pickle.load(model_file)
 
-    # Make predictions using the loaded model
-    generation_time_prediction = loaded_model.predict([[duration]])[0]
+    # # Make predictions using the loaded model
+    # generation_time_prediction = loaded_model.predict([[duration]])[0]
 
-    # Print the prediction (you can remove this if not needed)
-    print(f"Predicted Generation Time: {generation_time_prediction:.2f} seconds")
-    return generation_time_prediction
+    # # Print the prediction (you can remove this if not needed)
+    # print(f"Predicted Generation Time: {generation_time_prediction:.2f} seconds")
+    # return generation_time_prediction
+    # new modal have different appraoch of constant time
+    return 50
 	
 
 def initiate_request(**kwargs):
@@ -100,7 +146,8 @@ def initiate_request(**kwargs):
         print(f"--> generation time: {generation_time}")
 
         # Start a new thread to wait for Gradio
-        Thread(target=wait_for_gradio, args=(filename,), kwargs=kwargs).start()
+        # Thread(target=wait_for_gradio, args=(filename,), kwargs=kwargs).start()
+        Thread(target=wait_for_gradio_facebook_model, args=(filename,), kwargs=kwargs).start()
 
         # Return a response with the predicted time, filename, and status
         response = {
@@ -163,9 +210,4 @@ def predictMusic(model: str, text: str, audio: str, duration: int | float, top_k
 
 # Example usage:
 if __name__ == "__main__":
-		print("hi")
-		filename = "hi"
-		print(os.path.exists("../../Music"))
-		for paths in os.listdir("../../Music"):
-				if paths.split("_")[0] == filename:
-						print("file found")
+  print("start", __name__)
