@@ -4,11 +4,36 @@
 
 Theme no 5: 🤖AI (Artificial Intelligence)
 💡Idea: NFT Based AI Music Marketplace
+
 **Introducing MeloSynthiaAI, the decentralized NFT-based music marketplace that empowers users to generate lyrics and music with AI.**  
 
-Our platform allows users to create their own unique music and lyrics, which can then be minted as NFTs and sold or traded on our marketplace. This gives users the opportunity to explore their creativity and earn money from their work.
+Introducing MeloSynthiaAI
 
-It also facilitates people to buy NFTs from other users to use in their own songs. This also creates a new way for users,      musicians or artists to collaborate and create innovative new music.
+An AI-Empowered NFT Marketplace
+
+MeloSynthiaAI is an AI-empowered NFT marketplace that revolutionizes the idea of creating NFTs. With MeloSynthiaAI, anyone can express their ideas via prompt and generate musical NFTs for free, which they can then list for sale on the platform. This superpower for users pushes the limits of AI by making their creations as NFTs available for sale and purchase.
+
+The platform also unlocks user superpower by offering users the ability to generate not only music but also lyrics in the section named "Lyrical AI." In this feature, users can generate lyrics by simply giving a prompt on the UI.
+
+Tron Network is used in the platform to provide seamless transactions with high speed, less expense, and more security while buying and selling musical artpieces on MeloSynthiaAI.
+
+To add some more AI magic to the NFT marketplace, MeloSynthiaAI has come up with an AI-enabled chatbot called MeloBot. This AI-powered bot is designed to guide users, even those with no blockchain background, from answering questions like "What are NFTs?" to "How can I make collections of NFTs on MeloSynthiaAI?" MeloBot will help users become an immersive part of the blockchain world.
+
+The platform also creates a new way for users, musicians, or artists to collaborate and create innovative new music, and even follow their favorite artists/creators.
+
+## Milestones
+
+- Milestone 1: Successfully made the intuitive and elegant user interface for MeloSynthiaAI, which has the features of music generation based on various genres, tempos, and styles, as well as a lyrical AI interface that facilitates the creation of lyrics only through expressing one's idea.
+
+- Milestone 2: Built the required machine learning model of text to audio and text to text to meet the functionality and usability of the MeloSynthiaAI platform and completing the massive part of the project.
+
+- Milestone 3: Made a scalable and efficient server (backend) to meet up the music, MeloBot, and LyricalAI generation requests on the platform. The server is capable of handling multiple requests at the same time while users are generating stuff at the same time.
+
+- Milestone 4: Deployed all the smart contracts related to NFT and NFT marketplace to the TronScan. These smart contracts are the main functionality under the hood, as they are the determined protocol for whether minting NFTs to buy/sell on the platform.
+
+- Milestone 5: Decentralized wallets are also enabled in MeloSynthiaAI to facilitate the buying/selling of NFTs via cryptocurrencies. These wallets play an integral role, as all the transactions cannot be possible without them.
+
+
 
 ## ✨Features
 
@@ -16,38 +41,23 @@ It also facilitates people to buy NFTs from other users to use in their own song
 - **Song Snippets:** Users can add their vocals and ask AI to generate a song for them accordingly.
 - **NFT mining:** Users can mint their generated creation as NFTs for free,which can then be sold or traded on our marketplace.
 - **HD tunes:** Our model will give you high quality tunes.
-- **Collaboration:** Users can buy NFTs from other users to use in their own songs.
 
 ## AI Models
 - **VQ-VAE Model:** Used for high-quality audio samples such as synthesizing songs and tunes.
 - **Bert:** Used for lyrics generation due to its high-tech sentimental anaylsis.
 - **CVAE Model:** Used for text-to-speech synthesis and music generation.
 
-## 🚀Run Locally
+## 🚀MeloSynthia AI future
+- In the next update of MeloSynthiaAI, Song-Snippets feature we will allow users to share their vocal files, which our AI model will then process to add complementary tunes in the background of the vocal provided. It also allows users to mint NFTs and list them for sale through the NFThub(BTFS).
+- With future enhancements user can generate longer lyrics in Lyrical AI for up to 20 lines! at numerous genres and moods. Music generation will also be elevated as new time duration possibilities, such as 45 seconds and 2 minutes, are added to the tune generation.
 
-Clone the project
+- While constructing NFTs on the platform, users can use BitTorrent File System (BTFS) to decentralise their metadata their metadata while creating NFTs on the platform. With BTFS is a next-generation file sharing protocol, cost-effective, scalable and high-performing storage and sharing solutions will empower our platform
 
-```bash
-  git clone https://github.com/AYUSHMAN0503/MeloSynthiaAI.git
-```
+-  BTFS, a next-generation file sharing protocol, will enable our platform with cost-effective, scalable, and high-performance storage and sharing options.
 
-Go to the project directory
+- . Additionally, MeloSynthiaAI facilitates artists to manage their NFTs collections on the platform and raise their profile on the network. On MeloSynthiaAI, users can also receive updates from their favourite musicians about their most recent works which will be just a click away.
+-  A fully functional search bar to improve user experience, so that the users can directly navigate.
 
-```bash
-  cd MeloSynthiaAI
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run dev
-```
 
 ## 👨‍💻Contributing
 
@@ -95,20 +105,9 @@ git push origin master
 
 Now, go to the original repository on GitHub and create a pull request from your forked repository.
 
-## 📝Documentation
-
-[React+Typescript](https://react-typescript-cheatsheet.netlify.app/)
-
-[Blockchain intro](https://www.ibm.com/topics/blockchain)
-
 ## Copyright
 
 Created for [HackaTRON](https://trondao.org/hackatron/) | Copyright © Web3 Sailors.
 
 ![Alt text](logo/logo-transparent-png.png)
 
-## Status
-
-🚧 **Under Construction** 🚧
-
-This project is currently in the construction stage. We are actively working on developing and refining various aspects of the project. Keep in mind that things might change rapidly as we continue to make progress.

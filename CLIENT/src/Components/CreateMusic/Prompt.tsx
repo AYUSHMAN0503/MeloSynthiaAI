@@ -13,9 +13,9 @@ interface MusicToken {
 }
 
 const PromptSection: React.FC = () => {
-  // const [prompts, setPrompts] = useState<string[]>(['Hello, how can I assist you today?']);
+ 
   const [currentPrompt, setCurrentPrompt] = useState<string>('an gentle warm music with harp');
-  // const [promptHistory, setPromptHistory] = useState<string[]>([]);
+
   
  
   const [musicData, setMusicData] = useState<MusicData | null>(null);
@@ -162,7 +162,7 @@ return (
       ? <p className='text-base text-blue-600'>
           Loading...&nbsp;&nbsp;&nbsp;&nbsp;
           {musicToken 
-          ? (`estimated time: ${Math.floor(musicToken.halt)} sec`) 
+          ? (`estimated time: ${Math.floor(musicToken.halt)} sec`)
           : ('estimated time: N/A')}
         </p> 
       : error && <p className=" text-base text-red-500">{error}</p>}
