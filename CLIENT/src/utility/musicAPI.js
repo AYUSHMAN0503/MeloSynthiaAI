@@ -1,5 +1,6 @@
 import axios from 'axios';
 import.meta.env.VITE_EXPRESS_URL
+
 const generateMusic = async (prompt) => {
   try {
     const requestData = {
@@ -37,9 +38,10 @@ async function fetchData(filename) {
   }
 }
 
-async function scheduleFetchWithRetry(musicToken, maxRetries = 5) {
+async function scheduleFetchWithRetry(musicToken, maxRetries = 15) {
   console.log("started scheduled music fetch: ", musicToken);
-  const initialDelay = Math.floor(musicToken.halt * 1000);
+  // const initialDelay = Math.floor(musicToken.halt * 1000);
+  const initialDelay = 10000;
   const subsequentDelay = 10000;
 
   console.log("initial delay: ", initialDelay, "ms");
@@ -68,13 +70,14 @@ async function scheduleFetchWithRetry(musicToken, maxRetries = 5) {
         else if (retryCount >= maxRetries) reject("Server is taking too much time, please try again later.");
         else reject("Something went wrong, please try again later.");
       } catch (error) {
-        if (retryCount < maxRetries) {
-          setTimeout(() => {
-            fetchDataAndRetry(retryCount + 1);
-          }, subsequentDelay);
-        } else {
-          reject(error);
-        }
+        // if (retryCount < maxRetries) {
+        //   setTimeout(() => {
+        //     fetchDataAndRetry(retryCount + 1);
+        //   }, subsequentDelay);
+        // } else {
+        //   reject(error);
+        // }
+        reject("Something went wrong, please try again later.");
       }
     };
 
