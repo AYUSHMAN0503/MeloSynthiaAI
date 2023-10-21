@@ -223,9 +223,9 @@ const[lyricsData, setLyricsData]= useState({});
 
         
 
-          <h3 className='p-10 pt-20 pb-20 flex justify-center text-white text-xl'>
+          {/* <h3 className='p-10 pt-20 pb-20 flex justify-center text-white text-xl'>
             Your Generated NFTs/Music
-          </h3>
+          </h3> */}
         </TabPanel>
         <TabPanel value="Lyrical AI">
           <div className="w-full flex flex-col">
