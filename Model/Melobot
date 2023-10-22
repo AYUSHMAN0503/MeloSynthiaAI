@@ -9,12 +9,12 @@ app = Flask(__name__)
 #pattern-response pairs for the chatbot
 patterns = [
     (r'(hi|hello|hey|hola)', ['Hello!', 'Hi there!', 'Hey!', 'Hi, MeloBot this side, what\'s up?']),
-    (r'(what can you do|what can melobot do)', ['I can help you with music recommendations, tell you about things which can be done on melosynthia and can clarify your doubts regarding this ai', 'I can tell you about NFTs', 'I am but a robot after all']),
-    (r'(how are you|how are you doing)', ['I am good, thank you!', 'I am just a chatbot, but I am fine.']),
+    (r'(what can you do|what can melobot do|what are your functions|what are the functions of melobot|what is your function|what do you do|can you help me|how can you help me)', ['I can help you with music recommendations, tell you about things which can be done on melosynthia and can clarify your doubts regarding this ai', 'I can tell you about NFTs', 'I am but a robot after all']),
+    (r'(how are you|how are you doing|what is your status|how is your mood|how are you feeling|can I talk to you about feelings)', ['I am good, thank you!', 'I am just a chatbot, but I am fine.']),
     (r'what can you do', ['I can help you generate music, create NFTs of generated lyrics, and answer your queries about TRONs ecosystem. Just ask me!']),
-    (r'(how do you know what music to recommend to me)', ['I use machine learning algorithms to analyze your music preferences and past listening habits. The more you interact with me and provide feedback, the better I can fine-tune my recommendations.']),
-    (r'(can you suggest new and trending songs or artists)', ['Absolutely! I can keep you updated on the latest music releases, popular artists, and trending tracks in various genres.']),
-    (r'who created MeloSynthia', ['team web3 sailors created melosynthia']),
+    (r'(how do you know what music to recommend to me|how do you work|what are your functionaities|how does music get recommended|explain your mechanism|what do you use|what does the machine learning part do|what does the ml part do)', ['I use machine learning algorithms to analyze your music preferences and past listening habits. The more you interact with me and provide feedback, the better I can fine-tune my recommendations.']),
+    (r'(can you suggest new and trending songs or artists|what are trending song and artists|who is on the top|what is hot|what is trendy|can you keep me informed|keep me informed|update me)', ['Absolutely! I can keep you updated on the latest music releases, popular artists, and trending tracks in various genres.']),
+    (r'(who created MeloSynthia|who are your creators|who is the team behind you|who made you|who created you|who made melosynthiaAI)', ['team web3 sailors created melosynthia']),
     (r'what type of nfts does melosynthia makes', ['musical nfts']),
     (r'who is greatest footballer player in the world?', ['Lionel Messi is considered as the greatest player to play the game of football']),
     (r'how can I generate music', [" You can generate music by giving a prompt text as an input and selecting your preferences and then simply press enter. The music+lyrics will generate automatically afterwards."]),
