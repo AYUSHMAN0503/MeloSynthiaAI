@@ -4,6 +4,7 @@ import './Test3.css';
 import TronWeb from 'tronweb';
 import MetaFox from "@/assets/MetaMask_Fox.svg.png"
 import TrxLogo from "@/assets/tron-trx-logo.png"
+import TronLogo from "@/assets/tronlink.svg"
 import CloseIcon from "@/assets/icone-fermer-et-x-rouge.png"
 interface PopupProps {
   onClose: () => void; // Function to close the popup
@@ -18,9 +19,8 @@ declare global {
 const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [account, setAccount] = useState<string | null>(null);
   const [balance, setBalance] = useState<string | null>(null);
-  const [popupVisible, setPopupVisible] = useState<boolean>(false); // New state variable
+  const [popupVisible, setPopupVisible] = useState<boolean>(true); // New state variable
   const popupRef = useRef<HTMLDivElement>(null);
-
   const checkMetaMask = async () => {
     if (window.ethereum) {
       try {
@@ -38,7 +38,6 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       }
     } else {
       console.log('Install MetaMask please!!');
-      window.location.href = 'https://metamask.io/';
     }
   };
 
@@ -134,7 +133,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
               duration: 0.15,
             },
           }}
-          className="fixed top-2 right-2 bottom-2 sm:w-2/6 lg:w-1/4  z-9999 p-4 flex flex-col items-center justify-center h-60 bg-gray-800 rounded-xl"
+          className="fixed top-2 right-2 bottom-2 w-2/3 md:w-1/4  z-9999 p-4 flex flex-col items-center justify-center h-60 bg-gray-800 rounded-xl"
         >
         
           <img width={25}
@@ -163,7 +162,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
               <div style={{ display: 'flex', alignItems: 'center', paddingBottom: "2px" } } className='scale-150' >
                 <img src={MetaFox} width={30} style={{ marginRight: '10px' }} />
                 <button
-                  className=" bg-transparent text-white rounded"
+                  className=" bg-transparent text-white rounded font-semibold"
                   onClick={connectWallet}
                 >
                   Connect MetaMask
@@ -172,14 +171,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
 
             )}
           </div>
-          {/* <div>
-    <button
-      className="px-7 py-4 bg-cyan-500 text-white rounded"
-      onClick={connectTronLink}
-    >
-      Connect TronLink
-    </button>
-  </div> */}
+         
           <div className="mt-1 flex flex-col scale-75">
             {account && balance ? (
               <div>
@@ -189,9 +181,9 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
               </div>
             ) : (
               <div style={{ display: 'flex', alignItems: 'center', paddingTop: "4px" }} className='scale-150' >
-                <img src={TrxLogo} width={30} style={{ marginRight: '10px' }} />
+                <img src={TronLogo} width={30} style={{ marginRight: '15px', }}  />
                 <button
-                  className="px-1 bg-transparent text-white rounded"
+                  className="px-1 bg-transparent text-white rounded font-semibold"
                   onClick={getTronweb}
                 >
                   Connect TronLink
