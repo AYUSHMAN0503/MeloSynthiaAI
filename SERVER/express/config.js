@@ -3,8 +3,8 @@ require("dotenv").config();
 module.exports = {
   dbUrl: `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.uubfwez.mongodb.net/melosynthia`,
 
-  // flaskUrl: "http://127.0.0.1:7000",
-  flaskUrl: "https://melosynthia-ai-flask.onrender.com",
+  flaskUrl: "http://127.0.0.1:8000",
+  // flaskUrl: "https://melosynthia-ai-flask.onrender.com",
 
   smtp: {
     host: "smtp.gmail.com",

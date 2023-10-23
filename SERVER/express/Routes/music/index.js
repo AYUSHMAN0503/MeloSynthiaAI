@@ -9,7 +9,7 @@ const fetch = require("node-fetch-commonjs");
 const cors = require("cors");
 const { requestParamsGuard } = require("../../Utils/requestGuard");
 const { flaskUrl } = require("../../config");
-const { gradioGenerateMusicParams, musicParams } = require('./parameters.js')
+const { gradioGenerateMusicParams, musicParams, getByPromptParams } = require('./parameters.js')
 
 router.use(cors());
 
@@ -299,6 +299,33 @@ router.post('/get', async (req, res) => {
   }
 })
 
+router.post('/getByPrompt', async (req, res) => {
+  const { body: { prompt } } = requestParamsGuard(req, res, getByPromptParams);
+  try {
+    const latestMusic = await Music.findOne({ query: prompt }).sort({ _id: -1 }).limit(1);
+
+    if (latestMusic) {
+      console.log("\n--> music already generated, returning data from database");
+      const { musicUrl, duration, genTime, query } = latestMusic;
+      return res.status(200).json({
+        url: musicUrl,
+        status: 200,
+        stats: {
+          duration,
+          genTime,
+          text: query
+        },
+      })
+    } else {
+      console.log("--> music not already generated");
+      return res.status(500).json({ status: 500, success: false });
+    }
+
+  } catch (error) {
+    console.error("An error occurred in searching music by query:", error);
+    return res.status(500).json({ error: "An error occurred in finding music" });
+  }
+})
 
 
 module.exports = router;

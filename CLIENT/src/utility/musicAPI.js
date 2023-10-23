@@ -20,7 +20,7 @@ const generateMusic = async (prompt) => {
     return response.data.responseData;
 
   } catch (error) {
-    console.error(error);
+    console.log('Failed to generate music', error);
   }
 }
 
@@ -38,7 +38,24 @@ async function fetchData(filename) {
   }
 }
 
-async function scheduleFetchWithRetry(musicToken, maxRetries = 15) {
+async function fetchOldMusicByPrompt(prompt) {
+  console.log('fetching...', prompt);
+  try {
+    const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/music/getByPrompt`, { prompt });
+    if (response.data.status === 500 || response.status === 500) {
+      console.log('Failed to fetch data');
+      throw new Error('Failed to fetch data');
+    }
+    return response.data;
+  } catch (error) {
+    console.log('Failed to fetch music by prompt');
+    return error;
+  }
+}
+
+async function scheduleFetchWithRetry(queryData, maxRetries = 15) {
+  const { musicToken, prompt } = queryData;
+  console.log({ musicToken, prompt });
   console.log("started scheduled music fetch: ", musicToken);
   // const initialDelay = Math.floor(musicToken.halt * 1000);
   const initialDelay = 10000;
@@ -46,8 +63,14 @@ async function scheduleFetchWithRetry(musicToken, maxRetries = 15) {
 
   console.log("initial delay: ", initialDelay, "ms");
 
-  // first initial request to check if music is already generated
-  const data = await fetchData(musicToken.filename);
+  // first initial request to check if music is already generated both by filename and prompt
+  let data = await fetchOldMusicByPrompt(prompt);
+  if (data.status === 200 && (data?.success || data?.url)) {
+    console.log("music already generated, returning data: ");
+    return data;
+  } console.log("music not already there by prompt, trying by filename");
+
+  data = await fetchData(musicToken.filename);
   console.log({ initialFetchData: data });
   if (data.status === 200 && (data?.success || data?.url)) {
     console.log("music already generated, returning data: ");

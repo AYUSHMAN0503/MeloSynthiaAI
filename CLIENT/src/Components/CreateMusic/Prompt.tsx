@@ -69,7 +69,7 @@ const PromptSection: React.FC = () => {
         setMusicToken(response);
         setMusicData(null);
         console.log("Music generation request successful");
-        scheduleFetchWithRetry(response)
+        scheduleFetchWithRetry({ musicToken: response, prompt: currentPrompt })
           .then((data) => {
             console.log('Fetched data:', data);
             setMusicData({ url: data.url })
@@ -85,7 +85,7 @@ const PromptSection: React.FC = () => {
       }
     } else {
       setIsLoading(true);
-      scheduleFetchWithRetry(musicToken)
+      scheduleFetchWithRetry({ musicToken, prompt: currentPrompt })
         .then((data) => {
           console.log('Fetched data:', data);
           setMusicData({ url: data.url })
