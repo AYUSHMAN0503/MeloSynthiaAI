@@ -7,13 +7,13 @@ router.use(cors());
 
 router.get('/', async (req, res) => {
   // await new Promise(r => setTimeout(r, 1000));
-  console.log("---> Triggering flask");
+  console.log("---> Triggering flask and express");
   try {
     setInterval(() => {
-      fetch(`http://localhost:5000/trigger/another`);
+      // fetch(`http://localhost:5000/trigger/another`);
+      fetch(`https://melosynthia-ai.onrender.com/trigger/another`);
       fetch(`${flaskUrl}/trigger`);
-      console.log("---> Triggered, flask is now up");
-    }, 1000 * 30);
+    }, 1000 * 60 * 5);
 
     // return res.send("Triggered, flask is now up");
   } catch (error) {
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
 
 router.get('/another', async (req, res) => {
-  console.log("---> Another trigger");
+  console.log("---> Express is up");
   return res.send("Another trigger");
 });
 

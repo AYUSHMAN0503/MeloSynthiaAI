@@ -216,7 +216,7 @@ def getLyrics():
 @application.route("/trigger", methods=["GET"])
 def trigger_express_on_render():
     try:
-        print("---> Flask triggered")
+        print("---> Flask is up")
         return jsonify({"message": "triggered"}), 200
     except Exception as e:
         print("Error:", str(e))
