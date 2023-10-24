@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import './Test3.css';
-import TronWeb from 'tronweb';
+// import TronWeb from 'tronweb';
 import MetaFox from "@/assets/MetaMask_Fox.svg.png"
-import TrxLogo from "@/assets/tron-trx-logo.png"
+// import TrxLogo from "@/assets/tron-trx-logo.png"
 import TronLogo from "@/assets/tronlink.svg"
 import CloseIcon from "@/assets/icone-fermer-et-x-rouge.png"
 interface PopupProps {
@@ -21,6 +21,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [balance, setBalance] = useState<string | null>(null);
   const [popupVisible, setPopupVisible] = useState<boolean>(true); // New state variable
   const popupRef = useRef<HTMLDivElement>(null);
+  const [account2, setAccount2] = useState<string | null>(null);
   const checkMetaMask = async () => {
     if (window.ethereum) {
       try {
@@ -68,82 +69,98 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
         console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
 
         const tronweb = window.tronWeb;
-        const tx = await tronweb.transactionBuilder.sendTrx(
-          'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
-          10,
-          'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
-        );
-        const signedTx = await tronweb.trx.sign(tx);
-        const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
-        console.log(broastTx);
+        const userAddress = tronweb.defaultAddress.base58;
+        try {
+          if (userAddress.length > 0){
+            setAccount2(userAddress);
+          setPopupVisible(true);
+        }
+       else {
+        setPopupVisible(true); 
       }
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    console.log('Install MetaMask please!!');
+}
+  }
+        // const tx = await tronweb.transactionBuilder.sendTrx(
+        //   'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
+        //   10,
+        //   'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
+        // );
+        // const signedTx = await tronweb.trx.sign(tx);
+        // const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
+        // console.log(broastTx);
+      
 
-    }, 10);
+  //   }, 10);
+  )};
+useEffect(() => {
+  checkMetaMask();
+  // const HttpProvider = TronWeb.providers.HttpProvider;
+  // const fullNode = new HttpProvider('https://api.trongrid.io');
+  // const solidityNode = new HttpProvider('https://api.trongrid.io');
+  // const eventServer = 'https://api.trongrid.io/';
+
+  // const tronWeb = new TronWeb(
+  //   fullNode,
+  //   solidityNode,
+  //   eventServer,
+  // );
+}, []);
+
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      onClose();
+    }
   };
-  useEffect(() => {
-    checkMetaMask();
-    const HttpProvider = TronWeb.providers.HttpProvider;
-    const fullNode = new HttpProvider('https://api.trongrid.io');
-    const solidityNode = new HttpProvider('https://api.trongrid.io');
-    const eventServer = 'https://api.trongrid.io/';
 
-    const tronWeb = new TronWeb(
-      fullNode,
-      solidityNode,
-      eventServer,
-    );
-  }, []);
+  document.addEventListener('mousedown', handleClickOutside);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
-        onClose();
-      }
-    };
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, [onClose]);
 
-    document.addEventListener('mousedown', handleClickOutside);
+return (
+  <AnimatePresence>
+    {popupVisible && ( // Conditionally render the popup content
+      <motion.div
+        ref={popupRef}
+        initial={{
+          opacity: 0,
+          scale: 0.75,
+        }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          transition: {
+            ease: 'easeOut',
+            duration: 0.15,
+          },
+        }}
+        exit={{
+          opacity: 0,
+          scale: 0.75,
+          transition: {
+            ease: 'easeIn',
+            duration: 0.15,
+          },
+        }}
+        className="fixed top-2 right-2 bottom-2 w-2/3 md:w-1/4  z-9999 p-4 flex flex-col items-center justify-center h-60 bg-gray-800 rounded-xl"
+      >
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
+        <img width={25}
+          src={CloseIcon}
+          alt="Close"
+          className="absolute top-2 right-3 cursor-pointer hover:scale-105"
+          onClick={onClose}
 
-  return (
-    <AnimatePresence>
-      {popupVisible && ( // Conditionally render the popup content
-        <motion.div
-          ref={popupRef}
-          initial={{
-            opacity: 0,
-            scale: 0.75,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            transition: {
-              ease: 'easeOut',
-              duration: 0.15,
-            },
-          }}
-          exit={{
-            opacity: 0,
-            scale: 0.75,
-            transition: {
-              ease: 'easeIn',
-              duration: 0.15,
-            },
-          }}
-          className="fixed top-2 right-2 bottom-2 w-2/3 md:w-1/4  z-9999 p-4 flex flex-col items-center justify-center h-60 bg-gray-800 rounded-xl"
-        >
-        
-          <img width={25}
-            src={CloseIcon}
-            alt="Close"
-            className="absolute top-2 right-3 cursor-pointer hover:scale-105"
-            onClick={onClose}
-
-          />
-          {/* <div className="p-4 flex items-center justify-center">
+        />
+        {/* <div className="p-4 flex items-center justify-center">
               <motion.button
                 onClick={onClose}
                 className="mt-0 px-5 py-1 bg-pink-500 text-white rounded"
@@ -151,51 +168,54 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
                 Close
               </motion.button>
             </div> */}
-          <div className="mt-1 flex flex-col scale-75">
-            {account && balance ? (
-              <div>
-                <h3 className="text-pink-600 mt-2 ">Account Address:</h3> {account}
-                <h3 className="text-pink-600 mt-2 ">Account Balance: </h3>
+        <div className="mt-1 flex flex-col scale-75">
+          {account && balance ? (
+            <div>
+               <img src={MetaFox} width={30} style={{ marginRight: '10px' }} />
+              <h3 className="text-pink-600 mt-2 ">Account Address:</h3> {account}
+              <h3 className="text-pink-600 mt-2 ">Account Balance: </h3>
                 {balance}
-              </div>
-            ) : (
-              <div style={{ display: 'flex', alignItems: 'center', paddingBottom: "2px" } } className='scale-150' >
-                <img src={MetaFox} width={30} style={{ marginRight: '10px' }} />
-                <button
-                  className=" bg-transparent text-white rounded font-semibold"
-                  onClick={connectWallet}
-                >
-                  Connect MetaMask
-                </button>
-              </div>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', paddingBottom: "2px" }} className='scale-150' >
+              <img src={MetaFox} width={30} style={{ marginRight: '10px' }} />
+              <button
+                className=" bg-transparent text-white rounded font-semibold"
+                onClick={connectWallet}
+              >
+                Connect MetaMask
+              </button>
+            </div>
 
-            )}
-          </div>
-         
-          <div className="mt-1 flex flex-col scale-75">
-            {account && balance ? (
-              <div>
-                <h3 className="text-pink-600 mt-2">Account Address:</h3> {account}
-                <h3 className="text-pink-600 mt-2">Account Balance: </h3>
-                {balance}
-              </div>
-            ) : (
-              <div style={{ display: 'flex', alignItems: 'center', paddingTop: "4px" }} className='scale-150' >
-                <img src={TronLogo} width={30} style={{ marginRight: '15px', }}  />
-                <button
-                  className="px-1 bg-transparent text-white rounded font-semibold"
-                  onClick={getTronweb}
-                >
-                  Connect TronLink
-                </button>
-              </div>
-            )}
-           
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+          )}
+        </div>
+
+        <div className="mt-1 flex flex-col scale-75">
+          {account2? (
+            <div>
+              <img src={TronLogo} width={30} style={{ marginRight: '15px', }} />
+            
+              <h2 className="text-blue-600 mt-2">Account Address: </h2> {account2}
+              {/* <h3 className="text-pink-600 mt-2">Account Balance: </h3>
+              {balance} */}
+           </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', paddingTop: "4px" }} className='scale-150' >
+              <img src={TronLogo} width={30} style={{ marginRight: '15px', }} />
+              <button
+                className="px-1 bg-transparent text-white rounded font-semibold"
+                onClick={getTronweb}
+              >
+                Connect TronLink
+              </button>
+            </div>
+          )}
+
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
+);
 };
 
 export default Popup;
