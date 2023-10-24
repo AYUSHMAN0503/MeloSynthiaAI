@@ -69,7 +69,7 @@ const PromptSection: React.FC = () => {
         setMusicToken(response);
         setMusicData(null);
         console.log("Music generation request successful");
-        scheduleFetchWithRetry(response)
+        scheduleFetchWithRetry({ musicToken: response, prompt: currentPrompt })
           .then((data) => {
             console.log('Fetched data:', data);
             setMusicData({ url: data.url })
@@ -85,7 +85,7 @@ const PromptSection: React.FC = () => {
       }
     } else {
       setIsLoading(true);
-      scheduleFetchWithRetry(musicToken)
+      scheduleFetchWithRetry({ musicToken, prompt: currentPrompt })
         .then((data) => {
           console.log('Fetched data:', data);
           setMusicData({ url: data.url })
@@ -128,10 +128,11 @@ const PromptSection: React.FC = () => {
 
   return (
     <>
-      <div className="bg-app-bg border rounded-lg  shadow-md w-full h-60" >
+      <div className="bg-app-bg border rounded-lg  shadow-md w-full" >
         <div className="bg-app-bg rounded-lg p-4 shadow-md w-full">
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-row space-y-3">
             <h3 className='text-white font-semibold'>Enter your prompt here:</h3>
+
           </div>
           <div className="flex mt-4 px-0.5 h-14 ">
             <input
@@ -156,7 +157,7 @@ const PromptSection: React.FC = () => {
         </div>
         <div className="flex items-center justify-center border-t border-gray-300 p-6 rounded-md w-90 mt-4 ">
 
-          {musicData && !isLoading && <audio src={musicData.url} controls />}
+          {musicData && !isLoading && <video src={musicData.url} controls />}
           {isLoading
             ? <p className='text-base text-blue-600'>
               Loading...&nbsp;&nbsp;&nbsp;&nbsp;

@@ -13,9 +13,13 @@ const musicParams = [
   { name: "filename", description: "filename" },
 ]
 
+const getByPromptParams = [
+  { name: "prompt", description: "prompt" },
+]
 
 
 module.exports = {
   gradioGenerateMusicParams,
   musicParams,
+  getByPromptParams
 }
