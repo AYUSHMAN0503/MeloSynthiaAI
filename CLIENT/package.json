@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "http://127.0.0.1:7000/getGradioMusic ",
+  "proxy": "http://127.0.0.1:7000/getGradioMusic , http://localhost:6000/predict ",
+
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
