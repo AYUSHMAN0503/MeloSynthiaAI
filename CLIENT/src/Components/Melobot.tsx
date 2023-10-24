@@ -24,16 +24,19 @@ const Melobot = () => {
       message: input,
     };
 
+    setMessages(oldMessages =>
+      [...oldMessages,
+      { role: 'user', content: input }])
+
     if (requestData) {
       try {
         // Send a POST request to the server with the message
         const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/melobot`, requestData);
         console.log('Server Response:', response.data);
         setInput('');
-        await delay(1000);
+        await delay(Math.random() * 1000 + 500);
         setMessages(oldMessages =>
           [...oldMessages,
-          { role: 'user', content: input },
           { role: 'melobot', content: response.data.message }])
       } catch (error) {
         // Handle any errors here
