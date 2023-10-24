@@ -58,6 +58,7 @@ router.post('/', async (req, res) => {
         lyrics = generated_text;
 
         console.log(`Lyrics in ${i}th request: `, lyrics);
+        console.log({ response });
 
         if (response.error || response.status !== 200 || !lyrics) continue;
         else break
