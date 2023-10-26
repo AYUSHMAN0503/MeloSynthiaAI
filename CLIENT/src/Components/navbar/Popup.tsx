@@ -22,6 +22,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   const [popupVisible, setPopupVisible] = useState<boolean>(true); // New state variable
   const popupRef = useRef<HTMLDivElement>(null);
   const [account2, setAccount2] = useState<string | null>(null);
+  
   const checkMetaMask = async () => {
     if (window.ethereum) {
       try {
@@ -61,30 +62,113 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   };
 
 
-  const getTronweb = async () => {
-    const intervalId = setInterval(async () => {
+//   const getTronweb = async () => {
+//     const intervalId = setInterval(async () => {
 
-      if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
-        clearInterval(intervalId);
-        console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+//       if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+//         clearInterval(intervalId);
+//         console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
 
-        const tronweb = window.tronWeb;
-        const userAddress = tronweb.defaultAddress.base58;
-        try {
-          if (userAddress.length > 0){
-            setAccount2(userAddress);
-          setPopupVisible(true);
+//         const tronweb = window.tronWeb;
+//         const userAddress = tronweb.defaultAddress.base58;
+//         try {
+//           if (userAddress.length > 0){
+//             setAccount2(userAddress);
+//           setPopupVisible(true);
+//         }
+//        else {
+//         setPopupVisible(true); 
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   } else {
+//     console.log('Install MetaMask please!!');
+// }
+//   }
+
+// const handleTronLink = () => {
+//   const { tronLink } = window;
+//   if (tronLink) {
+    
+//     console.log('tronLink successfully detected!');
+
+//     // Access the decentralized web!
+//   } else {
+//     console.log('Please install TronLink-Extension!');
+//   }
+// };
+
+// useEffect(() => {
+//   // Dispatch the 'tronLink#initialized' event
+//   window.dispatchEvent(new Event('tronLink#initialized'));
+
+//   // Check if TronLink is already available
+//   if (window.tronLink) {
+//     handleTronLink();
+//   } else {
+//     // Set up an event listener for 'tronLink#initialized' event
+//     window.addEventListener('tronLink#initialized', handleTronLink, {
+//       once: true,
+//     });
+
+//     // If the event is not dispatched by the end of the timeout,
+//     // the user probably doesn't have TronLink installed.
+//     setTimeout(handleTronLink, 3000); // 3 seconds
+//   }
+// }, []);
+
+
+
+const checkTronWeb = async () => {
+    const tronLink = window.tronLink;
+
+    if (tronLink && tronLink.ready) {
+      try {
+        const response = await tronLink.request({ method: 'tron_requestAccounts' });
+console.log(response)
+        if (response.code === 200) {         
+          console.log(response.message)
+          
+          const getTronweb = async () => {
+            const intervalId = setInterval(async () => {
+
+              if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+                clearInterval(intervalId);
+                console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+
+                const tronweb = window.tronWeb;
+                const userAddress = tronweb.defaultAddress.base58;
+                try {
+                  if (userAddress.length > 0){
+                    setAccount2(userAddress);
+                  setPopupVisible(true);
+                }
+               else {
+                setPopupVisible(true); 
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          } else {
+            console.log('Install MetaMask please!!');
         }
-       else {
-        setPopupVisible(true); 
-      }
-    } catch (error) {
-      console.log(error);
+      }, 10)
     }
-  } else {
-    console.log('Install MetaMask please!!');
-}
-  }
+    getTronweb();
+          
+        } else {
+          console.log('User rejected the request');
+        }
+      } catch (error) {
+        console.error('Error while requesting accounts:', error);
+      }
+    }else{
+      window.location.href = 'https://www.tronlink.org/';
+    }
+
+  };
+
         // const tx = await tronweb.transactionBuilder.sendTrx(
         //   'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
         //   10,
@@ -96,7 +180,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       
 
   //   }, 10);
-  )};
+  // )};
 useEffect(() => {
   checkMetaMask();
   // const HttpProvider = TronWeb.providers.HttpProvider;
@@ -191,7 +275,7 @@ return (
         </div>
 
         <div className="mt-1 flex flex-col scale-75">
-          {account2? (
+           {account2 ? (
             <div>
               <img src={TronLogo} width={30} style={{ marginRight: '15px', }} />
             
@@ -199,18 +283,18 @@ return (
               {/* <h3 className="text-pink-600 mt-2">Account Balance: </h3>
               {balance} */}
            </div>
-          ) : (
+          ) : ( 
             <div style={{ display: 'flex', alignItems: 'center', paddingTop: "4px" }} className='scale-150' >
               <img src={TronLogo} width={30} style={{ marginRight: '15px', }} />
               <button
                 className="px-1 bg-transparent text-white rounded font-semibold"
-                onClick={getTronweb}
+                onClick={checkTronWeb}
               >
                 Connect TronLink
               </button>
             </div>
-          )}
-
+)}
+        
         </div>
       </motion.div>
     )}
