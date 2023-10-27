@@ -14,7 +14,7 @@ interface MusicToken {
 
 const PromptSection: React.FC = () => {
 
-  const [currentPrompt, setCurrentPrompt] = useState<string>('');
+  const [currentPrompt, setCurrentPrompt] = useState<string>('an gentle warm music with harp');
 
   const [musicData, setMusicData] = useState<MusicData | null>(null);
 
