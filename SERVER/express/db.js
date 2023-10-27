@@ -3,7 +3,7 @@ const config = require("./config");
 const MongooseURI = config.dbUrl;
 // const cors = require("cors")
 const connectDb = async () => {
-  console.log(MongooseURI);
+  // console.log(MongooseURI);
   mongoose
     .connect(MongooseURI, {
       useNewUrlParser: true,

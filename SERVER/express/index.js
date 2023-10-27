@@ -56,6 +56,7 @@ app.use('/music', require('./Routes/music/index.js'));
 app.use('/lyrics', require('./Routes/lyrics/index.js'));
 app.use('/melobot', require('./Routes/melobot/index.js'));
 app.use('/trigger', require('./Routes/trigger/index.js'));
+app.use('/nft', require('./Routes/nft/index.js'));
 
 
 
