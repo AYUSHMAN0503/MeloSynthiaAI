@@ -44,13 +44,20 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
  *        200:
  *          description: Welcome to MelosynthioAI!
  */
-app.get("/", (_, res) => {
-  res.send("Welcome to MelosynthioAI!");
+
+
+
+app.get('/', (_, res) => {
+  console.log('Welcome to MelosynthioAI!');
+  res.send('Welcome to MelosynthioAI!');
 });
 
-app.use("/music", require("./Routes/music/index.js"));
-app.use("/lyrics", require("./Routes/lyrics/index.js"));
-app.use("/melobot", require("./Routes/melobot/index.js"));
+app.use('/music', require('./Routes/music/index.js'));
+app.use('/lyrics', require('./Routes/lyrics/index.js'));
+app.use('/melobot', require('./Routes/melobot/index.js'));
+app.use('/trigger', require('./Routes/trigger/index.js'));
+
+
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
