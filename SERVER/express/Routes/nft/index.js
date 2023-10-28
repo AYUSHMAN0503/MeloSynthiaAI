@@ -65,15 +65,24 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
     );
     return nft.data;
   }
-  const receiverAddress = process.env.RECEIVER_ADDRESS;
-  const ipfsImgData = await uploadImageOnIpfs();
-  const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
-  const nft = await mintNFT(receiverAddress, ipfsMetadata.cid);
-  console.log(nft);
-  res.status(201).json({
-    transactionHash: nft.transactionHash,
-    cid: ipfsImgData.cid,
-  });
+
+  try {
+    const receiverAddress = process.env.RECEIVER_ADDRESS;
+    const ipfsImgData = await uploadImageOnIpfs();
+    const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
+    const nft = await mintNFT(receiverAddress, ipfsMetadata.cid);
+    console.log(nft);
+    res.status(201).json({
+      transactionHash: nft.transactionHash,
+      cid: ipfsImgData.cid,
+    });
+  } catch (error) {
+    console.log("Error in upload: ", error);
+    res.status(500).json({
+      success: false,
+      error: error?.message,
+    });
+  }
 });
 
 
