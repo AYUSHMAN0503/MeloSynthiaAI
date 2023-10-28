@@ -3,6 +3,8 @@ const multer = require("multer");
 const cors = require("cors");
 const axios = require("axios");
 const FormData = require("form-data");
+// const Blob = require("blob");
+const { nft: nftEnvVariables } = require("../../config");
 
 const upload = multer({
   limits: {
@@ -11,9 +13,11 @@ const upload = multer({
 });
 
 const network = axios.create({
-  baseURL: process.env.NET_URL,
+  // baseURL: process.env.NET_URL,
+  baseURL: nftEnvVariables.net_url,
   headers: {
-    "x-api-key": process.env.API_KEY,
+    // "x-api-key": process.env.API_KEY,
+    "x-api-key": nftEnvVariables.api_key,
   },
 });
 
@@ -22,10 +26,11 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
   // ... rest of your code ...
   console.log("Sending response");
   let data = new FormData();
-  console.log(data);
-  const blob = new Blob([req.file.buffer], { type: req.file.mimetype });
-  data.append("file", blob, { filename: req.file.originalnam });
+  // const blob = new Blob([req.file.buffer], { type: req.file.mimetype });
+  // data.append("file", blob, { filename: req.file.originalname });
+  data.append("file", req.file.buffer, { filename: req.file.originalname });
   data.append("isSync", "true");
+  console.log({ data });
 
   async function uploadImageOnIpfs() {
     const ipfsImg = await network.post("/ipfs/file", data, {
@@ -49,9 +54,12 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
     return ipfsMetadata.data;
   }
 
-  const smart_contract_network = process.env.SMART_CONTRACT_NETWORK;
-  const smart_contract_address = process.env.SMART_CONTRACT_ADDRESS;
-  const wallet_address = process.env.WALLET_IMPORTED_ON_STARTON;
+  // const smart_contract_network = process.env.SMART_CONTRACT_NETWORK;
+  const smart_contract_network = nftEnvVariables.smart_contract_network;
+  // const smart_contract_address = process.env.SMART_CONTRACT_ADDRESS;
+  const smart_contract_address = nftEnvVariables.smart_contract_address;
+  // const wallet_address = process.env.WALLET_IMPORTED_ON_STARTON;
+  const wallet_address = nftEnvVariables.walled_imported_on_starton;
 
   async function mintNFT(receiverAddress, metadataCid) {
     const nft = await network.post(
@@ -67,7 +75,8 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
   }
 
   try {
-    const receiverAddress = process.env.RECEIVER_ADDRESS;
+    // const receiverAddress = process.env.RECEIVER_ADDRESS;
+    const receiverAddress = nftEnvVariables.reciever_address;
     const ipfsImgData = await uploadImageOnIpfs();
     const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
     const nft = await mintNFT(receiverAddress, ipfsMetadata.cid);
