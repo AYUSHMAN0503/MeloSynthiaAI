@@ -309,7 +309,7 @@ export function TabsDefault() {
                 {isLoading && showLoadingText ? (
                   <div className='text-base  flex items-center'>
                     <HashLoader className='p-5' size={30} color={'#00FFFF'} loading={isLoading} />
-                    {showLoadingText && <p className='text-blue-600 text-lg'>{loadingText[loadingIndex]}</p>}
+                    {showLoadingText && <p className='text-blue-600 text-lg p-4'>{loadingText[loadingIndex]}</p>}
                   </div>
                 ) : (
                   Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' ? (
