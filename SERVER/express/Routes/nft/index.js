@@ -26,7 +26,7 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
   data.append("isSync", "true");
   console.log({ uploadImageData:data });
 
-  async function uploadImageOnIpfs() {
+  async function uploadImageOnIpfs(data) {
     const ipfsImg = await network.post("/ipfs/file", data, {
       headers: {
         "Content-Type": `multipart/form-data; boundary=${data._boundary}`,
@@ -52,33 +52,32 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
   const smart_contract_address = nftEnvVariables.smart_contract_address;
   const wallet_address = nftEnvVariables.wallet_imported_on_starton;
 
-  async function mintNFT(receiverAddress, metadataCid) {
+  async function mintNFT(recieverAddress, metadataCid) {
     const nft = await network.post(
       `/smart-contract/${smart_contract_network}/${smart_contract_address}/call`,
       {
         functionName: "mint",
         signerWallet: wallet_address,
         speed: "low",
-        params: [receiverAddress, metadataCid],
+        params: [recieverAddress, metadataCid],
       }
     );
     return nft.data;
   }
 
   try {
-    // const receiverAddress = process.env.RECEIVER_ADDRESS;
     console.log({ nftEnvVariables });
-    const receiverAddress = nftEnvVariables.reciever_address;
-    const ipfsImgData = await uploadImageOnIpfs();
+    const recieverAddress = nftEnvVariables.reciever_address;
+    const ipfsImgData = await uploadImageOnIpfs(data);
     const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
-    const nft = await mintNFT(receiverAddress, ipfsMetadata.cid);
+    const nft = await mintNFT(recieverAddress, ipfsMetadata.cid);
     console.log(!!nft);
     res.status(201).json({
       transactionHash: nft.transactionHash,
       cid: ipfsImgData.cid,
     });
   } catch (error) {
-    console.log("Error in upload: ", error);
+    console.log("Error in upload: ", error?.message);
     res.status(500).json({
       success: false,
       error: error?.message,

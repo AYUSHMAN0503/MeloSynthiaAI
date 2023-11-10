@@ -57,22 +57,22 @@ app.post("/upload", cors(), upload.single("file"), async (req, res) => {
   const smart_contract_address = process.env.SMART_CONTRACT_ADDRESS;
   const wallet_address = process.env.WALLET_IMPORTED_ON_STARTON;
 
-  async function mintNFT(receiverAddress, metadataCid) {
+  async function mintNFT(recieverAddress, metadataCid) {
     const nft = await network.post(
       `/smart-contract/${smart_contract_network}/${smart_contract_address}/call`,
       {
         functionName: "mint",
         signerWallet: wallet_address,
         speed: "low",
-        params: [receiverAddress, metadataCid],
+        params: [recieverAddress, metadataCid],
       }
     );
     return nft.data;
   }
-  const receiverAddress = process.env.RECEIVER_ADDRESS;
+  const recieverAddress = process.env.RECEIVER_ADDRESS;
   const ipfsImgData = await uploadImageOnIpfs();
   const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
-  const nft = await mintNFT(receiverAddress, ipfsMetadata.cid);
+  const nft = await mintNFT(recieverAddress, ipfsMetadata.cid);
   console.log(nft);
   res.status(201).json({
     transactionHash: nft.transactionHash,

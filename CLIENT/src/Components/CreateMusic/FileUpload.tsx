@@ -43,8 +43,8 @@ const FileUpload: React.FC = () => {
 
   return (
     <div>
-      <div className="img-ctr">
-        {cid && <a href={`https://${cid}.ipfs.dweb.link`}><img src={`https://${cid}.ipfs.dweb.link`} height={"250px"} /></a>}
+      <div className="img-ctr flex items-center justify-center p-2">
+        {cid && <audio src={`https://${cid}.ipfs.dweb.link`} controls></audio>}
       </div>
       <div className="transaction ">
 
@@ -52,13 +52,14 @@ const FileUpload: React.FC = () => {
       <div className="container mx-auto p-4  bg-blue-300 rounded-lg">
         <form className="mb-4 " onSubmit={handleSubmit}>
           <input type="file"
-            // accept=".mp3, .mp4"
-
+            accept=".mp3, .mp4"
             onChange={retrieveFile} />
           <button className="bg-blue-700 hover:bg-blue-900 text-white font-bold py-1 px-4 mt-2 rounded" type="submit">Upload</button>
         </form>
-        <p >
-          <span className="font-bold">CID:</span> {cid}</p>
+        <p className="">
+          <span className="font-bold">CID:</span>
+           {cid}
+        </p>
 
       </div>
     </div>
