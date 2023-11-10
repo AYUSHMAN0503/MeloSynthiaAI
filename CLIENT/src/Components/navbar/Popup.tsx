@@ -62,20 +62,20 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   };
   
 
-  const getTronWeb =  ()=>{
-    const obj = setInterval(async()=>{
-        const tronLink = window.tronLink;
-      const response = tronLink.request({method: 'tron_requestAccounts'})
+  const getTronWeb= async ()=>{
+    
+      
+    const response= await window.tronLink.request({method: 'tron_requestAccounts'})
      
       // console.log(response)
       if (response && window.tronWeb.defaultAddress.base58) {
-     clearInterval(obj)
+     
      
         const tronweb = window.tronWeb
         const userAddress = tronweb.defaultAddress.base58;
          if (userAddress.length > 0){
           setAccount2(userAddress);
-          console.log(setAccount2);
+          console.log(userAddress);
         
        
         const tx = await tronweb.transactionBuilder.sendTrx('TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP', 10, 'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ')
@@ -86,11 +86,11 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
     
   
   }
- }else{
-  console.log("Install Tronlink Extension and if it is installed log into your wallet before connecting with the web app")
- }
+}else{
+  console.log("Install TronLink if not Installed yet")
 }
-,10)}
+
+}
 
 // const checkTronWeb = async () => {
 //   const tronLink = window.tronLink;
