@@ -103,6 +103,14 @@ const cardsData4 = [
   }
 ];
 
+const loadingText = [
+   "Innovating thoughts...",
+   "Weaving into musical words...",
+   "Finishing touches..."
+];
+
+
+
 
 export const CreateMusic = () => {
 
@@ -140,36 +148,69 @@ export function TabsDefault() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isLoading, setLoading] = useState(false);
 
-  const handleAddLyricsPrompt = async () => {
+  const handleAddLyricsPrompt = () => {
     setLoading(true);
     setLyricsData({});
+    
     if (lyricsPrompt.trim() !== '') {
       const requestData = {
-        // Replace with your actual lyrics model value
         text: lyricsPrompt,
         key: `${import.meta.env.VITE_LYRICS_HFTOKEN}`,
       };
-
-      console.log(requestData);
-
-      try {
-        const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/lyrics`, requestData)
-        setLyricsData(response?.data?.lyrics ?? "lyrics not found, try again...")
-
-      } catch (error) {
-        setLyricsData("Lyrics Not Found")
-        console.error('Error:', error);
-      }
-      setLoading(false);
+  
+      setTimeout(async () => {
+        try {
+          const response = await axios.post(`${import.meta.env.VITE_EXPRESS_URL}/lyrics`, requestData);
+          setLyricsData(response?.data?.lyrics ?? "Lyrics not found, try again...");
+          setLoading(false);
+        } catch (error) {
+          setLyricsData("Lyrics Not Found");
+          setLoading(false);
+          console.error('Error:', error);
+        }
+      }, 6000); // 10 seconds delay
     }
   };
+  const [loadingIndex, setLoadingIndex] = useState(0);
+  const [showLoadingText, setShowLoadingText] = useState(true);
+  const [timerFinished, setTimerFinished] = useState(false);
+  useEffect(() => {
+    let intervalId: string | number | NodeJS.Timer | undefined;
+    let timeoutId: string | number | NodeJS.Timeout | undefined;
+
+    if (isLoading) {
+      let index = 0;
+      let totalDuration = 10000; // Total duration in milliseconds (10 seconds)
+      let textDuration = 2300; // Duration for each text in milliseconds (1 second)
+
+      setShowLoadingText(true);
+      setLoadingIndex(0);
+
+      intervalId = setInterval(() => {
+        setLoadingIndex(index);
+        index++;
+
+        if (index >= loadingText.length) {
+          clearInterval(intervalId);
+        }
+      }, textDuration);
+
+      timeoutId = setTimeout(() => {
+        clearInterval(intervalId);
+        setShowLoadingText(false);
+      }, totalDuration);
+    }
+
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+    };
+  }, [isLoading]);
+
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     // prevent the default behavior of the form
     e.preventDefault();
-
-
-
 
   };
   return (
@@ -265,31 +306,35 @@ export function TabsDefault() {
 
               </div>
               <div className="flex items-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold">
-                {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' ? (
-                  <div className="text-pink-500">
-                    <Typewriter
-                      options={{
-                        delay: 40, 
-                      }}
-                      onInit={(typewriter) => {
-                        const lines = lyricsData.split('\n');
-                        lines.forEach((line, index) => {
-                          typewriter.typeString(line);
-                          if (index < lines.length - 1) {
-                            typewriter.pauseFor(500); 
-                            typewriter.typeString('<br />'); 
-                          }
-                        });
-                        typewriter.start();
-                      }}
-                    />
-                  </div>
-                ) : isLoading && (
+                {isLoading && showLoadingText ? (
                   <div className='text-base  flex items-center'>
                     <HashLoader className='p-5' size={30} color={'#00FFFF'} loading={isLoading} />
+                    {showLoadingText && <p className='text-blue-600 text-lg'>{loadingText[loadingIndex]}</p>}
                   </div>
+                ) : (
+                  Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' ? (
+                    <div className="text-pink-500">
+                      <Typewriter
+                        options={{
+                          delay: 40,
+                        }}
+                        onInit={(typewriter) => {
+                          const lines = lyricsData.split('\n');
+                          lines.forEach((line, index) => {
+                            typewriter.typeString(line);
+                            if (index < lines.length - 1) {
+                              typewriter.pauseFor(500);
+                              typewriter.typeString('<br />');
+                            }
+                          });
+                          typewriter.start();
+                        }}
+                      />
+                    </div>
+                  ) : null // If lyricsData doesn't exist or is not a string, this part won't be rendered
                 )}
               </div>
+
               {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && <div className='mt-2'>
                 {/* <Button  className="bg-white border-zinc-00 border text-blue-600 rounded-md px-2 py-1 ml-1 hover:bg-blue-600 hover:text-white transition duration-200" onClick={() => {
                   setLyricsPrompt(lyricsData);
@@ -297,13 +342,13 @@ export function TabsDefault() {
                 }}>
                   generate on this prompt
                 </Button> */}
-                <Button variant="outlined"disabled={isLoading} className=" font-normal flex items-center gap-3 text-white hover:bg-cyan-400 hover:text-black"  onClick={() => {
+                <Button variant="outlined" disabled={isLoading} className=" font-normal flex items-center gap-3 text-white hover:bg-cyan-400 hover:text-black" onClick={() => {
                   setLyricsPrompt(lyricsData);
                   setTimeout(() => handleAddLyricsPrompt(), 100);
                 }}>
-        Generate on this prompt
+                  Generate on this prompt
 
-      </Button>
+                </Button>
               </div>}
 
 
