@@ -50,7 +50,7 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
 
   const smart_contract_network = nftEnvVariables.smart_contract_network;
   const smart_contract_address = nftEnvVariables.smart_contract_address;
-  const wallet_address = nftEnvVariables.walled_imported_on_starton;
+  const wallet_address = nftEnvVariables.wallet_imported_on_starton;
 
   async function mintNFT(receiverAddress, metadataCid) {
     const nft = await network.post(

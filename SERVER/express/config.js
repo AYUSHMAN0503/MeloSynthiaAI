@@ -33,7 +33,7 @@ module.exports = {
     smart_contract_network: process.env.SMART_CONTRACT_NETWORK,
     smart_contract_address: process.env.SMART_CONTRACT_ADDRESS,
     net_url: process.env.NET_URL,
-    walled_imported_on_starton: process.env.WALLET_IMPORTED_ON_STARTON,
+    wallet_imported_on_starton: process.env.WALLET_IMPORTED_ON_STARTON,
   }
 
 };
