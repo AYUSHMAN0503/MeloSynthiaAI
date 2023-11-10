@@ -52,7 +52,7 @@ const FileUpload: React.FC = () => {
       <div className="container mx-auto p-4  bg-blue-300 rounded-lg">
         <form className="mb-4 " onSubmit={handleSubmit}>
           <input type="file"
-            accept=".mp3, .mp4"
+            // accept=".mp3, .mp4"
 
             onChange={retrieveFile} />
           <button className="bg-blue-700 hover:bg-blue-900 text-white font-bold py-1 px-4 mt-2 rounded" type="submit">Upload</button>
