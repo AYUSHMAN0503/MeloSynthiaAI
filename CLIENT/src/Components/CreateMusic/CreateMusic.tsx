@@ -5,6 +5,7 @@ import { LinearGradient } from 'react-text-gradients';
 import Testimonial from './testimonials';
 import testimonials from './testimonialsData';
 import axios from "axios"
+import Typewriter from 'typewriter-effect';
 
 import {
   Tabs,
@@ -12,11 +13,14 @@ import {
   TabsBody,
   Tab,
   TabPanel,
+  Button,
 } from "@material-tailwind/react";
 import CardList from './Cardlist';
 import { CardList2 } from './Cardlist';
 // import CustomFileInput from './FileInput';
 import PromptSection from './Prompt';
+import { HashLoader } from 'react-spinners';
+import { useEffect } from 'react';
 const cardsData = [
   {
     title: 'Hip-Hop',
@@ -98,7 +102,6 @@ const cardsData4 = [
     tempo: 'fast-pace music'
   }
 ];
-
 
 
 export const CreateMusic = () => {
@@ -264,23 +267,43 @@ export function TabsDefault() {
               <div className="flex items-center border border-gray-300 p-6 rounded-md w-90 mt-2 text-white font-semibold">
                 {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' ? (
                   <div className="text-pink-500">
-                    {lyricsData.split('\n').map((line, index) => (
-                      <span key={index}>
-                        {line}
-                        <br />
-                      </span>
-                    ))}
+                    <Typewriter
+                      options={{
+                        delay: 40, 
+                      }}
+                      onInit={(typewriter) => {
+                        const lines = lyricsData.split('\n');
+                        lines.forEach((line, index) => {
+                          typewriter.typeString(line);
+                          if (index < lines.length - 1) {
+                            typewriter.pauseFor(500); 
+                            typewriter.typeString('<br />'); 
+                          }
+                        });
+                        typewriter.start();
+                      }}
+                    />
                   </div>
-                ) : isLoading && <p className="text-pink-500">Loading...</p>
-                }
+                ) : isLoading && (
+                  <div className='text-base  flex items-center'>
+                    <HashLoader className='p-5' size={30} color={'#00FFFF'} loading={isLoading} />
+                  </div>
+                )}
               </div>
               {Object.keys(lyricsData).length > 0 && typeof lyricsData === 'string' && <div className='mt-2'>
-                <button disabled={isLoading} className="bg-white border-zinc-00 border text-blue-600 rounded-md px-2 py-1 ml-1 hover:bg-blue-600 hover:text-white transition duration-200" onClick={() => {
+                {/* <Button  className="bg-white border-zinc-00 border text-blue-600 rounded-md px-2 py-1 ml-1 hover:bg-blue-600 hover:text-white transition duration-200" onClick={() => {
                   setLyricsPrompt(lyricsData);
                   setTimeout(() => handleAddLyricsPrompt(), 100);
                 }}>
                   generate on this prompt
-                </button>
+                </Button> */}
+                <Button variant="outlined"disabled={isLoading} className=" font-normal flex items-center gap-3 text-white hover:bg-cyan-400 hover:text-black"  onClick={() => {
+                  setLyricsPrompt(lyricsData);
+                  setTimeout(() => handleAddLyricsPrompt(), 100);
+                }}>
+        Generate on this prompt
+
+      </Button>
               </div>}
 
 
