@@ -67,6 +67,7 @@ router.post("/upload", cors(), upload.single("file"), async (req, res) => {
 
   try {
     // const receiverAddress = process.env.RECEIVER_ADDRESS;
+    console.log({ nftEnvVariables });
     const receiverAddress = nftEnvVariables.reciever_address;
     const ipfsImgData = await uploadImageOnIpfs();
     const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid);
